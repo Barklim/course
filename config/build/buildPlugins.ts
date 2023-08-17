@@ -15,6 +15,8 @@ export function buildPlugins({
 
     const plugins = [
         new HtmlWebpackPlugin({
+            title: 'Course',
+            favicon: './public/assets/favicon.ico',
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
