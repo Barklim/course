@@ -17,6 +17,17 @@
     --icon-redesigned: #74A2B2;
     --accent-redesigned: #5ED3F3;
 
+    // revamped
+    --bg-revamped: #000;
+    --light-bg-revamped: #151C1F;
+    --text-revamped: #ffffff;
+    --text-revampedRGB: 255, 255, 255;
+    --minor-white: rgba(242, 241, 243, 0.50);
+    --hint-revamped: #555555;
+    --icon-revamped: #bbb;
+    --icon-revamped-active: #fff;
+    --accent-revamped: #8D5DDA;
+
     // skeleton
     --skeleton-color: #1515ad;
     --skeleton-shadow: #2b2be8;
@@ -29,4 +40,9 @@
 
     // listbox
     --listbox-bg: #0d0d6b;
+
+    // text
+    --primary-text: #000;
+    --black: #000;
+    --white: #FFF;
 }

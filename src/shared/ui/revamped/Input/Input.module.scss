@@ -1,0 +1,68 @@
+.InputWrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    padding: 8px 16px;
+    border: 1px solid rgba(var(--text-revampedRGB), 0.15);
+    width: 100%;
+}
+
+.s {
+    height: 32px;
+}
+
+.m {
+    height: 38px;
+}
+
+.l {
+    height: 44px;
+}
+
+.addonLeft, .addonRight {
+    display: flex;
+}
+
+.withAddonLeft {
+    padding-left: 8px;
+}
+
+.withAddonRight {
+    padding-right: 8px;
+}
+
+.focused {
+    border: 1px solid rgba(var(--text-revampedRGB), 1);
+
+    .addonLeft svg, .addonRight svg {
+        color: var(--text-revampedRGB);
+    }
+
+    &::placeholder {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--hint-revamped);
+    }
+}
+
+.input {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--text-revamped);
+    background: none;
+
+    &::placeholder {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--hint-revamped);
+    }
+}
+
+.readonly {
+    opacity: 0.7;
+}
+
+.collapsed {
+    display: none;
+}

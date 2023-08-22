@@ -9,6 +9,7 @@ import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, LOCAL_STORAGE_REVAMP_KEY } from '@/shared/const/localstorage';
 
 interface UiDesignSwitcherProps {
     className?: string;
@@ -18,33 +19,84 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const isAppRedesigned = getFeatureFlag('isAppRedesigned');
+    const isAppRevamped = getFeatureFlag('isAppRevamped');
     const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
     const [isLoading, setIsLoading] = useState(false);
     const forceUpdate = useForceUpdate();
+    let listBoxValue;
+
+    if (isAppRevamped) {
+        listBoxValue = 'newest'
+    } else {
+        listBoxValue = isAppRedesigned ? 'new' : 'old'
+    }
 
     const items = [
         {
             content: t('Новый'),
-            value: 'new',
+            value: 'newest',
         },
         {
             content: t('Старый'),
+            value: 'new',
+        },
+        {
+            content: t('Beta'),
             value: 'old',
         },
     ];
 
+    const updateStorage = () => {
+        localStorage.setItem(
+            LOCAL_STORAGE_LAST_DESIGN_KEY,
+            isAppRedesigned ? 'new' : 'old',
+        );
+        localStorage.setItem(
+            LOCAL_STORAGE_REVAMP_KEY,
+            isAppRevamped ? 'new' : 'old',
+        );
+    }
+
     const onChange = async (value: string) => {
         if (authData) {
             setIsLoading(true);
-            await dispatch(
-                updateFeatureFlag({
-                    userId: authData.id,
-                    newFeatures: {
-                        isAppRedesigned: value === 'new',
-                    },
-                }),
-            ).unwrap();
+            updateStorage();
+            switch(value) {
+                case 'newest':
+                    await dispatch(
+                        updateFeatureFlag({
+                            userId: authData.id,
+                            newFeatures: {
+                                isAppRevamped: true,
+                            },
+                        }),
+                    ).unwrap();
+                    break;
+                case 'new':
+                    await dispatch(
+                        updateFeatureFlag({
+                            userId: authData.id,
+                            newFeatures: {
+                                isAppRedesigned: true,
+                                isAppRevamped: false,
+                            }
+                        }),
+                    ).unwrap();
+                    break;
+                case 'old':
+                    await dispatch(
+                        updateFeatureFlag({
+                            userId: authData.id,
+                            newFeatures: {
+                                isAppRedesigned: false,
+                                isAppRevamped: false,
+                            }
+                        }),
+                    ).unwrap();
+                    break;
+                default:
+            }
             setIsLoading(false);
             forceUpdate();
         }
@@ -59,7 +111,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
                 <ListBox
                     onChange={onChange}
                     items={items}
-                    value={isAppRedesigned ? 'new' : 'old'}
+                    value={listBoxValue}
                     className={className}
                 />
             )}

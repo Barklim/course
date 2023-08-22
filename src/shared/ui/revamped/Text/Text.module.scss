@@ -1,0 +1,130 @@
+.title {
+    color: var(--text-revamped);
+}
+
+.text {
+    color: var(--text-revamped);
+}
+
+.error {
+    .title {
+        color: var(--red-light);
+    }
+
+    .text {
+        color: var(--red-dark);
+    }
+}
+
+.accent {
+    .title {
+        color: var(--accent-redesigned);
+    }
+
+    .text {
+        color: var(--accent-redesigned);
+    }
+}
+
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.size_xs {
+    .title {
+        font: var(--font-s-revamped);
+    }
+
+    .text {
+        font: var(--font-xs-revamped);
+    }
+}
+
+.size_s {
+    .title {
+        font: var(--font-m-revamped);
+    }
+
+    .text {
+        font: var(--font-s-revamped);
+    }
+}
+
+.size_m {
+    .title {
+        font: var(--font-l-revamped);
+    }
+
+    .text {
+        font: var(--font-m-revamped);
+    }
+}
+
+.size_l {
+    .title {
+        font: var(--font-xl-revamped);
+    }
+
+    .text {
+        font: var(--font-l-revamped);
+    }
+}
+
+.size_xl {
+    .title {
+        font: var(--font-xxl-revamped);
+    }
+
+    .text {
+        font: var(--font-xl-revamped);
+    }
+}
+
+.bold {
+    .title, .text {
+       font-weight: 700;
+    }
+}
+
+.minor {
+    .title, .text {
+        color: var(--minor-white);
+    }
+}
+
+.selectNone {
+    user-select: none;
+}
+
+.textFontFamily {
+    .text {
+        font-family: var(--font-family-text-revamped);
+    }
+}
+
+.titleFontFamily {
+    .title {
+        font-family: var(--font-family-header-revamped);
+    }
+}
+
+.titleFont {
+    .title, .text  {
+        font-family: var(--font-family-header-revamped);
+    }
+}
+
+.textFont {
+    .title, .text  {
+        font-family: var(--font-family-text-revamped);
+    }
+}

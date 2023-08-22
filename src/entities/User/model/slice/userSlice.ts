@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
     LOCAL_STORAGE_LAST_DESIGN_KEY,
     USER_LOCALSTORAGE_KEY,
+    LOCAL_STORAGE_REVAMP_KEY,
 } from '@/shared/const/localstorage';
 import { UserSchema, User } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/features';
@@ -24,6 +25,10 @@ export const userSlice = createSlice({
             localStorage.setItem(
                 LOCAL_STORAGE_LAST_DESIGN_KEY,
                 payload.features?.isAppRedesigned ? 'new' : 'old',
+            );
+            localStorage.setItem(
+                LOCAL_STORAGE_REVAMP_KEY,
+                payload.features?.isAppRevamped ? 'new' : 'old',
             );
         },
         logout: (state) => {

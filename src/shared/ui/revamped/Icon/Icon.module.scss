@@ -1,0 +1,25 @@
+.Icon {
+    color: var(--icon-revamped);
+    opacity: 0.5;
+}
+
+.button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.button:hover .Icon {
+    color: var(--icon-revamped-active);
+}
+
+.setActive {
+    color: var(--icon-revamped-active);
+    opacity: 1;
+}
+.isActive {
+    opacity: 1;
+}

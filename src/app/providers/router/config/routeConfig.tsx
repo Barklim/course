@@ -19,7 +19,7 @@ import {
     getRouteArticles,
     getRouteMain,
     getRouteProfile,
-    getRouteSettings,
+    getRouteSettings, getRouteWatch, getRouteGroup, getRouteAcademy,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
@@ -27,6 +27,18 @@ import { SettingsPage } from '@/pages/SettingsPage';
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
+        element: <MainPage />,
+    },
+    [AppRoutes.WATCH]: {
+        path: getRouteWatch(),
+        element: <MainPage />,
+    },
+    [AppRoutes.GROUP]: {
+        path: getRouteGroup(),
+        element: <MainPage />,
+    },
+    [AppRoutes.ACADEMY]: {
+        path: getRouteAcademy(),
         element: <MainPage />,
     },
     [AppRoutes.SETTINGS]: {

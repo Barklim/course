@@ -18,6 +18,13 @@
     color: var(--text-redesigned);
 }
 
+.app_revamped {
+    background: var(--bg-revamped);
+    min-height: 100vh;
+    font: var(--font-m-revamped);
+    color: var(--text-revamped);
+}
+
 .content-page {
     display: flex;
 }

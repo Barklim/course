@@ -2,6 +2,13 @@
     --font-family-main: consolas, "Times New Roman", serif;
     --font-family-text-redesigned: 'Nunito Sans', sans-serif;
     --font-family-header-redesigned: 'Roboto', sans-serif;
+    --font-family-text-revamped: 'PT Root UI VF', sans-serif;
+    --font-family-header-revamped: 'Random Grotesque Standard Bold', sans-serif;
+
+    // xs
+    --font-size-xs: 10px;
+    --font-line-xs: 16px;
+    --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
 
     // s
     --font-size-s: 12px;
@@ -23,6 +30,11 @@
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
+    // xxl
+    --font-size-xxl: 60px;
+    --font-line-xxl: 60px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
 
 
 
@@ -30,6 +42,7 @@
     --navbar-height: 50px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+    --sidebar-revamp-width: 290px;
 
     // z - Индексы
     --modal-z-index: 1000;
@@ -39,6 +52,7 @@
     --overlay-color: rgba(0 0 0 / 60%);
     --red-light: #f00;
     --red-dark: #ce0505;
+    //--minor-white: rgba(242, 241, 243, 0.50);
 
     // redesigned
 
@@ -53,4 +67,24 @@
 
     // xl
     --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
+
+    // revamped
+
+    // xs
+    --font-xs-revamped: var(--font-size-xs) / var(--font-line-xs) var(--font-family-text-revamped);
+
+    // s
+    --font-s-revamped: var(--font-size-s) / var(--font-line-s) var(--font-family-text-revamped);
+
+    // m
+    --font-m-revamped: var(--font-size-m) / var(--font-line-m) var(--font-family-text-revamped);
+
+    // l
+    --font-l-revamped: var(--font-size-l) / var(--font-line-l) var(--font-family-header-revamped);
+
+    // xl
+    --font-xl-revamped: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-revamped);
+
+    // xxl
+    --font-xxl-revamped: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-header-revamped);
 }

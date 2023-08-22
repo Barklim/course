@@ -954,14 +954,16 @@
         "ADMIN"
       ],
       "features": {
+        "isAppRedesigned": true,
+        "isAppRevamped": true,
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
-        "isAppRedesigned": true
+        "isLayoutRedesigned": false
       },
       "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_light_theme"
+        "theme": "app_dark_theme"
       }
     },
     {

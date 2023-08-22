@@ -32,7 +32,7 @@ const article: Article = {
     type: [ArticleType.COURSE],
     user: {
         id: '1',
-        username: 'Ulbi tv',
+        username: 'Course App',
     },
     blocks: [
         {

@@ -8,6 +8,8 @@
 
 ## TODO
 
+- z-index variables
+- react-helmet
 - jsdoc
 - check redux normalization
 - roadmap for progress

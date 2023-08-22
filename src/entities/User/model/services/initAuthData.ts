@@ -5,6 +5,7 @@ import { User } from '../types/user';
 import {
     LOCAL_STORAGE_LAST_DESIGN_KEY,
     USER_LOCALSTORAGE_KEY,
+    LOCAL_STORAGE_REVAMP_KEY,
 } from '@/shared/const/localstorage';
 
 export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
@@ -26,6 +27,10 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
             localStorage.setItem(
                 LOCAL_STORAGE_LAST_DESIGN_KEY,
                 response.features?.isAppRedesigned ? 'new' : 'old',
+            );
+            localStorage.setItem(
+                LOCAL_STORAGE_REVAMP_KEY,
+                response.features?.isAppRevamped ? 'new' : 'old',
             );
 
             return response;

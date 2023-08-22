@@ -1,0 +1,36 @@
+.notifications {
+    min-height: 150px;
+    max-height: 300px;
+    width: 500px;
+    overflow-y: auto;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+.notificationCircle {
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: red;
+    color: red;
+    // TODO также как и фон
+    //border: 1px solid var(--primary-color);
+    border: 1px solid black;
+
+    position: absolute;
+    top: 0px;
+    left: 21px;
+}
+
+.svg {
+    position: relative;
+    top: -4px;
+}

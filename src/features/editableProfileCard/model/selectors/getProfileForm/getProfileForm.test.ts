@@ -9,7 +9,7 @@ describe('getProfileForm.test', () => {
             username: 'admin',
             age: 22,
             country: Country.Ukraine,
-            lastname: 'ulbi tv',
+            lastname: 'Course App',
             first: 'asd',
             city: 'asf',
             currency: Currency.USD,

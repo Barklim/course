@@ -20,11 +20,12 @@ import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 interface AvatarDropdownProps {
+    height?: number;
     className?: string;
 }
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-    const { className } = props;
+    const { className, height } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const isAdmin = useSelector(isUserAdmin);
@@ -72,7 +73,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     direction="bottom left"
                     className={classNames('', {}, [className])}
                     items={items}
-                    trigger={<Avatar size={40} src={authData.avatar} />}
+                    trigger={<Avatar size={height ? height : 40} src={authData.avatar} />}
                 />
             }
             off={

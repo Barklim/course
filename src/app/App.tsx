@@ -5,6 +5,7 @@ import { getUserInited, initAuthData } from '@/entities/User';
 import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
+import { Sidebar as SidebarR } from '@/widgets/SidebarRevamped';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -12,19 +13,25 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { useAppForelock } from '@/app/lib/useAppForelock';
 import { withTheme } from './providers/ThemeProvider/ui/withTheme';
-import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/const/localstorage';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, LOCAL_STORAGE_REVAMP_KEY } from '@/shared/const/localstorage';
 
 const App = memo(() => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
     const toolbar = useAppToolbar();
+    const forelock = useAppForelock();
 
     useEffect(() => {
-        const designKey = localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY);
+        const designKey = localStorage.getItem(LOCAL_STORAGE_REVAMP_KEY);
 
         if (designKey === null) {
+            localStorage.setItem(
+                LOCAL_STORAGE_REVAMP_KEY,
+                'new'
+            );
             localStorage.setItem(
                 LOCAL_STORAGE_LAST_DESIGN_KEY,
                 'new'
@@ -58,29 +65,49 @@ const App = memo(() => {
 
     return (
         <ToggleFeatures
-            feature="isAppRedesigned"
+            feature="isAppRevamped"
             off={
-                <div id="app" className={classNames('app', {}, [theme])}>
-                    <Suspense fallback="">
-                        <Navbar />
-                        <div className="content-page">
-                            <Sidebar />
-                            <AppRouter />
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    off={
+                        <div id="app" className={classNames('app', {}, [theme])}>
+                            <Suspense fallback="">
+                                <Navbar />
+                                <div className="content-page">
+                                    <Sidebar />
+                                    <AppRouter />
+                                </div>
+                            </Suspense>
                         </div>
-                    </Suspense>
-                </div>
+                    }
+                    on={
+                        <div
+                            id="app"
+                            className={classNames('app_redesigned', {}, [theme])}
+                        >
+                            <Suspense fallback="">
+                                <MainLayout
+                                    header={<Navbar />}
+                                    content={<AppRouter />}
+                                    sidebar={<Sidebar />}
+                                    toolbar={toolbar}
+                                />
+                            </Suspense>
+                        </div>
+                    }
+                />
             }
             on={
                 <div
                     id="app"
-                    className={classNames('app_redesigned', {}, [theme])}
+                    className={classNames('app_revamped', {}, [theme])}
                 >
                     <Suspense fallback="">
                         <MainLayout
-                            header={<Navbar />}
                             content={<AppRouter />}
-                            sidebar={<Sidebar />}
+                            sidebar={<SidebarR />}
                             toolbar={toolbar}
+                            forelock={forelock}
                         />
                     </Suspense>
                 </div>

@@ -12,13 +12,40 @@
   padding: 32px;
   max-width: 284px;
 }
+.sidebarRevamp {
+  grid-area: sidebar;
+  max-width: 290px;
+}
 
+.contentWrapper {
+  width: 100%;
+}
+.forelock {
+  width: -webkit-fill-available;
+  height: 400px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.6;
+  background-image: linear-gradient(197deg, #FF583D 0%, #000 100%);
+}
+.forelock2 {
+  width: -webkit-fill-available;
+  height: 400px;
+  position: absolute;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,1));
+}
 .content {
+  position: relative;
   grid-area: content;
   max-width: 1200px;
   justify-self: center;
   padding: 32px;
   width: 100%;
+  z-index: 10;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rightbar {
@@ -30,6 +57,11 @@
 
 .rightbar,
 .sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.sidebarRevamp {
   position: sticky;
   top: 0;
   height: 100vh;

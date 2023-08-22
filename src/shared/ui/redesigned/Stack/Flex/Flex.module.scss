@@ -30,6 +30,10 @@
     align-items: flex-end;
 }
 
+.alignUnset {
+    align-items: unset;
+}
+
 .directionRow {
     flex-direction: row;
 }
