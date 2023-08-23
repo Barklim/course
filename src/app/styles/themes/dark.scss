@@ -35,6 +35,21 @@
     --watchers-count: #EF7B3C;
     --icon-toolbar: #fff;
 
+    // buttons
+    --button-dark: rgba(242, 241, 243, 0.10);
+    --button-dark-text: rgba(256, 256, 256, 1);
+    --button-dark-text-hover: #D9FEE5;
+    --button-light: #fff;
+    --button-light-text: rgba(0, 0, 0, 1);
+    --button-light-text-hover: #002200;
+
+    --button-dark-hover: rgba(242, 241, 243, 0.2);
+    --button-light-hover: rgba(255, 255, 255, 0.9);
+
+    // scrollbar
+    --scroll-thumb: #6fd964;
+    --scroll-thumb-padding: #95d68d;
+
     // skeleton
     --skeleton-color: #1515ad;
     --skeleton-shadow: #2b2be8;

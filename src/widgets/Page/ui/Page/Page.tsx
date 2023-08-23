@@ -59,7 +59,7 @@ export const Page = memo((props: PageProps) => {
             className={classNames(
                 toggleFeatures({
                     name: 'isAppRevamped',
-                    on: () => '',
+                    on: () => cls.PageRevamped,
                     off: () =>
                         toggleFeatures({
                             name: 'isAppRedesigned',

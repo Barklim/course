@@ -1,0 +1,108 @@
+.banner {
+    border-radius: 20px;
+    padding: 0 30px 30px 30px;
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0px 15px 10px -15px #111;
+}
+
+.textContainer {
+    gap: 10px
+}
+
+.titleText {
+    display: block;
+    padding-top: 30px;
+    color: var(--primary-text);
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 60px;
+    width: 409px;
+}
+
+.subText {
+    color: var(--primary-text);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    width: 290px;
+}
+
+.imgContainer {
+    position: relative;
+    padding-right: 38px;
+    margin-top: 48px;
+}
+.imgFront {
+    z-index: 1;
+    float: left;
+    position: relative;
+    border-radius: 20px;
+    width: 170.568px;
+    height: 253.13px;
+    transform: rotate(-3.708deg);
+    flex-shrink: 0;
+
+    left: 60px;
+}
+.imgBack {
+    float: right;
+    border-radius: 20px;
+    width: 133.761px;
+    height: 198.507px;
+    transform: rotate(10.232deg);
+    flex-shrink: 0;
+
+    margin-top: -25px;
+}
+
+.buttonsContainer {
+    gap: 10px
+}
+
+.buttonDark {
+    color: var(--white);
+    background: rgba(242, 241, 243, 0.10);
+    padding: 8px 28px;
+}
+
+.buttonLight {
+    background: var(--white);
+    padding: 12px 28px;
+}
+
+.countdownContainer {
+    position: absolute;
+    bottom: 25%;
+    left: 44%;
+}
+
+.countdownInner {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdownDigits {
+    color: #FFF;
+    text-align: center;
+    font-family: "Random Grotesque Standard Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.50);
+}
+
+.countdownText {
+    color: var(--minor-white-f-2-f-1-f-350, rgba(242, 241, 243, 0.50));
+    text-align: center;
+    font-family: "PT Root UI VF", sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 12px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.50);
+}

@@ -11,6 +11,7 @@ export function useAppForelock() {
         [AppRoutes.ARTICLE_DETAILS]: true,
         [AppRoutes.PROFILE]: true,
         [AppRoutes.SETTINGS]: true,
+        [AppRoutes.COMMUNITY]: true,
     };
 
     return toolbarByAppRoute[appRoute];

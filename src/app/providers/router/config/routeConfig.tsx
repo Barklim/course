@@ -1,6 +1,7 @@
 import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ProfilePage } from '@/pages/ProfilePage';
+import { CommunityPage } from '@/pages/CommunityPage';
 import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
@@ -19,7 +20,7 @@ import {
     getRouteArticles,
     getRouteMain,
     getRouteProfile,
-    getRouteSettings, getRouteWatch, getRouteGroup, getRouteAcademy,
+    getRouteSettings, getRouteWatch, getRouteAcademy, getRouteCommunity,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
@@ -31,11 +32,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.WATCH]: {
         path: getRouteWatch(),
-        element: <AboutPage />,
+        element: <MainPage />,
     },
-    [AppRoutes.GROUP]: {
-        path: getRouteGroup(),
-        element: <AboutPage />,
+    [AppRoutes.COMMUNITY]: {
+        path: getRouteCommunity(),
+        element: <CommunityPage />,
     },
     [AppRoutes.ACADEMY]: {
         path: getRouteAcademy(),

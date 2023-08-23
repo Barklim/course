@@ -27,7 +27,7 @@ export const MainLayout = memo((props: MainLayoutProps) => {
                             <div className={cls.forelock}>{forelock}</div>
                             <div className={cls.forelock2}>{forelock}</div>
                         </> : null }
-                        <div className={cls.content}>{content}</div>
+                        <div className={cls.contentRevamp}>{content}</div>
                     </div>
                     <div className={cls.sidebarRevamp}>{sidebar}</div>
                     { toolbar ?

@@ -10,7 +10,8 @@ import AcademyIcon from '@/shared/assets/icons/academy.svg';
 import { SidebarItemType } from '../types/sidebar';
 import {
     getRouteAcademy,
-    getRouteArticles, getRouteGroup,
+    getRouteArticles,
+    getRouteCommunity,
     getRouteMain, getRouteWatch,
 } from '@/shared/const/router';
 
@@ -28,7 +29,7 @@ export const useSidebarItems = () => {
             text: 'Смотреть',
         },
         {
-            path: getRouteGroup(),
+            path: getRouteCommunity(),
             Icon: GroupIcon,
             text: 'Сообщество',
         },

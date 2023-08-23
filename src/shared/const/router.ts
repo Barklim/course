@@ -1,7 +1,7 @@
 export enum AppRoutes {
     MAIN = 'main',
     WATCH = 'watch',
-    GROUP = 'group',
+    COMMUNITY = 'community',
     ACADEMY = 'academy',
     SETTINGS = 'settings',
     ABOUT = 'about',
@@ -18,7 +18,7 @@ export enum AppRoutes {
 
 export const getRouteMain = () => '/';
 export const getRouteWatch = () => '/watch';
-export const getRouteGroup = () => '/group';
+export const getRouteCommunity = () => '/community';
 export const getRouteAcademy = () => '/academy';
 export const getRouteSettings = () => '/settings';
 export const getRouteAbout = () => '/about';
@@ -33,7 +33,7 @@ export const getRouteForbidden = () => '/forbidden';
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
     [getRouteWatch()]: AppRoutes.WATCH,
-    [getRouteGroup()]: AppRoutes.GROUP,
+    [getRouteCommunity()]: AppRoutes.COMMUNITY,
     [getRouteAcademy()]: AppRoutes.ACADEMY,
     [getRouteSettings()]: AppRoutes.SETTINGS,
     [getRouteAbout()]: AppRoutes.ABOUT,

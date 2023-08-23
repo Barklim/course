@@ -11360,6 +11360,11 @@ mock-xmlhttprequest@^7.0.3:
   resolved "https://registry.npmjs.org/mock-xmlhttprequest/-/mock-xmlhttprequest-7.0.4.tgz"
   integrity sha512-hA0fIHy/74p5DE0rdmrpU0sV1U+gnWTcgShWequGRLy0L1eT+zY0ozFukawpLaxMwIA+orRcqFRElYwT+5p81A==
 
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 morgan@^1.10.0:
   version "1.10.0"
   resolved "https://registry.npmjs.org/morgan/-/morgan-1.10.0.tgz"
@@ -12817,6 +12822,11 @@ rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-countdown-circle-timer@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.npmjs.org/react-countdown-circle-timer/-/react-countdown-circle-timer-3.2.1.tgz"
+  integrity sha512-yBAy/9ILXOiFbLBM+3jS72TW5LeRcH8wkRC9NNqMpUkCXkGjSnaeRbJMsR9lsYF0oVXjSDbJaRbCuVMT+9HnKA==
 
 react-device-detect@^2.2.2:
   version "2.2.2"
