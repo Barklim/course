@@ -5,8 +5,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { AppLink } from '@/shared/ui/revamped/AppLink';
 import { Icon } from '@/shared/ui/revamped/Icon';
+import { getRouteWatch } from '@/shared/const/router';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface SidebarItemProps {
     item: SidebarItemType;
@@ -32,8 +34,20 @@ export const SidebarItem = memo(({ item, collapsed, isActive, onClick }: Sidebar
             activeClassName={cls.active}
             onClick={onClick}
         >
-            <Icon width={20} height={20} Svg={item.Icon} isActive={isActive} />
-            <span className={cls.link}>{t(item.text)}</span>
+            {item.path !== getRouteWatch() ?
+                <>
+                    <Icon width={20} height={20} Svg={item.Icon} isActive={isActive} />
+                    <span className={cls.link}>{t(item.text)}</span>
+                </>
+                :
+                <HStack justify='between' className={cls.watchContainer}>
+                    <div className={cls.watchLeft}>
+                        <Icon width={20} height={20} Svg={item.Icon} isActive={isActive} />
+                        <span className={cls.link}>{t(item.text)}</span>
+                    </div>
+                    <div className={cls.watchers}>2</div>
+                </HStack>
+            }
         </AppLink>
     );
 });

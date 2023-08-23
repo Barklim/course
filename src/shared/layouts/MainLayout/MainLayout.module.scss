@@ -5,6 +5,9 @@
             'sidebar content rightbar';
   grid-template-columns: min-content 1fr 100px;
 }
+.layoutWithToolbar {
+  grid-template-columns: min-content 1fr;
+}
 
 
 .sidebar {
@@ -26,14 +29,14 @@
   position: absolute;
   z-index: 1;
   opacity: 0.6;
-  background-image: linear-gradient(197deg, #FF583D 0%, #000 100%);
+  background-image: var(--sidebar-bg-linear);
 }
 .forelock2 {
   width: -webkit-fill-available;
   height: 400px;
   position: absolute;
   z-index: 1;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,1));
+  background-image: var(--sidebar-bg-linear2);
 }
 .content {
   position: relative;

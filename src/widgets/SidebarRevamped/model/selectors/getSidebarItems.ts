@@ -5,7 +5,7 @@ import MainIcon from '@/shared/assets/icons/homeR.svg';
 import PlayIcon from '@/shared/assets/icons/play.svg';
 import GroupIcon from '@/shared/assets/icons/group.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
-import AcademyIcon from '@/shared/assets/icons/star.svg';
+import AcademyIcon from '@/shared/assets/icons/academy.svg';
 
 import { SidebarItemType } from '../types/sidebar';
 import {

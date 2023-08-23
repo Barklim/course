@@ -15,6 +15,9 @@ import { NotificationButton } from '@/features/notificationButtonRevamped';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { useTranslation } from 'react-i18next';
 import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Navbar } from '@/widgets/Navbar';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from '@/entities/User';
 
 interface SidebarProps {
     className?: string;
@@ -26,6 +29,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const { t } = useTranslation();
     const location = useLocation()
     const [activeSvgIndex, setActiveSvgIndex] = useState(location.pathname);
+    const authData = useSelector(getUserAuthData);
 
     const handleSvgClick = (index: string) => {
         setActiveSvgIndex(index);
@@ -59,8 +63,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             )}
         >
             <HStack align="start" justify="end" className={cls.actions}>
-                <NotificationButton />
+                {authData ? <NotificationButton /> : null}
                 <AvatarDropdown height={30} />
+                {!authData ? <Navbar /> : null}
             </HStack>
             <Input
                 size="s"

@@ -19,7 +19,9 @@ export const MainLayout = memo((props: MainLayoutProps) => {
         <ToggleFeatures
             feature="isAppRevamped"
             on={
-                <div className={classNames(cls.MainLayout, {}, [className])}>
+                <div className={classNames(cls.MainLayout, {
+                    [cls.layoutWithToolbar]: !toolbar,
+                })}>
                     <div className={cls.contentWrapper}>
                         { forelock ? <>
                             <div className={cls.forelock}>{forelock}</div>
@@ -28,10 +30,11 @@ export const MainLayout = memo((props: MainLayoutProps) => {
                         <div className={cls.content}>{content}</div>
                     </div>
                     <div className={cls.sidebarRevamp}>{sidebar}</div>
+                    { toolbar ?
                     <div className={cls.rightbar}>
                         <div className={cls.header}>{header}</div>
                         <div className={cls.toolbar}>{toolbar}</div>
-                    </div>
+                    </div> : null }
                 </div>
             }
             off={

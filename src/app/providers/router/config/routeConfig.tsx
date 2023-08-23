@@ -31,15 +31,15 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.WATCH]: {
         path: getRouteWatch(),
-        element: <MainPage />,
+        element: <AboutPage />,
     },
     [AppRoutes.GROUP]: {
         path: getRouteGroup(),
-        element: <MainPage />,
+        element: <AboutPage />,
     },
     [AppRoutes.ACADEMY]: {
         path: getRouteAcademy(),
-        element: <MainPage />,
+        element: <AboutPage />,
     },
     [AppRoutes.SETTINGS]: {
         path: getRouteSettings(),

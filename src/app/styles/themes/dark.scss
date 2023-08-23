@@ -20,6 +20,10 @@
     // revamped
     --bg-revamped: #000;
     --light-bg-revamped: #151C1F;
+    --sidebar-bg: #000;
+    --sidebar-bg-accent: rgba(255, 255, 255, 0.10);
+    --sidebar-bg-linear: linear-gradient(197deg, #FF583D 0%, #000 100%);
+    --sidebar-bg-linear2: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,1));
     --text-revamped: #ffffff;
     --text-revampedRGB: 255, 255, 255;
     --minor-white: rgba(242, 241, 243, 0.50);
@@ -27,6 +31,8 @@
     --icon-revamped: #bbb;
     --icon-revamped-active: #fff;
     --accent-revamped: #8D5DDA;
+    --applink: #D9FEE5;
+    --watchers-count: #EF7B3C;
 
     // skeleton
     --skeleton-color: #1515ad;
