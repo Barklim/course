@@ -58,9 +58,14 @@ export const Page = memo((props: PageProps) => {
             ref={wrapperRef}
             className={classNames(
                 toggleFeatures({
-                    name: 'isAppRedesigned',
-                    on: () => cls.PageRedesigned,
-                    off: () => cls.Page,
+                    name: 'isAppRevamped',
+                    on: () => '',
+                    off: () =>
+                        toggleFeatures({
+                            name: 'isAppRedesigned',
+                            on: () => cls.PageRedesigned,
+                            off: () => cls.Page,
+                        }),
                 }),
                 {},
                 [className],

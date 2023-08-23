@@ -9,6 +9,7 @@ interface IconBaseProps extends SvgProps {
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
     setActive?: boolean;
     isActive?: boolean;
+    toolbar?: boolean;
 }
 
 interface NonClickableIconProps extends IconBaseProps {
@@ -31,6 +32,7 @@ export const Icon = memo((props: IconProps) => {
         clickable,
         setActive,
         isActive,
+        toolbar,
         ...otherProps
     } = props;
 
@@ -38,7 +40,8 @@ export const Icon = memo((props: IconProps) => {
         <Svg
             className={classNames(cls.Icon, {
                 [cls.setActive]: setActive,
-                [cls.isActive]: isActive
+                [cls.isActive]: isActive,
+                [cls.toolBar]: toolbar,
             }, [className])}
             width={width}
             height={height}

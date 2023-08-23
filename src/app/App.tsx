@@ -80,21 +80,21 @@ const App = memo(() => {
                             </Suspense>
                         </div>
                     }
-                    on={
-                        <div
-                            id="app"
-                            className={classNames('app_redesigned', {}, [theme])}
-                        >
-                            <Suspense fallback="">
-                                <MainLayout
-                                    header={<Navbar />}
-                                    content={<AppRouter />}
-                                    sidebar={<Sidebar />}
-                                    toolbar={toolbar}
-                                />
-                            </Suspense>
-                        </div>
-                    }
+            on={
+                <div
+                    id="app"
+                    className={classNames('app_redesigned', {}, [theme])}
+                >
+                    <Suspense fallback="">
+                        <MainLayout
+                            header={<Navbar />}
+                            content={<AppRouter />}
+                            sidebar={<Sidebar />}
+                            toolbar={toolbar}
+                        />
+                    </Suspense>
+                </div>
+            }
                 />
             }
             on={
