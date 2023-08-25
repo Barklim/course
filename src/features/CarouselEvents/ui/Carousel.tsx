@@ -1,7 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import gsap  from 'gsap-trial';
-import InertiaPlugin  from 'gsap-trial/dist/InertiaPlugin';
-import Draggable  from 'gsap-trial/dist/Draggable';
+// @ts-ignore
+import gsap  from '../../../../modules/gsap-trial';
+// @ts-ignore
+import InertiaPlugin  from '../../../../modules/gsap-trial/dist/InertiaPlugin';
+// @ts-ignore
+import Draggable  from '../../../../modules/gsap-trial/dist/Draggable';
 import { useDebounce } from '@/app/lib/useDebounce';
 import { useTranslation } from 'react-i18next';
 import cls from './Carousel.module.scss';
