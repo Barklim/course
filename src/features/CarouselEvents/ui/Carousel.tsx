@@ -18,6 +18,7 @@ const Slide = ({event}: {event: Event}) => {
     return (
         <div className={cls.slide}>
             <div className={cls.preview}>
+                <img src={event.user.avatar} style={{height: "200px"}}/>
                 <EventCard event={event}/>
             </div>
         </div>
