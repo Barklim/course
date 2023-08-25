@@ -33,6 +33,92 @@
       "userId": "2"
     }
   ],
+  "events": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "Banks, Crypto and the world economy 2023",
+      "price": 124.32,
+      "participants": 450,
+      "soldOut": 32,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "type": [
+        "CRYPTO"
+      ]
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "title": "Cryptos to watch",
+      "price": 2.28,
+      "participants": 323,
+      "soldOut": 54,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "type": [
+        "CRYPTO"
+      ]
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "title": "Cryptos programming",
+      "price": 14.88,
+      "participants": 361,
+      "soldOut": 35,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "type": [
+        "IT"
+      ]
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "title": "Banks, Crypto and the world economy 2023",
+      "price": 124.32,
+      "participants": 450,
+      "soldOut": 32,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "type": [
+        "CRYPTO"
+      ]
+    },
+    {
+      "id": "5",
+      "userId": "2",
+      "title": "Cryptos to watch",
+      "price": 2.28,
+      "participants": 323,
+      "soldOut": 54,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "type": [
+        "CRYPTO"
+      ]
+    },
+    {
+      "id": "6",
+      "userId": "1",
+      "title": "Cryptos programming",
+      "price": 14.88,
+      "participants": 361,
+      "soldOut": 35,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "type": [
+        "IT"
+      ]
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -1106,6 +1192,18 @@
       "rate": 5,
       "feedback": "фыаыфаыаф",
       "id": "ftXTMSh"
+    },
+    {
+      "userId": "2",
+      "articleId": "8",
+      "rate": 3,
+      "id": "IHYkUoT"
+    },
+    {
+      "userId": "2",
+      "articleId": "7",
+      "rate": 2,
+      "id": "yWoMSDJ"
     }
   ],
   "profile-ratings": [

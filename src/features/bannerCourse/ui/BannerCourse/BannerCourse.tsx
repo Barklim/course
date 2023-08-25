@@ -17,7 +17,7 @@ export const BannerCourse = memo((props: BannerCourseProps) => {
     const { t } = useTranslation('community');
 
     return (
-        <div>
+        <div className={cls.bannerWrapper}>
             <Text className={cls.titleCommunity} size={'xl'} text={t('Community')} />
             <HStack className={cls.qa} justify={'between'}>
                 <Text size={'l'} title={t('Q&A')}></Text>
@@ -26,7 +26,6 @@ export const BannerCourse = memo((props: BannerCourseProps) => {
                     size={'l'}
                     fontSize={12}
                     height={36}
-                    className={cls.calendar}
                     addonLeft={<Icon setActive width={14} height={14} Svg={Calendar} />}
                 >
                     {moment().format("MMM, D")}

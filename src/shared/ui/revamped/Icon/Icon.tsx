@@ -10,6 +10,7 @@ interface IconBaseProps extends SvgProps {
     setActive?: boolean;
     isActive?: boolean;
     toolbar?: boolean;
+    color?: string;
 }
 
 interface NonClickableIconProps extends IconBaseProps {
@@ -33,6 +34,7 @@ export const Icon = memo((props: IconProps) => {
         setActive,
         isActive,
         toolbar,
+        color,
         ...otherProps
     } = props;
 
@@ -47,6 +49,7 @@ export const Icon = memo((props: IconProps) => {
             height={height}
             {...otherProps}
             onClick={undefined}
+            style={{ color: color }}
         />
     );
 

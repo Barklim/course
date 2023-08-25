@@ -7,7 +7,7 @@ import {
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonVariant = 'clear' | 'outline' | 'filled' | 'borderNone';
 export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';

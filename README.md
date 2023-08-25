@@ -220,6 +220,7 @@ npm run remove-feture isArticleRatingEnabled on
 
 - [Article](/src/entities/Article)
 - [Comment](/src/entities/Comment)
+- [Event](/src/entities/Comment)
 - [Counter](/src/entities/Counter)
 - [Country](/src/entities/Country)
 - [Currency](/src/entities/Currency)

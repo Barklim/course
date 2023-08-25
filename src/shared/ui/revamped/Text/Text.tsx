@@ -15,6 +15,7 @@ interface TextProps {
     variant?: TextVariant;
     align?: TextAlign;
     size?: TextSize;
+    fontSize?: number;
     bold?: boolean;
     minor?: boolean;
     selectNone?: boolean;
@@ -49,6 +50,7 @@ export const Text = memo((props: TextProps) => {
         variant = 'primary',
         align = 'left',
         size = 'm',
+        fontSize,
         bold,
         minor,
         selectNone,
@@ -82,12 +84,16 @@ export const Text = memo((props: TextProps) => {
                 <HeaderTag
                     className={cls.title}
                     data-testid={`${dataTestId}.Header`}
+                    style={{fontSize: fontSize }}
                 >
                     {title}
                 </HeaderTag>
             )}
             {text && (
-                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
+                <p
+                    className={cls.text} data-testid={`${dataTestId}.Paragraph`}
+                    style={{fontSize: fontSize }}
+                >
                     {text}
                 </p>
             )}
