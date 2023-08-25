@@ -28,11 +28,11 @@ import { SettingsPage } from '@/pages/SettingsPage';
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
-        element: <MainPage />,
+        element: <CommunityPage />,
     },
     [AppRoutes.WATCH]: {
         path: getRouteWatch(),
-        element: <MainPage />,
+        element: <AboutPage />,
     },
     [AppRoutes.COMMUNITY]: {
         path: getRouteCommunity(),
