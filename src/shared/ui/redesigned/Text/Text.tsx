@@ -11,6 +11,7 @@ export type TextSize = 's' | 'm' | 'l';
 interface TextProps {
     className?: string;
     title?: string;
+    color?: string;
     text?: string;
     variant?: TextVariant;
     align?: TextAlign;
@@ -38,6 +39,7 @@ export const Text = memo((props: TextProps) => {
         className,
         text,
         title,
+        color,
         variant = 'primary',
         align = 'left',
         size = 'm',
@@ -62,12 +64,17 @@ export const Text = memo((props: TextProps) => {
                 <HeaderTag
                     className={cls.title}
                     data-testid={`${dataTestId}.Header`}
+                    style={{ color: color}}
                 >
                     {title}
                 </HeaderTag>
             )}
             {text && (
-                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
+                <p
+                    className={cls.text}
+                    data-testid={`${dataTestId}.Paragraph`}
+                    style={{ color: color}}
+                >
                     {text}
                 </p>
             )}

@@ -10,6 +10,7 @@ import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { LOCAL_STORAGE_LAST_DESIGN_KEY, LOCAL_STORAGE_REVAMP_KEY } from '@/shared/const/localstorage';
+import cls from './UiDesignSwitcher.module.scss';
 
 interface UiDesignSwitcherProps {
     className?: string;
@@ -104,7 +105,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
 
     return (
         <HStack>
-            <Text text={t('Вариант интерфейса')} />
+            <Text text={t('Вариант интерфейса')} className={cls.text} />
             {isLoading ? (
                 <Skeleton width={100} height={40} />
             ) : (

@@ -11,5 +11,7 @@ export interface Event {
     startDate: string;
     endDate: string;
     createdAt: string;
+    dayDate?: string;
+    timeDate?: string;
     type: EventType[];
 }

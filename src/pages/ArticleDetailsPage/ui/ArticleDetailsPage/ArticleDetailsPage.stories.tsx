@@ -28,6 +28,8 @@ const article: Article = {
     type: [ArticleType.COURSE],
     user: {
         id: '1',
+        first: 'first',
+        lastName: 'lastName',
         username: 'Course App',
     },
     blocks: [

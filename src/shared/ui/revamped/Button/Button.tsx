@@ -43,7 +43,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     dark?: boolean;
     light?: boolean;
 
+    padding?: string;
+    borderRadius?: number;
     color?: ButtonColor;
+    bgColor?: string;
+    fontColor?: string;
+    fontWeight?: number;
 
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
@@ -64,7 +69,12 @@ export const Button = forwardRef(
             dark, light,
             addonLeft,
             addonRight,
+            padding,
+            borderRadius,
             color = 'normal',
+            bgColor,
+            fontColor,
+            fontWeight,
             ...otherProps
         } = props;
 
@@ -89,7 +99,15 @@ export const Button = forwardRef(
                 disabled={disabled}
                 {...otherProps}
                 ref={ref}
-                style={{ fontSize: fontSize, height: height }}
+                style={{
+                    fontSize: fontSize,
+                    height: height,
+                    padding: padding,
+                    borderRadius: borderRadius,
+                    color: fontColor,
+                    background: bgColor,
+                    fontWeight: fontWeight,
+                }}
             >
                 <div className={cls.addonLeft}>{addonLeft}</div>
                 {children}

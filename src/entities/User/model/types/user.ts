@@ -5,6 +5,8 @@ import { JsonSettings } from './jsonSettings';
 export interface User {
     id: string;
     username: string;
+    first?: string;
+    lastName?: string;
     avatar?: string;
     roles?: UserRole[];
     features?: FeatureFlags;

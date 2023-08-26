@@ -13,6 +13,7 @@ export const fetchEvents = createAsyncThunk<
         const response = await extra.api.get<Event[]>(
             `/events/`,
             {
+                headers: { authorization: '1' },
                 params: {
                     _expand: 'user',
                 },
@@ -22,6 +23,7 @@ export const fetchEvents = createAsyncThunk<
         if (!response.data) {
             throw new Error();
         }
+
 
         return response.data;
     } catch (e) {

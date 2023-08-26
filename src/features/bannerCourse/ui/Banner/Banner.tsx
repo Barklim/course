@@ -65,7 +65,7 @@ export const Banner = memo((props: BannerCourseProps) => {
                               title={t('What is the blockchian?')}></Text>
                         <Text className={classNames(cls.subText, {}, [className])}
                               size={'s'}
-                              text={t('Diam posuere sed mauris ultrices aliquam ullamcorper. Eu lectus cursus in amet mauris vestibulum aliquam.')}></Text>
+                              text={t('DiamText')}></Text>
                     </VStack>
                     <div></div>
                     <HStack align="start" className={cls.buttonsContainer}>

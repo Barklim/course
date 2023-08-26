@@ -11,6 +11,7 @@ export type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 interface TextProps {
     className?: string;
     title?: string;
+    color?: string;
     text?: string;
     variant?: TextVariant;
     align?: TextAlign;
@@ -21,6 +22,7 @@ interface TextProps {
     selectNone?: boolean;
     titleFont?: boolean;
     textFont?: boolean;
+    lineHeight?: string;
     'data-testid'?: string;
 }
 
@@ -47,6 +49,7 @@ export const Text = memo((props: TextProps) => {
         className,
         text,
         title,
+        color,
         variant = 'primary',
         align = 'left',
         size = 'm',
@@ -56,6 +59,7 @@ export const Text = memo((props: TextProps) => {
         selectNone,
         titleFont,
         textFont,
+        lineHeight,
         'data-testid': dataTestId = 'Text',
     } = props;
 
@@ -84,7 +88,7 @@ export const Text = memo((props: TextProps) => {
                 <HeaderTag
                     className={cls.title}
                     data-testid={`${dataTestId}.Header`}
-                    style={{fontSize: fontSize }}
+                    style={{ fontSize: fontSize, color: color, lineHeight: lineHeight }}
                 >
                     {title}
                 </HeaderTag>
@@ -92,7 +96,7 @@ export const Text = memo((props: TextProps) => {
             {text && (
                 <p
                     className={cls.text} data-testid={`${dataTestId}.Paragraph`}
-                    style={{fontSize: fontSize }}
+                    style={{ fontSize: fontSize, color: color, lineHeight: lineHeight }}
                 >
                     {text}
                 </p>

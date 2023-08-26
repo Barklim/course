@@ -1,4 +1,4 @@
-export { EventCard } from './ui/EventCard/EventCard';
+export { EventCard, CardColorEnum, getGradientColor } from './ui/EventCard/EventCard';
 
 export { EventList } from './ui/EventList/EventList';
 
