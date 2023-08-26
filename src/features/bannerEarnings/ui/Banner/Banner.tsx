@@ -11,11 +11,14 @@ import { Text } from '@/shared/ui/revamped/Text';
 import BannerEarnings from '@/shared/assets/icons/bannerEarnings.png';
 import Coin from '@/shared/assets/icons/coin.svg';
 import CoinBig from '@/shared/assets/icons/coinBig.svg';
-import SVG from '*.svg';
 
 interface BannerCourseProps {
     className?: string;
 }
+
+const beUrl = 'https://raw.githubusercontent.com/Barklim/course/main/hostImg/bannerEarnings.png';
+const coinBigUrl = 'https://raw.githubusercontent.com/Barklim/course/76e32b645ad404f3069bc0c96d2e37d9f6245792/hostImg/coinBig.svg';
+const coinUrl = 'https://raw.githubusercontent.com/Barklim/course/76e32b645ad404f3069bc0c96d2e37d9f6245792/hostImg/coin.svg'
 
 export const Banner = memo((props: BannerCourseProps) => {
     const { className } = props;
@@ -29,22 +32,30 @@ export const Banner = memo((props: BannerCourseProps) => {
             <div className={cls.imgContainer}>
                 <AppImage
                     fallback={<Skeleton width="100%" height={250} />}
-                    src={BannerEarnings}
+                    src={beUrl}
                     className={cls.imgBack}
                 />
             </div>
             <div className={cls.coinsContainer}>
                 <div className={cls.firstCoinContainer}>
-                    <Icon
-                        Svg={CoinBig}
+                    {/*<Icon*/}
+                    {/*    Svg={CoinBig}*/}
+                    {/*    width={170}*/}
+                    {/*    height={150}*/}
+                    {/*    className={cls.firstCoin}*/}
+                    {/*/>*/}
+                    <AppImage
+                        fallback={<Skeleton  width={170} height={150} />}
+                        src={coinBigUrl}
                         width={170}
                         height={150}
                         className={cls.firstCoin}
                     />
                 </div>
                 <div className={cls.secondCoinContainer}>
-                    <Icon
-                        Svg={CoinBig}
+                    <AppImage
+                        fallback={<Skeleton  width={170} height={150} />}
+                        src={coinBigUrl}
                         width={170}
                         height={150}
                         className={cls.secondCoin}
@@ -54,7 +65,12 @@ export const Banner = memo((props: BannerCourseProps) => {
             <div className={cls.banner}>
                 <VStack justify='between' className={cls.bannerInner}>
                     <HStack gap="8">
-                        <Coin />
+                        <AppImage
+                            fallback={<Skeleton height={20} width={23} />}
+                            src={coinUrl}
+                            height={20}
+                            width={23}
+                        />
                         <Text
                             fontSize={20}
                             size='l'
