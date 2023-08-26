@@ -18,9 +18,9 @@ export const BannerCourse = memo((props: BannerCourseProps) => {
 
     return (
         <div className={cls.bannerWrapper}>
-            <Text className={cls.titleCommunity} size={'xl'} text={t('Community')} />
+            <Text className={cls.titleCommunity} size={'xl'} selectNone text={t('Community')} />
             <HStack className={cls.qa} justify={'between'}>
-                <Text size={'l'} title={t('Q&A')}></Text>
+                <Text size={'l'} selectNone title={t('Q&A')}></Text>
                 <Button
                     variant="outline"
                     size={'l'}

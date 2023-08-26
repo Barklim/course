@@ -36,13 +36,13 @@ export const SidebarItem = memo(({ item, collapsed, isActive, onClick }: Sidebar
         >
             {item.path !== getRouteWatch() ?
                 <>
-                    <Icon width={20} height={20} Svg={item.Icon} isActive={isActive} />
+                    <Icon width={20} height={20} Svg={item.Icon} className={cls.sidebarIcon} isActive={isActive} />
                     <span className={cls.link}>{t(item.text)}</span>
                 </>
                 :
                 <HStack justify='between' className={cls.watchContainer}>
                     <div className={cls.watchLeft}>
-                        <Icon width={20} height={20} Svg={item.Icon} isActive={isActive} />
+                        <Icon width={20} height={20} Svg={item.Icon} className={cls.sidebarIcon} isActive={isActive} />
                         <span className={cls.link}>{t(item.text)}</span>
                     </div>
                     <div className={cls.watchers}>2</div>

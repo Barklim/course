@@ -5,7 +5,7 @@ export interface Event {
     id: string;
     user: User;
     title: string;
-    price: number;
+    price: string;
     participants: number;
     soldOut: number;
     startDate: string;

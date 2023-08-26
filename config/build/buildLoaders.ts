@@ -43,6 +43,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: [
             {
                 loader: 'file-loader',
+                options: {
+                    esModule: false,
+                },
             },
         ],
     };

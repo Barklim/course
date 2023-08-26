@@ -36,7 +36,7 @@ export const Banner = memo((props: BannerCourseProps) => {
 
     return (
         <div
-            data-testid="Banner"
+            data-testid="BannerCourse"
             className={classNames(cls.banner, {}, [className])}
         >
             <div className={cls.countdownContainer}>
@@ -62,12 +62,13 @@ export const Banner = memo((props: BannerCourseProps) => {
                     <VStack align="start" className={classNames(cls.textContainer, {}, [className])}>
                         <Text className={classNames(cls.titleText, {}, [className])}
                               size={'xl'}
+                              selectNone
                               title={t('What is the blockchian?')}></Text>
                         <Text className={classNames(cls.subText, {}, [className])}
                               size={'s'}
+                              selectNone
                               text={t('DiamText')}></Text>
                     </VStack>
-                    <div></div>
                     <HStack align="start" className={cls.buttonsContainer}>
                         <Button
                             fontSize={14}
@@ -84,6 +85,7 @@ export const Banner = memo((props: BannerCourseProps) => {
                             height={42}
                             light
                             variant="filled"
+                            fontWeight={700}
                             className={cls.buttonLight}
                         >
                             {t('Answer')}
