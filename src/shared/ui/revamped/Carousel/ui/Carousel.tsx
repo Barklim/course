@@ -13,10 +13,13 @@ import { CardColorEnum, getGradientColor } from '@/shared/const/theme';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 import { Theme } from '@/shared/const/theme';
 import { EventCardProps } from '@/entities/Event/ui/EventCard/EventCard';
+import useIsomorphicLayoutEffect from '../helpers/isomorphicLayout'
+import horizontalLoop from '../helpers/horizontalLoop';
 
 interface CarouselProps {
     items: Event[] | undefined;
     loading: boolean;
+    draggable?: boolean;
     eventCard?: React.ComponentType<EventCardProps>;
 }
 
@@ -37,7 +40,7 @@ const Slide: React.FC<SlideProps> = ({
 }) => {
     const gradientColor = cardColor ? getGradientColor(cardColor, theme) : '';
     return (
-        <div className={cls.slide}>
+        <div property={'slide'} className={cls.slide}>
             <div className={cls.preview}>
                 {EventCard ? (
                     <EventCard cardColor={gradientColor} event={slide as Event} isLoading={isLoading} />
@@ -52,12 +55,15 @@ const Slide: React.FC<SlideProps> = ({
 export const Carousel: React.FC<CarouselProps> = ({
     items,
     loading,
+    draggable,
     eventCard
 }) => {
     let sliderRef = useRef<HTMLDivElement | null>(null);
-    const [storageTheme, setStorageTheme] = useState<Theme>(localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.DARK)
+    const isAnimationCreatedRef = useRef(false);
+    const [storageTheme, setStorageTheme] = useState<Theme>(localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.DARK);
 
     useEffect(() => {
+        // TODO: Extract to hook
         // TODO: this decision is not working, but bad solving bottom with long pooling is bad
         // window.addEventListener('storage', () => {
         //     console.log("Change to local storage!");
@@ -67,7 +73,7 @@ export const Carousel: React.FC<CarouselProps> = ({
             if (newValue !== storageTheme) {
                 setStorageTheme(newValue);
             }
-        }, 1000); //
+        }, 1000);
 
         return () => {
             clearInterval(interval);
@@ -75,44 +81,67 @@ export const Carousel: React.FC<CarouselProps> = ({
     }, [storageTheme]);
 
     useEffect(() => {
-        gsap.registerPlugin(Draggable, InertiaPlugin);
-        const slider = sliderRef.current;
+        if (draggable) {
+            gsap.registerPlugin(Draggable, InertiaPlugin);
+            const slider = sliderRef.current;
 
-        const sliderWidth = slider?.clientWidth || 0 ;
-        const numSlides = items?.length || 1;
+            const sliderWidth = slider?.clientWidth || 0 ;
+            const numSlides = items?.length || 1;
 
-        const start = () => {
-            gsap.to(slider, {
-                x: -sliderWidth/5 ,
-                duration: numSlides * 5,
-                repeat: -1,
-                ease: "none"
-            });
-            // gsap.to(slider, {
-            //     x: 0,
-            //     duration: 0,
-            //     repeat: -1,
-            //     ease: "none"
-            // });
-        }
-        setTimeout(start, 5000);
-
-        const debouncedFunction = useDebounce(() => {
-            start()
-        }, 3000);
-
-        Draggable.create(sliderRef.current, {
-            type: "x",
-            bounds: {
-                minX: -sliderWidth + window.innerWidth * 0.88,
-                maxX: 0
-            },
-            inertia: true,
-            onDragEnd() {
-                debouncedFunction()
+            const start = () => {
+                gsap.to(slider, {
+                    x: -sliderWidth/5 ,
+                    duration: numSlides * 5,
+                    repeat: -1,
+                    ease: "none"
+                });
             }
-        });
+            setTimeout(start, 5000);
+
+            const debouncedFunction = useDebounce(() => {
+                start()
+            }, 3000);
+
+            Draggable.create(sliderRef.current, {
+                type: "x",
+                bounds: {
+                    minX: -sliderWidth + window.innerWidth * 0.88,
+                    maxX: 0
+                },
+                inertia: true,
+                onDragEnd() {
+                    debouncedFunction()
+                }
+            });
+        }
     }, [items, loading]);
+
+    useIsomorphicLayoutEffect(() => {
+        if (!isAnimationCreatedRef.current && !draggable) {
+            let ctx: any;
+
+            ctx = gsap.context(() => {
+                gsap.registerPlugin(Draggable, InertiaPlugin);
+
+                const elements = sliderRef.current?.childNodes;
+
+                const tl = () => {
+                    horizontalLoop(elements as unknown as HTMLElement[], {
+                        repeat: 2,
+                        paused: false,
+                        speed: 0.5,
+                        reversed: false,
+                        paddingRight: 12,
+                    });
+                }
+                setTimeout(tl, 1000);
+            }, sliderRef);
+
+            isAnimationCreatedRef.current = true; // Flag setting, generated animation
+
+            return () => ctx && ctx.revert();
+        }
+    }, [ loading]);
 
     let aIndex = 0;
 
@@ -148,9 +177,19 @@ export const Carousel: React.FC<CarouselProps> = ({
         </>
 
     return (
-        <div id="slider" className={cls.slider}  ref={sliderRef}>
-            {renderCarousel}
-        </div>
+        <>
+            {(draggable) ?
+                <div id="slider" className={cls.slider}  ref={sliderRef}>
+                    {renderCarousel}
 
+                </div>
+            :
+                <div className={cls.container}>
+                    <div className={cls.slider} ref={sliderRef}>
+                        {renderCarousel}
+                    </div>
+                </div>
+            }
+        </>
     );
 };
