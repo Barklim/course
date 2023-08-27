@@ -22,6 +22,8 @@ type LoopConfig = {
 This helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
 https://stackblitz.com/edit/stackblitz-starters-9etsod?file=pages%2Findex.js,styles%2Fglobals.css
 https://codepen.io/GreenSock/details/gOvvJee
+draggable auto slider example:
+https://codepen.io/GreenSock/pen/GRJwLNP
 
 Features:
  - Uses xPercent so that even if the widths change (like if the window gets resized), it should still work in most cases.

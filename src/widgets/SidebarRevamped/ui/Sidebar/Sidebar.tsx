@@ -18,6 +18,8 @@ import SearchIcon from '@/shared/assets/icons/search.svg';
 import { Navbar } from '@/widgets/Navbar';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
+import { Button } from '@/shared/ui/revamped/Button';
+import Calendar from '@/shared/assets/icons/calendar.svg';
 
 interface SidebarProps {
     className?: string;
@@ -85,6 +87,18 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             <VStack role="navigation" gap="8" className={cls.items}>
                 {itemsList}
             </VStack>
+            <div className={cls.createButtonContainer}>
+                <Button
+                    fullWidth
+                    variant={'filled'}
+                    height={30}
+                    className={cls.createButton}
+                    dark
+                    padding={'18px 14px'}
+                >
+                    { !collapsed ? `${t('+ Create')}` : '+'}
+                </Button>
+            </div>
             <Icon
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
@@ -96,6 +110,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 <ThemeSwitcher />
                 <LangSwitcher short={collapsed} className={cls.lang} />
             </div>
+            { !collapsed ?
+                <HStack justify="between" className={cls.bottom}>
+                    <Text selectNone minor fontSize={10} text={t('Privacy & Policy')}></Text>
+                    <Text selectNone minor fontSize={10} text={t('Terms & Conditions')}></Text>
+                </HStack>
+                :
+                null
+            }
+
         </aside>
     );
 });

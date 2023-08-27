@@ -82,6 +82,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 
     useEffect(() => {
         if (draggable) {
+            // https://codesandbox.io/s/draggable-slider-with-gsap-forked-1tvogv?file=/src/components/Slider.js
             gsap.registerPlugin(Draggable, InertiaPlugin);
             const slider = sliderRef.current;
 

@@ -30,7 +30,7 @@ export const CarouselEvents = () => {
         <EventListDataProvider>
             <div className={cls.carouselWrapper}>
                 <HStack align="end" justify="between" className={cls.header}>
-                    <Text title={t('Recent events')} fontSize={24} />
+                    <Text selectNone title={t('Recent events')} fontSize={24} />
                     <Button variant="borderNone" fontSize={14} className={cls.seeAll} addonRight={
                         <Icon
                             data-testid="carousel-see-all"

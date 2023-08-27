@@ -25,6 +25,15 @@
         }
     }
 
+    .createButtonContainer {
+        margin: 20px 20px 0 20px;
+    }
+
+    .createButton {
+        justify-content: center;
+        align-items: center;
+    }
+
     .collapseBtn {
         position: absolute;
         right: 0;
@@ -35,11 +44,19 @@
 
     .switchers {
         position: absolute;
-        bottom: 40px;
+        bottom: 60px;
         display: flex;
         justify-content: center;
         width: 100%;
         gap: 16px;
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 0;
+        margin: 0 20px 10px 20px;
+        display: flex;
+        width: 100%;
     }
 }
 
