@@ -2,7 +2,7 @@ import React from 'react';
 import { Page } from '@/widgets/Page';
 import { BannerCourse } from '@/features/bannerCourse';
 import { Banner as BannerEarnings } from '@/features/bannerEarnings';
-import { Carousel } from '@/features/CarouselEvents';
+import { CarouselEvents as Carousel } from '@/features/CarouselEvents';
 
 const Community = () => {
     return (

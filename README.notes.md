@@ -4,6 +4,7 @@
 - [mobilepalette](https://mobilepalette.colorion.co/)
 - [floating-ui](https://floating-ui.com/)
 - [grotesque](https://www.cdnfonts.com/ch/random-grotesque-standard.font)
+- [color picker](https://www.google.com/search?q=color+picker&ei=3PPnYsX2FPedptQP_t-m4Ac&ved=0ahUKEwjF1JOG_aX5AhX3jokEHf6vCXwQ4dUDCA8&uact=5&oq=color+picker&gs_lcp=Cgdnd3Mtd2l6EAMyCggAELEDEIMBEEMyBQgAEIAEMggIABCABBCxAzIICAAQgAQQsQMyCAgAEIAEELEDMgsIABCABBCxAxCDATIFCAAQgAQyCwgAEIAEELEDEIMBMgUIABCABDIFCAAQgAQ6BwgAEEcQsAM6BwgAELADEEM6CggAEOQCELADGAE6DAguEMgDELADEEMYAjoPCC4Q1AIQyAMQsAMQQxgCOgQIABBDOhEILhCABBCxAxCDARDHARDRAzoECC4QQzoICAAQsQMQgwE6DQguELEDEMcBENEDEEM6CwguEIAEELEDENQCOggILhCABBDUAjoICC4QgAQQsQM6DgguEIAEELEDEIMBENQCOhEILhCABBCxAxCDARDHARCvAToNCC4QgAQQxwEQ0QMQCkoECEEYAEoECEYYAVDaDVjSF2C1GGgEcAF4AYABkQGIAYEHkgEEMTAuMpgBAKABAcgBE8ABAdoBBggBEAEYCdoBBggCEAEYCA&sclient=gws-wiz)
 
 ----
 
