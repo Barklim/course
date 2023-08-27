@@ -1,0 +1,34 @@
+.eventCard {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+.loading {
+    border: none;
+}
+
+.Header {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.Title {
+    height: 50px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.Participants {
+    width: 100%;
+    height: 32px;
+    //margin-bottom: 27px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    stroke-width: 2px;
+    stroke: rgba(255, 255, 255, 0.10);
+    border-bottom: 2px dashed rgba(242, 241, 243, 0.2);
+}
+
+.Bottom {
+    width: 100%;
+}

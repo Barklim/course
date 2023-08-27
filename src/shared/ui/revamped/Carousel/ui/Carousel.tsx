@@ -15,12 +15,14 @@ import { Theme } from '@/shared/const/theme';
 import { EventCardProps } from '@/entities/Event/ui/EventCard/EventCard';
 import useIsomorphicLayoutEffect from '../helpers/isomorphicLayout'
 import horizontalLoop from '../helpers/horizontalLoop';
+import { Course } from '@/entities/Course';
+import { CourseCardProps } from '@/entities/Course/ui/CourseCard/CourseCard';
 
 interface CarouselProps {
-    items: Event[] | undefined;
+    items: Event[] | Course[] | undefined;
     loading: boolean;
     draggable?: boolean;
-    eventCard?: React.ComponentType<EventCardProps>;
+    eventCard?: React.ComponentType<EventCardProps> | React.ComponentType<CourseCardProps>;
 }
 
 interface SlideProps {
@@ -28,7 +30,7 @@ interface SlideProps {
     isLoading: boolean;
     cardColor?: CardColorEnum;
     theme?: Theme;
-    eventCard?: React.ComponentType<EventCardProps>;
+    eventCard?: React.ComponentType<EventCardProps> | React.ComponentType<CourseCardProps>;
 }
 
 const Slide: React.FC<SlideProps> = ({
@@ -43,7 +45,7 @@ const Slide: React.FC<SlideProps> = ({
         <div property={'slide'} className={cls.slide}>
             <div className={cls.preview}>
                 {EventCard ? (
-                    <EventCard cardColor={gradientColor} event={slide as Event} isLoading={isLoading} />
+                    <EventCard cardColor={gradientColor} item={slide } isLoading={isLoading} />
                 ) : (
                     <div>Missing eventCard</div>
                 )}
@@ -130,8 +132,9 @@ export const Carousel: React.FC<CarouselProps> = ({
                     horizontalLoop(elements as unknown as HTMLElement[], {
                         repeat: 2,
                         paused: false,
-                        speed: 0.5,
-                        reversed: false,
+                        // speed: 0.02,
+                        speed: 0.000001,
+                        reversed: true,
                         paddingRight: 12,
                     });
                 }

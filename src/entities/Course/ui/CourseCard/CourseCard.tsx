@@ -3,8 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/revamped/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import cls from './EventCard.module.scss';
-import { Event } from '../../model/types/event';
+import cls from './CourseCard.module.scss';
+import { Course } from '../../model/types/course';
 import { getRouteProfile } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
@@ -13,17 +13,17 @@ import { Theme } from '@/shared/const/theme';
 import { Button } from '@/shared/ui/revamped/Button';
 import { useTranslation } from 'react-i18next';
 
-export interface EventCardProps {
+export interface CourseCardProps {
     className?: string;
-    item?: Event;
+    item?: Course;
     isLoading?: boolean;
     cardColor?: string;
 }
 
-export const EventCard = memo((props: EventCardProps) => {
+export const CourseCard = memo((props: CourseCardProps) => {
     const { className, item, isLoading, cardColor } = props;
     const { t } = useTranslation('');
-    const event = item;
+    const course = item;
 
     if (isLoading) {
         return (
@@ -36,9 +36,9 @@ export const EventCard = memo((props: EventCardProps) => {
                 fullHeight
             >
                 <VStack
-                    data-testid="EventCard.Content"
+                    data-testid="CourseCard.Content"
                     max
-                    className={classNames(cls.EventCardRedesigned, {}, [
+                    className={classNames(cls.CourseCardRedesigned, {}, [
                         className,
                     ])}
                 >
@@ -84,7 +84,7 @@ export const EventCard = memo((props: EventCardProps) => {
         );
     }
 
-    if (!event) {
+    if (!course) {
         return null;
     }
 
@@ -98,22 +98,22 @@ export const EventCard = memo((props: EventCardProps) => {
             fullHeight
         >
             <VStack
-                data-testid="EventCard.Content"
+                data-testid="CourseCard.Content"
                 max
-                className={classNames(cls.EventCardRedesigned, {}, [
+                className={classNames(cls.CourseCardRedesigned, {}, [
                     className,
                 ])}
             >
                 <HStack justify="between" className={cls.Header}>
-                    <AppLink to={getRouteProfile(event.user.id)} >
+                    <AppLink to={getRouteProfile(course.user.id)} >
                         <HStack gap="8" >
-                            {event.user.avatar ? (
+                            {course.user.avatar ? (
                                 <Avatar
                                     size={40}
-                                    src={event.user.avatar}
+                                    src={course.user.avatar}
                                 />
                             ) : null}
-                            <Text text={`${event.user.first} ${event.user.lastName}`} color='#fff' />
+                            <Text text={`${course.user.first} ${course.user.lastName}`} color='#fff' />
                         </HStack>
                     </AppLink>
                     <Button
@@ -125,12 +125,12 @@ export const EventCard = memo((props: EventCardProps) => {
                         fontWeight={700}
                         padding="6px 10px"
                     >
-                        <Text bold text={String(event.price)} color={"#fff"}></Text>
+                        <Text bold text={String(course.price)} color={"#fff"}></Text>
                     </Button>
                 </HStack>
 
                 <Text
-                    title={event.title}
+                    title={course.title}
                     size="m"
                     color='#fff'
                     lineHeight='24px'
@@ -140,19 +140,19 @@ export const EventCard = memo((props: EventCardProps) => {
                 <HStack className={cls.Participants}>
                     <Text size="s" text={`${t('Participants')}:`} color={"rgba(242, 241, 243, 0.50)"} />
                     &nbsp;
-                    <Text size="s" text={`${String(event.participants)}`} color={"#fff"} />
+                    {/*<Text size="s" text={`${String(course.participants)}`} color={"#fff"} />*/}
 
                     <Text title=" ·  " bold color={"#fff"} />
                     <Text size="s" text={`${t('Sold out')}:`} color={"rgba(242, 241, 243, 0.50)"} />
                     &nbsp;
-                    <Text size="s" text={`${String(event.soldOut)}`} color={"#fff"} />
+                    {/*<Text size="s" text={`${String(course.soldOut)}`} color={"#fff"} />*/}
                     <Text size="s" fontSize={12} title="%" bold color={"#fff"} />
                 </HStack>
                 <HStack justify="between" className={cls.Bottom}>
                     <HStack>
-                        <Text size="s" text={`${event.dayDate}:`} color={"rgba(242, 241, 243, 0.50)"} />
+                        {/*<Text size="s" text={`${course.dayDate}:`} color={"rgba(242, 241, 243, 0.50)"} />*/}
                         &nbsp;
-                        <Text size="s" text={`${event.timeDate}`} color={"#fff"} />
+                        {/*<Text size="s" text={`${course.timeDate}`} color={"#fff"} />*/}
                     </HStack>
                     <Button
                         height={31}

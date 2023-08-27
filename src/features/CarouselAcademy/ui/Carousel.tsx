@@ -7,24 +7,24 @@ import { Button } from '@/shared/ui/revamped/Button';
 import { Icon } from '@/shared/ui/revamped/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import {
-    EventCard,
-    EventListDataProvider,
-    getEventData,
-} from '@/entities/Event';
+    CourseCard,
+    CourseListDataProvider,
+    getCourseData,
+} from '@/entities/Course';
 import { useSelector } from 'react-redux';
-import { getEventIsLoading } from '@/entities/Event/model/selectors/event';
+import { getCourseIsLoading } from '@/entities/Course/model/selectors/course';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
 
-export const CarouselEvents = () => {
+export const CarouselAcademy = () => {
     const { t } = useTranslation('community');
-    const events = useSelector(getEventData);
-    const loading = useSelector(getEventIsLoading);
+    const courses = useSelector(getCourseData);
+    const loading = useSelector(getCourseIsLoading);
 
     return (
-        <EventListDataProvider>
+        <CourseListDataProvider>
             <div className={cls.carouselWrapper}>
                 <HStack align="end" justify="between" className={cls.header}>
-                    <Text selectNone title={t('Recent events')} fontSize={24} />
+                    <Text selectNone title={t('Academy')} fontSize={24} />
                     <Button variant="borderNone" fontSize={14} className={cls.seeAll} addonRight={
                         <Icon
                             data-testid="carousel-see-all"
@@ -35,9 +35,9 @@ export const CarouselEvents = () => {
                     }>{t('See all')}</Button>
                 </HStack>
                 <div className={cls.sliderWrapper}>
-                    <Carousel items={events} loading={loading} eventCard={EventCard} draggable />
+                    <Carousel items={courses} loading={loading} eventCard={CourseCard} />
                 </div>
             </div>
-        </EventListDataProvider>
+        </CourseListDataProvider>
     );
 };

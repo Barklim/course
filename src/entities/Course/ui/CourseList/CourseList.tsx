@@ -3,37 +3,37 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { EventCard } from '../EventCard/EventCard';
-import { Event } from '../../model/types/event';
+import { CourseCard } from '../CourseCard/CourseCard';
+import { Course } from '../../model/types/course';
 
-interface EventListProps {
+interface CourseListProps {
     className?: string;
-    events?: Event[];
+    courses?: Course[];
     isLoading?: boolean;
 }
 
-export const EventList = memo((props: EventListProps) => {
-    const { className, isLoading, events } = props;
+export const CourseList = memo((props: CourseListProps) => {
+    const { className, isLoading, courses } = props;
     const { t } = useTranslation();
 
     if (isLoading) {
         return (
             <HStack gap="12" max className={classNames('', {}, [className])}>
-                <EventCard isLoading />
-                <EventCard isLoading />
-                <EventCard isLoading />
+                <CourseCard isLoading />
+                <CourseCard isLoading />
+                <CourseCard isLoading />
             </HStack>
         );
     }
 
     return (
         <HStack gap="16" max className={classNames('', {}, [className])}>
-            {events?.length ? (
-                events.map((event) => (
-                    <EventCard
+            {courses?.length ? (
+                courses.map((course) => (
+                    <CourseCard
                         isLoading={isLoading}
-                        item={event}
-                        key={event.id}
+                        item={course}
+                        key={course.id}
                     />
                 ))
             ) : (

@@ -1,17 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { Event } from '../../types/event';
+import { Course } from '../../types/course';
 
-export const fetchEvents = createAsyncThunk<
-    Event[],
+export const fetchCourses = createAsyncThunk<
+    Course[],
     string | undefined,
     ThunkConfig<string>
->('event/fetchCourses', async ( additionalParams, thunkApi) => {
+>('course/fetchCourses', async ( additionalParams, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
 
     try {
-        const response = await extra.api.get<Event[]>(
-            `/events/`,
+        const response = await extra.api.get<Course[]>(
+            `/courses/`,
             {
                 headers: { authorization: '1' },
                 params: {

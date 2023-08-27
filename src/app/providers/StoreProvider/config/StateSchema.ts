@@ -17,6 +17,7 @@ import { UISchema } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
 import { EventsSchema } from '@/entities/Event/model/types/EventsSchema';
+import { CoursesSchema } from '@/entities/Course/model/types/CoursesSchema';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -32,6 +33,7 @@ export interface StateSchema {
     articlesPage?: ArticlesPageSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
     event?: EventsSchema;
+    course?: CoursesSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -1,18 +1,18 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { EventList } from './EventList';
+import { CourseList } from './CourseList';
 
 export default {
     title: 'entities/Event/CourseList',
-    component: EventList,
+    component: CourseList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof EventList>;
+} as ComponentMeta<typeof CourseList>;
 
-const Template: ComponentStory<typeof EventList> = (args) => (
-    <EventList {...args} />
+const Template: ComponentStory<typeof CourseList> = (args) => (
+    <CourseList {...args} />
 );
 
 export const Normal = Template.bind({});
@@ -38,6 +38,6 @@ export const Normal = Template.bind({});
 
 export const Loading = Template.bind({});
 Loading.args = {
-    events: [],
+    courses: [],
     isLoading: true,
 };

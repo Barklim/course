@@ -1,21 +1,21 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { EventCard } from './EventCard';
+import { CourseCard } from './CourseCard';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'entities/Event/CourseCard',
-    component: EventCard,
+    title: 'entities/Course/CourseCard',
+    component: CourseCard,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof EventCard>;
+} as ComponentMeta<typeof CourseCard>;
 
-const Template: ComponentStory<typeof EventCard> = (args) => (
-    <EventCard {...args} />
+const Template: ComponentStory<typeof CourseCard> = (args) => (
+    <CourseCard {...args} />
 );
 const normalArgs = {
-    event: {
+    course: {
         id: '1',
         // user: {
         //     id: '1',
@@ -58,7 +58,7 @@ NormalRedesigned.decorators = [NewDesignDecorator];
 
 export const Loading = Template.bind({});
 // Loading.args = {
-//     event: {
+//     course: {
 //         id: '1',
 //         user: {
 //             id: '1',

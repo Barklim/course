@@ -307,6 +307,135 @@
       ]
     }
   ],
+  "courses": [
+    {
+      "id": "1",
+      "userId": "1",
+      "img": "https://s3-alpha-sig.figma.com/img/f4a9/63f6/b947fa16066e80d394148280cc805278?Expires=1693785600&Signature=qxJ0LQmSLemnYlld4sg-YaOk90H7lshrF8j-zq4cttnZ0D6t9Kt8N3rjVTiR7xzuXuS8Yow-O0mdawGM~c~3tj2CWwqGVHQ6X~dxEG6n8oL3wjmgz1kxyLcbmcbkh19rCYRdc~DL7NiP-21rIt3iWRJbNcoonPUS3FzIe9lbVxIbdUh3oPYWSifDlObkNHZ0LHxi5UbPqDrSjWZ45hPlKbbUlCwkb389mEceekSqQOSjixHw1QR5mO0rGPzuoD74fZVFOUR-BHYaJpj2biQtF9GAm1BHEDj6-DQi08fglDFLoYb2YPJbJHFpRx5fCsSeCvnAwMXoaoi5PcsQNNmi6w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "title": "Fundamentals\nof investment",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "9",
+      "type": [
+        "STOCKS", "ETFS", "CRYPTO", "NFTS"
+      ],
+      "content": [
+        {
+          "id": "1",
+          "blockImage": "https://s3-alpha-sig.figma.com/img/ab81/58c4/36c7cac3c96bbbeef1356ae4afc9b1f5?Expires=1693785600&Signature=EZtrsp2zGUrQFRe6uTKlCD211ksG5iNHY2IvW7zUyDzLuQQjFsxnI2dx0lBDP9e2ABWWCkpgl5kxMZh8PmWoEBfMl0NSvrAuzGvqW2JfpBFDyIXwOoH7AawWymKXJNfgIKUzdTuYZFf60OAnUY9FEmSfTEjpyb8v2SyMp8tJbk3oQ~ir90~PWlyt8RRuqlb5lKveCrosK-vYxl-vwIv-PB~HOgy0ds7ceQ-BmDotcIQyWn24RecNdqNwm71uBptXNxyj7tw7jBBa3e2-363aHSOMOb-L92bczyPt8EU2DVybyixBhe-cvI7aiP~9qtVdQfQVPm-bLIj7IN8HzXYJ4Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+          "linkUserName": "@slava",
+          "linkUserImage": "https://s3-alpha-sig.figma.com/img/5f04/0529/cec4aedb6bb3a246a737dedf073ab1a5?Expires=1693785600&Signature=EKCKNlSkP2hzdWq7yp~ZPyRlFfcx-orKzgo-NUvyv24nTP9EqJDQhc04xov8-BUsIOEDMOgsYmdlFBa80fThgCECcN1~AAldKuF9opZIDRqI62q6T12DP7yAXk~ny~n0S2ZG63f3O73P3bO35DrfkHDZxV~PYdA6yJ3eOjVo4Mfv80AelxBruzMdo9OR9KkSBPsLuBpBq~nfmpPJL0L1QT-hUKlmTEeO20i2q6BblXOyZTeve2JynFJTrrpnIgARGLPuePirQV5rRC91k0XEZRmSPgrf6jYIzPAe0BRsKIdbP9p4Jy2w060hYp3rQzQlBCCfqyGGTj~RWXWFHHGZ-g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+          "title": "What is investment?",
+          "description": "In this module, we will study the very concept of investment concept of investment",
+          "duration": "2",
+          "earn": "2"
+        },
+        {
+          "id": "2",
+          "blockImage": "https://s3-alpha-sig.figma.com/img/23f9/5831/11b75360f4510bae389d084457ecd43c?Expires=1693785600&Signature=KI1Q8EQfOEhu~VcqlRmA8V56IZiHZRPyBNY8FRsnAcTxFL-UWfPtvgr34Z5m~rgheV~iCmnOP3noLuVUz5wv85pF8t7CtVKTPJwuV9lMwAIt~paS2B7IZuv-WI2xGaQGTsi43bsQsU6BVv~CWNDXOoUm5XnClTIt9owRa096Zaci0PYcNs8noP1-iD0BL5QtBOQESc7TqgxBZKq2X1PDctRx34tsGV6V6x0wsyHK6sShsfI1yMEkuOy~FWuZmpQhfTfyE5eFAMAcl~SAGiZiAxyqovNxdvh8POLGeWIx9Vi0xbJqiNEi6IKHgeyeewyD9p5zW8w9EHiWcUOVt9JR6g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+          "linkUserName": "@mark",
+          "linkUserImage": "https://s3-alpha-sig.figma.com/img/b6ef/90cf/c1c96cfd2820409d4da1a0b1823b0634?Expires=1693785600&Signature=fkmjnff2DVIYVSjG2YdSj3OZ5QHzXtsCJ6W3-77-FGBNSiqMaAVF2Jl7nhdwdMAkzRdkQFj68TFyVmI~ezCgKfYy-LXecKuAyxux2BKladMVn6THEtcl8U-yVqx0AATyL46B2sozXGSVM7~7cLk1~jmzlYafclhjz6tPKlxcEwim~Ss4SWjQ6abm8GuN4fOkf21UmmBX1lrG-245cOwhlKyn46SP0SeZ5cOzgTqOKxyZYO4VQiST3fIMa5yRn2gfpq1rhI0-r2cKbVeT-sHGzuvKAXgpmRYlr2Fo1UYvtoo2cWG5rbeyNfHb6vzVG4qBb7Oiu9yzzLl1EHHg5NUjcg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+          "title": "How to invest in 2023?",
+          "description": "In this module, we will study the very concept of investment concept of investment",
+          "duration": "3",
+          "earn": "3"
+        },
+        {
+          "id": "3",
+          "blockImage": "https://s3-alpha-sig.figma.com/img/5643/6a89/1344eccd15adf53fe4896584f3d8d4cb?Expires=1693785600&Signature=Y9FOGVTPCiDjoHYORdM2ClZceg6LLCsbtghD6IrbB-475SwGJMuk~U4NDmfSGg1Zs1XDQxfLuI5qXmLVG38FDiYmsFL2~-qsJWrBc8gEnEFwA8T43u7hklWZlh7tclIhETySeK69oBh7YTwv4cKj1YR6EVyLNt3tPYP2EnduSTnzXw-g0o-iJ3uhXy0sqSmC2rR8V28OD2xf3REslN6tCfJB99bMB7LH1ed5c0cxgUlhvru-FtRfvg~HGoFxkpzlWL9agTnx0kfU0AMkWLEPpGpZKPDZVMLxAJpuvDR1sxNgAzPGr0olQdxvScUHMVRReTBeW3Xmkn5uqf0dmz-xlQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+          "linkUserName": "@nika",
+          "linkUserImage": "https://s3-alpha-sig.figma.com/img/0704/9754/3599df674331691fc398e2cf4cec2872?Expires=1693785600&Signature=PhFWdNRd4brsqK5PFf-qLP0K-rJFaaMvD6HMfkrIVAkKfxtO9hN25nFRVIGX4SvphJyq5t7sw3ZVzYaPinP6AMBQqXacrZe4pDPihHrwtRehoq5dLohAE4jI3kTQ3X47672zpZnlFuwS4igfYEWiuIP915Orgrr-Coii701p84BigOylS5Vi-80YfGmf6Yyd32TZBmm1FNJBURm1VFirWtcN5yTKJB6Dou~XsonSwPdZNxekmVgHSnAl6bapWNQIhimNbPwyTNsEjFXgoHT21W5iLdwxS5wLZE-30lUM9yq-MDpeWfB64V0PkURZG~-dRHILTyz2NZIaIRhZEapaPw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+          "title": "How to use crypto?",
+          "description": "In this module, we will study the very concept of investment concept of investment",
+          "duration": "1",
+          "earn": "4"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "img": "https://s3-alpha-sig.figma.com/img/cf3e/cada/c59bb382db52be627b14ec77e3efa286?Expires=1693785600&Signature=DDoN-ZviCXTayoNxWrgzvxED7YMY6VkLUyugeS~mezbzrTbwdroFwRQ067zR4we9YydKhVGWN4Eik1KRSjTc5zBfGrtZSLS0G-4w72THbMIm1QMBmseCgwkevki56qx5Vwz1r40GLCgY39j3VuSckfI2tfDEgM6CeXKwvSh1l0S1kUXXTaSbusHxQ6D1pt4R8nflRq-c58rhDYBRG6A4-Lj-rBKTQ7W~fMkelmcV255umhpPKQxc46e1bRT2cejhp45OuZHSV0V~knGI2MjYgBBb0lskk7hpUCTKKlCCJR44ppP5LS1~w5qy9AgOQxmJNrTMSP2TRQzjC76mnNM~iA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "title": "Earn 2T\nLorem ipsum dolor sit amet ",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "21",
+      "type": [
+        "STOCKS", "ETFS", "CRYPTO", "NFTS"
+      ],
+      "content": []
+    },
+    {
+      "id": "3",
+      "userId": "3",
+      "img": "https://s3-alpha-sig.figma.com/img/2d95/c404/1d774f7ff9e9842af7f5d488c7a62332?Expires=1693785600&Signature=LDDYasS7kQeW811s~vzEfB2YMqsewh6R2SJ~snuZEaXfESXBx1hR5hEqZ6wdohnV4IxKerP9Sdka0QTqn-fAsppQIgscwCOABSY7ViYtt-ktr6yoKiYyzKwUCI3fQTkAiKWxPMOSKNdJPkRAZXWpLizSDU4HeG0eRVhKh9xx4BtUATqN~a5qio33olmcMAQ7FcRj~5CKz3Z0pdw6VvxlIRUl6Mw8d-vwV0Pdx9zNWiHO2wN~dqyxxAVJsQe1ROitX4upY4OOsFpaUaa4G7Qi6aGVforHGp~UFenLOFz4rrbvhSY~2qp01RRijsWQIOAZE-qLWeDTREk7UOk4kR7H9A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "title": "Lorem ipsum dolor sit amet ",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "8",
+      "type": [
+        "STOCKS", "ETFS", "CRYPTO", "NFTS"
+      ],
+      "content": []
+    },
+    {
+      "id": "4",
+      "userId": "4",
+      "img": "https://s3-alpha-sig.figma.com/img/2d95/c404/1d774f7ff9e9842af7f5d488c7a62332?Expires=1693785600&Signature=LDDYasS7kQeW811s~vzEfB2YMqsewh6R2SJ~snuZEaXfESXBx1hR5hEqZ6wdohnV4IxKerP9Sdka0QTqn-fAsppQIgscwCOABSY7ViYtt-ktr6yoKiYyzKwUCI3fQTkAiKWxPMOSKNdJPkRAZXWpLizSDU4HeG0eRVhKh9xx4BtUATqN~a5qio33olmcMAQ7FcRj~5CKz3Z0pdw6VvxlIRUl6Mw8d-vwV0Pdx9zNWiHO2wN~dqyxxAVJsQe1ROitX4upY4OOsFpaUaa4G7Qi6aGVforHGp~UFenLOFz4rrbvhSY~2qp01RRijsWQIOAZE-qLWeDTREk7UOk4kR7H9A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "title": "Posuere quis et eu massa amet",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "14",
+      "type": [
+        "STOCKS", "ETFS", "CRYPTO", "NFTS"
+      ],
+      "content": []
+    },
+    {
+      "id": "5",
+      "userId": "5",
+      "img": "https://s3-alpha-sig.figma.com/img/eb04/27a3/b467ad053d5ba2bccdbf27a029b680a7?Expires=1693785600&Signature=Wa~RHar685Cy5tzx41ztHalKk5GiSo0eYqlw2SawzQ7iKC7xCc0PgRIB4S-TAx1pLqMyy0te6RcOMEmZJBE0sx~Wg7cQWUqJCYH92jDcr4QFLnPIuauSrEJTvOdZKySF1dcQ3Ce2xJtuQl3ZVMiR9cCtvp6C1NRMXmGEtdFsFvNuFrPjwLw20~IbsptQdsdPeR0cU4JAtOOzbx9MaCJIP8blMo-eNFrSFVl8H1unGSwnnWIP2shtvT8w-dSmNW4Jow8g2BoB-E-GJTuhS3xcI1hSlAJg4JGosvyrIIJuqPp3As2IpzJuTmUkFA2wCa95oNMpgAxQOUlPeteGon4AiA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "title": "Diam pretium eu ac venenatis",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "16",
+      "type": [
+        "STOCKS", "ETFS", "CRYPTO", "NFTS"
+      ],
+      "content": []
+    },
+    {
+      "id": "6",
+      "userId": "6",
+      "img": "https://s3-alpha-sig.figma.com/img/ade5/7403/eb5267c746219ddccf2d52a8f9344a24?Expires=1693785600&Signature=P0TPA6Esr7MJuFQSbdvqBki0t663uoVKJJ2nhQGx2SeTK7Vxa5htE1qT2HoqqnEd8k5LadIhkVHmHGV4f2v30FB4CYG-YOOQMzd~l4uylOvR23OG~KVBAgvvLK-Mo3k4Qyxenn2CCS9WmngqAqywqqk1ADDwDeSbkiDO~3XdE1Ip~U2pxFDcTeSzWLagMJKlezvtIqDMvnbwdbYc~2A9XKxCumJHJjbEnRGAR3oLs4NOW3ON~ayM-YNxTe4Pz9Z2n0Y6vizXhfY9A68vHVqw8auVHBF3vJCh0J500vXCQaZS9lbdSeYrifKzQXWEr9zcP6rZ-0X4qpymZi6An~tP9g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "title": "Aliquam pulvinar ac",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "16",
+      "type": [
+        "STOCKS", "ETFS", "CRYPTO", "NFTS"
+      ],
+      "content": []
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -1281,7 +1410,7 @@
       "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_light_theme"
+        "theme": "app_dark_theme"
       }
     },
     {
