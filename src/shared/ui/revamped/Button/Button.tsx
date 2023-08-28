@@ -40,6 +40,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     fullWidth?: boolean;
     fontSize?: number;
     height?: number;
+    width?: number;
     dark?: boolean;
     light?: boolean;
 
@@ -66,6 +67,7 @@ export const Button = forwardRef(
             size = 'm',
             fontSize = 16,
             height = 20,
+            width,
             dark, light,
             addonLeft,
             addonRight,
@@ -102,6 +104,7 @@ export const Button = forwardRef(
                 style={{
                     fontSize: fontSize,
                     height: height,
+                    width: width,
                     padding: padding,
                     borderRadius: borderRadius,
                     color: fontColor,

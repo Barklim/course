@@ -1,17 +1,18 @@
-import { memo, useEffect, useState } from 'react';
+import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/revamped/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import cls from './CourseCard.module.scss';
 import { Course } from '../../model/types/course';
-import { getRouteProfile } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import { Theme } from '@/shared/const/theme';
 import { Button } from '@/shared/ui/revamped/Button';
 import { useTranslation } from 'react-i18next';
+import { Icon } from '@/shared/ui/revamped/Icon';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import Academy from '@/shared/assets/icons/academy.svg';
+
+const coinUrl = 'https://raw.githubusercontent.com/Barklim/course/76e32b645ad404f3069bc0c96d2e37d9f6245792/hostImg/coin.svg'
 
 export interface CourseCardProps {
     className?: string;
@@ -28,57 +29,31 @@ export const CourseCard = memo((props: CourseCardProps) => {
     if (isLoading) {
         return (
             <Card
-                padding="10"
-                border="normal"
-                borderRadius={'20'}
-                cardColor={cardColor}
+                borderRadius={'16'}
                 fullWidth
                 fullHeight
+                className={cls.card}
             >
                 <VStack
                     data-testid="CourseCard.Content"
-                    max
-                    className={classNames(cls.CourseCardRedesigned, {}, [
+                    justify={'between'}
+                    className={classNames(cls.cardInner, {}, [
                         className,
                     ])}
                 >
-                    <HStack justify="between" className={cls.Header}>
-                        <AppLink to={getRouteProfile('1')} >
-                            <HStack gap="8" >
-                                <Skeleton height={40} width={40} border={'100px'} />
-                                <Skeleton width={120} height={20} />
-                            </HStack>
-                        </AppLink>
-                        <Skeleton width={70} height={20} />
+                    <HStack justify="between" className={cls.header}>
+                        <Skeleton width={75} height={30} border={'15px'} />
+
+                        <div className={cls.academyIcon}>
+                            <Skeleton width={30} height={30} border={'30px'} />
+                        </div>
                     </HStack>
 
-                    <Skeleton className={cls.Title} width="80%" height={50} />
+                    <VStack gap='8' className={cls.bottom}>
+                        <Skeleton width={125} height={20} border={'15px'}  />
+                        <Skeleton width={95} height={20} border={'15px'}  />
+                    </VStack>
 
-                    <HStack className={cls.Participants}>
-                        <Text size="s" text={`${t('Participants')}:`} color={"rgba(242, 241, 243, 0.50)"} />
-                        &nbsp;
-                        <Skeleton width={40} height={16} />
-
-                        <Text title=" ·  " bold color={"#fff"} />
-                        <Text size="s" text={`${t('Sold out')}:`} color={"rgba(242, 241, 243, 0.50)"} />
-                        &nbsp;
-                        <Skeleton width={40} height={16} />
-                        <Text size="s" fontSize={12} title="%" bold color={"#fff"} />
-                    </HStack>
-                    <HStack justify="between" className={cls.Bottom}>
-                        <HStack>
-                            <Skeleton className={cls.Title} width={40} height={16} />
-                            &nbsp;
-                            <Skeleton className={cls.Title} width={80} height={16} />
-                        </HStack>
-                        <Button
-                            height={31}
-                            padding="10px 14px 9px"
-                            borderRadius={8}
-                            fontColor="#fff"
-                            fontSize={12}
-                        >{t('Book Class')}</Button>
-                    </HStack>
                 </VStack>
             </Card>
         );
@@ -90,78 +65,49 @@ export const CourseCard = memo((props: CourseCardProps) => {
 
     return (
         <Card
-            padding="10"
-            border="normal"
-            borderRadius={'20'}
-            cardColor={cardColor}
+            borderRadius={'16'}
+            bgImage={course.img}
             fullWidth
             fullHeight
+            className={cls.card}
         >
+            <div className={cls.cardBackGradient}></div>
             <VStack
                 data-testid="CourseCard.Content"
-                max
-                className={classNames(cls.CourseCardRedesigned, {}, [
+                justify={'between'}
+                className={classNames(cls.cardInner, {}, [
                     className,
                 ])}
             >
-                <HStack justify="between" className={cls.Header}>
-                    <AppLink to={getRouteProfile(course.user.id)} >
-                        <HStack gap="8" >
-                            {course.user.avatar ? (
-                                <Avatar
-                                    size={40}
-                                    src={course.user.avatar}
-                                />
-                            ) : null}
-                            <Text text={`${course.user.first} ${course.user.lastName}`} color='#fff' />
-                        </HStack>
-                    </AppLink>
+                <HStack justify="between" className={cls.header}>
                     <Button
-                        addonLeft="$"
-                        variant="filled"
-                        height={29}
-                        fontColor={'#fff'}
-                        bgColor={'rgba(255, 255, 255, 0.10)'}
-                        fontWeight={700}
-                        padding="6px 10px"
-                    >
-                        <Text bold text={String(course.price)} color={"#fff"}></Text>
-                    </Button>
-                </HStack>
-
-                <Text
-                    title={course.title}
-                    size="m"
-                    color='#fff'
-                    lineHeight='24px'
-                    className={cls.Title}
-                />
-
-                <HStack className={cls.Participants}>
-                    <Text size="s" text={`${t('Participants')}:`} color={"rgba(242, 241, 243, 0.50)"} />
-                    &nbsp;
-                    {/*<Text size="s" text={`${String(course.participants)}`} color={"#fff"} />*/}
-
-                    <Text title=" ·  " bold color={"#fff"} />
-                    <Text size="s" text={`${t('Sold out')}:`} color={"rgba(242, 241, 243, 0.50)"} />
-                    &nbsp;
-                    {/*<Text size="s" text={`${String(course.soldOut)}`} color={"#fff"} />*/}
-                    <Text size="s" fontSize={12} title="%" bold color={"#fff"} />
-                </HStack>
-                <HStack justify="between" className={cls.Bottom}>
-                    <HStack>
-                        {/*<Text size="s" text={`${course.dayDate}:`} color={"rgba(242, 241, 243, 0.50)"} />*/}
-                        &nbsp;
-                        {/*<Text size="s" text={`${course.timeDate}`} color={"#fff"} />*/}
-                    </HStack>
-                    <Button
-                        height={31}
-                        padding="10px 14px 9px"
-                        borderRadius={8}
-                        fontColor="#fff"
+                        variant={'filled'}
+                        height={30}
+                        className={cls.earnButton}
+                        dark
+                        padding={'5px 6px'}
                         fontSize={12}
-                    >{t('Book Class')}</Button>
+                        addonLeft={
+                            <AppImage
+                                src={coinUrl}
+                                className={cls.firstCoin}
+                            />
+                        }
+                    >
+                        <Text color={'#fff'} title={`${t('Earn')} ${course.earn}T`} fontSize={12} />
+                    </Button>
+                    <div className={cls.academyIcon}>
+                        <Icon
+                            Svg={Academy}
+                            width={18}
+                            height={18}
+                            setActive
+                            color={'#fff'}
+                        />
+                    </div>
                 </HStack>
+
+                <Text text={course.title} color={'#fff'} className={cls.bottom} />
             </VStack>
         </Card>
     );

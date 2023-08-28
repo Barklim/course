@@ -19,7 +19,6 @@ import { Navbar } from '@/widgets/Navbar';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Button } from '@/shared/ui/revamped/Button';
-import Calendar from '@/shared/assets/icons/calendar.svg';
 
 interface SidebarProps {
     className?: string;

@@ -35,7 +35,7 @@ export const CarouselEvents = () => {
                     }>{t('See all')}</Button>
                 </HStack>
                 <div className={cls.sliderWrapper}>
-                    <Carousel items={events} loading={loading} eventCard={EventCard} draggable />
+                    <Carousel width={293} items={events} loading={loading} eventCard={EventCard} draggable />
                 </div>
             </div>
         </EventListDataProvider>

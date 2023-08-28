@@ -21,6 +21,7 @@ import { CourseCardProps } from '@/entities/Course/ui/CourseCard/CourseCard';
 interface CarouselProps {
     items: Event[] | Course[] | undefined;
     loading: boolean;
+    width?: number | undefined;
     draggable?: boolean;
     eventCard?: React.ComponentType<EventCardProps> | React.ComponentType<CourseCardProps>;
 }
@@ -28,6 +29,7 @@ interface CarouselProps {
 interface SlideProps {
     slide: any;
     isLoading: boolean;
+    width: number | undefined;
     cardColor?: CardColorEnum;
     theme?: Theme;
     eventCard?: React.ComponentType<EventCardProps> | React.ComponentType<CourseCardProps>;
@@ -36,13 +38,14 @@ interface SlideProps {
 const Slide: React.FC<SlideProps> = ({
     slide,
     isLoading,
+    width,
     cardColor,
     theme,
     eventCard: EventCard
 }) => {
     const gradientColor = cardColor ? getGradientColor(cardColor, theme) : '';
     return (
-        <div property={'slide'} className={cls.slide}>
+        <div property={'slide'} className={cls.slide} style={{ width: width }}>
             <div className={cls.preview}>
                 {EventCard ? (
                     <EventCard cardColor={gradientColor} item={slide } isLoading={isLoading} />
@@ -57,6 +60,7 @@ const Slide: React.FC<SlideProps> = ({
 export const Carousel: React.FC<CarouselProps> = ({
     items,
     loading,
+    width,
     draggable,
     eventCard
 }) => {
@@ -132,8 +136,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                     horizontalLoop(elements as unknown as HTMLElement[], {
                         repeat: 2,
                         paused: false,
-                        // speed: 0.02,
-                        speed: 0.000001,
+                        speed: 0.02,
                         reversed: true,
                         paddingRight: 12,
                     });
@@ -147,15 +150,14 @@ export const Carousel: React.FC<CarouselProps> = ({
         }
     }, [ loading]);
 
-    let aIndex = 0;
-
     const renderCarousel = loading ?
         <>
-            {['slide', 's', 's', 's', 's']?.map((slide, index) => {
+            {['slide', 's', 's', 's', 's', 's']?.map((slide, index) => {
                 return (
                     <Slide
                         key={index}
                         slide={slide}
+                        width={width}
                         isLoading={true}
                         eventCard={eventCard}
                     />
@@ -172,6 +174,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                     <Slide
                         key={event.id}
                         slide={event}
+                        width={width}
                         isLoading={false}
                         cardColor={currentCardColor}
                         theme={storageTheme}

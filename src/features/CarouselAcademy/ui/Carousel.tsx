@@ -35,7 +35,7 @@ export const CarouselAcademy = () => {
                     }>{t('See all')}</Button>
                 </HStack>
                 <div className={cls.sliderWrapper}>
-                    <Carousel items={courses} loading={loading} eventCard={CourseCard} />
+                    <Carousel width={150} items={courses} loading={loading} eventCard={CourseCard} />
                 </div>
             </div>
         </CourseListDataProvider>

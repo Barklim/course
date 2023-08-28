@@ -15,8 +15,8 @@ interface BannerCourseProps {
     className?: string;
 }
 
-const imgFront = "https://s3-alpha-sig.figma.com/img/89aa/e42d/86afcb828ebc8e67fe140ddb509af946?Expires=1693785600&Signature=Z14NH3UhaPmsUD83kA~tgBP6zCkJspnTGaVfb2tVFYPJNIapePNCOW86X3h7dLG5pF2e~TRLK1YzvekaB9Kiu9UEvRYsF~HD9IlCwYJ6P7CuHM4mv0-W-x2j8X~Ot2s7lzi3H7nyMRqqXXnX6QOyJ5OKqMXouS1si956HGUcI~PLMHG9H1f1OUh1yoIM4MUEKlZGyBHp64cFH76joq7q~3MyzCXLHLoflrikyn3mbf5zINmkDKBmOZeOG-oGVyzmnluJ1YLUQZi4XvgsIHS12Maq1WGj-rkLD8DtSgSE6snkJpM7LZ5jg9kCnWSGG-RKLn4csMtWc-gejxD-IidaNA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-const imgBack = "https://s3-alpha-sig.figma.com/img/0f75/5b31/76427bea917c1742d5c7bc4fb8d660be?Expires=1693785600&Signature=E9Mv-JbxBPJptMlU0gJq8uAft8CVidIXPCILivAWGDSyO0hayQsWX14cggvqYlHo47RrbWm0h8avW2eDb8ZOGfNYrP1DeACorXRa58~RZaVLUTnBwgkcUZmaOd-azojqf0L-BvNiII4cG09ZsjSmvA~RHAwW9QOxQNcajCc16xPSyn1yIZMKfYTbpHyAIXl-hKN6NATuDU-Yo6OzzLy-IMFp~Ych~qvxN29CwaY3wO3E3x4qT-JdYQl2hzVk81OaGPFFENVCIFEPXbjtPd9SeHYkJaR6~zpr8x1PmNt1hFmQgT-i5H7Ow8PKINq5IgRZwB9JcaeA-jkKlWn~3Lj5yg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+const imgFront = "https://github.com/Barklim/course/blob/main/hostImg/bannerCourse1.jpeg?raw=true"
+const imgBack = "https://github.com/Barklim/course/blob/main/hostImg/bannerCourse2.jpeg?raw=true"
 
 export const Banner = memo((props: BannerCourseProps) => {
     const { className } = props;

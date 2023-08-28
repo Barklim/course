@@ -1,11 +1,11 @@
-import { HTMLAttributes, memo, ReactNode } from 'react';
+import React, { HTMLAttributes, memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Card.module.scss';
 
 export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPadding = '0' | '8' | '10' | '16' | '24';
 export type CardBorder = 'round' | 'normal' | 'partial';
-export type CardBorderPadding = '12' | '20';
+export type CardBorderPadding = '12' | '16' | '20';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
@@ -16,6 +16,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     border?: CardBorder;
     borderRadius?: CardBorderPadding;
     cardColor?: any;
+    bgImage?: string;
     // todo удалить, дубликат max
     fullWidth?: boolean;
     fullHeight?: boolean;
@@ -23,6 +24,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 
 const mapBorderRadiusToClass: Record<CardBorderPadding, string> = {
     '12': 'border_12',
+    '16': 'border_16',
     '20': 'border_20'
 };
 
@@ -44,6 +46,7 @@ export const Card = memo((props: CardProps) => {
         border = 'normal',
         borderRadius = '12',
         cardColor,
+        bgImage,
         fullWidth,
         fullHeight,
         ...otherProps
@@ -51,6 +54,14 @@ export const Card = memo((props: CardProps) => {
 
     const paddingClass = mapPaddingToClass[padding];
     const borderRadiusClass = mapBorderRadiusToClass[borderRadius];
+
+    const cardStyle: React.CSSProperties = {
+        backgroundImage: bgImage ? `url(${bgImage})` : undefined,
+    };
+
+    if (cardColor) {
+        cardStyle.background = cardColor;
+    }
 
     return (
         <div
@@ -69,7 +80,7 @@ export const Card = memo((props: CardProps) => {
                     cls[borderRadiusClass]
                 ],
             )}
-            style={{ background: cardColor}}
+            style={ cardStyle}
             {...otherProps}
         >
             {children}

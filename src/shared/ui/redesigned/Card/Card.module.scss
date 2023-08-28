@@ -1,5 +1,6 @@
 .Card {
     padding: 24px;
+    background-size: cover !important;
 }
 
 .withoutPaddings {
@@ -36,6 +37,10 @@
 
 .border_12 {
     border-radius: 12px;
+}
+
+.border_16 {
+    border-radius: 16px;
 }
 
 .border_20 {
