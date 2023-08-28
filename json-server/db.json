@@ -456,7 +456,7 @@
     {
       "id": "7",
       "userId": "7",
-      "img": "https://scontent.cdninstagram.com/v/t51.2885-15/337161720_5930530880329955_8971940908413444014_n.jpg?stp=dst-jpg_e35&_nc_ht=scontent.cdninstagram.com&_nc_cat=111&_nc_ohc=pcdQuO-QSuwAX-QmzVH&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MzA2NDEzMDQxMjIyNTc0ODQ1Mg%3D%3D.2-ccb7-5&oh=00_AfChs8DW0Fdly2t3HCkE4tVS7tzNffHE-tXHT9J_QNgXYQ&oe=64F1DA67&_nc_sid=10d13b",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/7.jpeg?raw=true",
       "title": "Diam pretium\neu ac venenatis",
       "price": "6.30",
       "views": 12,
@@ -1444,7 +1444,7 @@
         "isAppRedesigned": true,
         "isAppRevamped": true
       },
-      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
+      "avatar": "https://github.com/Barklim/course/blob/main/hostImg/avatar.png?raw=true",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
         "theme": "app_light_theme"
@@ -1666,7 +1666,7 @@
       "country": "Ukraine",
       "city": "Moscow",
       "username": "user",
-      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
+      "avatar": "https://github.com/Barklim/course/blob/main/hostImg/avatar.png?raw=true"
     },
     {
       "id": "4",
