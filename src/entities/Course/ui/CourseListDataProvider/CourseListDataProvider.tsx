@@ -21,7 +21,7 @@ export const CourseListDataProvider = memo((props: EventListProps) => {
     };
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             {props.children}
         </DynamicModuleLoader>
     );

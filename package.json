@@ -77,7 +77,7 @@
         "babel-plugin-i18next-extract": "^0.8.3",
         "circular-dependency-plugin": "^5.2.2",
         "copy-webpack-plugin": "^10.2.4",
-        "css-loader": "^6.6.0",
+        "css-loader": "^6.8.1",
         "cypress": "^11.0.0",
         "eslint": "^8.10.0",
         "eslint-config-airbnb": "^19.0.4",
@@ -140,7 +140,8 @@
         "react-dom": "^18.2.0",
         "react-i18next": "^11.18.3",
         "react-redux": "^8.0.5",
-        "react-router-dom": "^6.2.1"
+        "react-router-dom": "^6.2.1",
+        "swiper": "^9.0.3"
     },
     "loki": {
         "configurations": {

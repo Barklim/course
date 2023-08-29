@@ -24,6 +24,7 @@ import {
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
+import { SwipePage } from '@/pages/SwipePage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -32,7 +33,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.WATCH]: {
         path: getRouteWatch(),
-        element: <AboutPage />,
+        element: <SwipePage />,
     },
     [AppRoutes.COMMUNITY]: {
         path: getRouteCommunity(),

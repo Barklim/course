@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 // @ts-ignore
-// import gsap from '../../../../modules/gsap-trial';
 import gsap from '../../../../../../modules/gsap-trial';
 // @ts-ignore
 import InertiaPlugin from '../../../../../../modules/gsap-trial/dist/InertiaPlugin';
@@ -17,6 +16,7 @@ import useIsomorphicLayoutEffect from '../helpers/isomorphicLayout'
 import horizontalLoop from '../helpers/horizontalLoop';
 import { Course } from '@/entities/Course';
 import { CourseCardProps } from '@/entities/Course/ui/CourseCard/CourseCard';
+import { useLocalStorage } from '@/app/lib/useLocalStorage';
 
 interface CarouselProps {
     items: Event[] | Course[] | undefined;
@@ -66,25 +66,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 }) => {
     let sliderRef = useRef<HTMLDivElement | null>(null);
     const isAnimationCreatedRef = useRef(false);
-    const [storageTheme, setStorageTheme] = useState<Theme>(localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.DARK);
-
-    useEffect(() => {
-        // TODO: Extract to hook
-        // TODO: this decision is not working, but bad solving bottom with long pooling is bad
-        // window.addEventListener('storage', () => {
-        //     console.log("Change to local storage!");
-        // });
-        const interval = setInterval(() => {
-            const newValue = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.DARK;
-            if (newValue !== storageTheme) {
-                setStorageTheme(newValue);
-            }
-        }, 1000);
-
-        return () => {
-            clearInterval(interval);
-        };
-    }, [storageTheme]);
+    const { storageTheme } = useLocalStorage();
 
     useEffect(() => {
         if (draggable) {
@@ -188,7 +170,6 @@ export const Carousel: React.FC<CarouselProps> = ({
             {(draggable) ?
                 <div id="slider" className={cls.slider}  ref={sliderRef}>
                     {renderCarousel}
-
                 </div>
             :
                 <div className={cls.container}>

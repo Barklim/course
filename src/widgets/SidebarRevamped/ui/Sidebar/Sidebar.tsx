@@ -19,13 +19,14 @@ import { Navbar } from '@/widgets/Navbar';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Button } from '@/shared/ui/revamped/Button';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, LOCAL_STORAGE_SIDEBAR_STATE } from '@/shared/const/localstorage';
 
 interface SidebarProps {
     className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_STATE) === "false");
     const sidebarItemsList = useSidebarItems();
     const { t } = useTranslation();
     const location = useLocation()
@@ -38,6 +39,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
+        localStorage.setItem(LOCAL_STORAGE_SIDEBAR_STATE, String(collapsed));
     };
 
     const itemsList = useMemo(

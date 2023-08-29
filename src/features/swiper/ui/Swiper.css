@@ -1,0 +1,13 @@
+.swiper-wrapper {
+    transform: translateX(36%) !important;
+}
+
+.swiper {
+    overflow: initial !important;
+}
+
+.swiper-button-prev {
+}
+
+.swiper-button-next {
+}

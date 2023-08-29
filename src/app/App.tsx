@@ -14,6 +14,7 @@ import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { useAppForelock } from '@/app/lib/useAppForelock';
+import { useAppFullWidth } from '@/app/lib/useAppFullWidth';
 import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 import { LOCAL_STORAGE_LAST_DESIGN_KEY, LOCAL_STORAGE_REVAMP_KEY } from '@/shared/const/localstorage';
 
@@ -23,6 +24,7 @@ const App = memo(() => {
     const inited = useSelector(getUserInited);
     const toolbar = useAppToolbar();
     const forelock = useAppForelock();
+    const fullWidth = useAppFullWidth();
 
     useEffect(() => {
         const designKey = localStorage.getItem(LOCAL_STORAGE_REVAMP_KEY);
@@ -108,6 +110,7 @@ const App = memo(() => {
                             sidebar={<SidebarR />}
                             toolbar={toolbar}
                             forelock={forelock}
+                            fullWidth={fullWidth}
                         />
                     </Suspense>
                 </div>
