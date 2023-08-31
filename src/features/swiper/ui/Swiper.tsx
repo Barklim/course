@@ -29,20 +29,10 @@ export const Swiper = React.memo(() => {
     const { t } = useTranslation('swipe');
     const courses = useSelector(getCourseData);
     const loading = useSelector(getCourseIsLoading);
-    const swiperRef = useRef<SwiperRef | null>();
-
 
     useInitialEffect(() => {
         dispatch(fetchCourses());
     });
-
-    useEffect(() => {
-        if (!loading) {
-            const swiperApi = swiperRef.current;
-            swiperApi?.swiper.removeSlide(1);
-            swiperApi?.swiper.removeSlide(0);
-        }
-    }, [loading]);
 
     const reducers: ReducersList = {
         course: courseReducer,
@@ -123,9 +113,40 @@ export const Swiper = React.memo(() => {
                             </div>
                             <div></div>
                         </div>
+                        {loading ?
+                            <SwiperReact
+                                modules={[EffectCreative, Navigation]}
+                                effect={'creative'}
+                                grabCursor={true}
+                                centeredSlides={true}
+                                loop={true}
+                                spaceBetween={40}
+                                slidesPerView={3}
+                                className={cls.container}
+                                creativeEffect={{
+                                    next: {
+                                        translate: [490, 0, 0],
+                                        rotate: [0,0,10],
+                                        opacity: 0.95,
+                                        scale: 0.7
+                                    },
+                                    prev: {
+                                        translate: [-490, 0, 0],
+                                        rotate: [0,0,-10],
+                                        opacity: 0.95,
+                                        scale: 0.7,
+                                    },
+                                }}
+                                navigation={{
+                                    nextEl: '.swiper-button-next',
+                                    prevEl: '.swiper-button-prev',
+                                }}
+                                initialSlide={0}
+                            >
+                                {renderSlides(courses)}
+                            </SwiperReact> : null
+                        }
                         <SwiperReact
-                            // @ts-ignore
-                            ref={swiperRef}
                             modules={[EffectCreative, Navigation]}
                             effect={'creative'}
                             grabCursor={true}
@@ -154,7 +175,7 @@ export const Swiper = React.memo(() => {
                             }}
                             initialSlide={0}
                         >
-                            {renderSlides(courses)}
+                            {loading ? null : renderSlides(courses)}
                         </SwiperReact>
                     </div>
                 </div>
