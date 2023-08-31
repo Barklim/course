@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import cls from './Swiper.module.scss';
 import { useSelector } from 'react-redux';
 import { Course, getCourseData } from '@/entities/Course';
@@ -28,7 +28,7 @@ SwiperCore.use([ Manipulation ]);
 
 export const Swiper = React.memo(() => {
     const dispatch = useAppDispatch();
-    const { t } = useTranslation('swipe');
+    const { t } = useTranslation('');
     const courses = useSelector(getCourseData);
     const loading = useSelector(getCourseIsLoading);
 

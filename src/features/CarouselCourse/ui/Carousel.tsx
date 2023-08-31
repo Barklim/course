@@ -17,6 +17,7 @@ import { AppLink } from '@/shared/ui/redesigned/AppLink';
 interface CarouselProps {
     play?: boolean;
     header: string;
+    colorTitle?: string;
     colorHeader?: string;
     courseView?: CourseView;
     draggable?: boolean;
@@ -25,6 +26,7 @@ interface CarouselProps {
 export const CarouselCourse:  React.FC<CarouselProps> = ({
     play,
     header ,
+    colorTitle,
     colorHeader,
     draggable,
     courseView = CourseView.SMALL
@@ -37,7 +39,7 @@ export const CarouselCourse:  React.FC<CarouselProps> = ({
         <CourseListDataProvider>
             <div className={cls.carouselWrapper}>
                 <HStack align="end" justify="between" className={cls.header}>
-                    <Text selectNone title={header} fontSize={24} />
+                    <Text selectNone title={header} color={colorTitle ? colorTitle : undefined} fontSize={24} />
                     <AppLink to={getRouteWatch()}>
                         <Button
                             variant="borderNone"

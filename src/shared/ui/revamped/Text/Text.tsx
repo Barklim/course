@@ -21,6 +21,7 @@ interface TextProps {
     minor?: boolean;
     selectNone?: boolean;
     titleFont?: boolean;
+    fontWeight?: string | number;
     textFont?: boolean;
     lineHeight?: string;
     'data-testid'?: string;
@@ -58,6 +59,7 @@ export const Text = memo((props: TextProps) => {
         minor,
         selectNone,
         titleFont,
+        fontWeight,
         textFont,
         lineHeight,
         'data-testid': dataTestId = 'Text',
@@ -88,7 +90,12 @@ export const Text = memo((props: TextProps) => {
                 <HeaderTag
                     className={cls.title}
                     data-testid={`${dataTestId}.Header`}
-                    style={{ fontSize: fontSize, color: color ? color : undefined, lineHeight: lineHeight }}
+                    style={{
+                        fontSize: fontSize,
+                        color: color ? color : undefined,
+                        lineHeight: lineHeight,
+                        fontWeight: fontWeight ? fontWeight : undefined
+                    }}
                 >
                     {title}
                 </HeaderTag>
@@ -96,7 +103,12 @@ export const Text = memo((props: TextProps) => {
             {text && (
                 <p
                     className={cls.text} data-testid={`${dataTestId}.Paragraph`}
-                    style={{ fontSize: fontSize, color: color, lineHeight: lineHeight }}
+                    style={{
+                        fontSize: fontSize,
+                        color: color,
+                        lineHeight: lineHeight,
+                        fontWeight: fontWeight ? fontWeight : undefined
+                    }}
                 >
                     {text}
                 </p>

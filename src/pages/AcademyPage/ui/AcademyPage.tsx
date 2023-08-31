@@ -4,33 +4,29 @@ import { Page } from '@/widgets/Page';
 import { CarouselCourse } from '@/features/CarouselCourse';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { CourseView } from '@/entities/Course/model/consts/courseConsts';
+import { FilteredHeader } from '@/features/filteredHeader';
 
 const AcademyPage = () => {
     const { t } = useTranslation('');
 
+    const renderCarouselCourse = (headerText: string) => (
+        <CarouselCourse
+            header={t(headerText)}
+            // TODO: styles
+            colorTitle={'#fff'}
+            colorHeader={'#fff'}
+            play={false}
+            draggable
+            courseView={CourseView.BIG}
+        />
+    );
+
     return <Page data-testid="AcademyPage">
+        <FilteredHeader />
         <VStack max gap={'46'}>
-            <CarouselCourse
-                header={t('New Playlist')}
-                colorHeader={'#fff'}
-                play={false}
-                draggable
-                courseView={CourseView.BIG}
-            />
-            <CarouselCourse
-                header={t('Trending')}
-                colorHeader={'#fff'}
-                play={false}
-                draggable
-                courseView={CourseView.BIG}
-            />
-            <CarouselCourse
-                header={t('Watch later')}
-                colorHeader={'#fff'}
-                play={false}
-                draggable
-                courseView={CourseView.BIG}
-            />
+            {renderCarouselCourse('New Playlist')}
+            {renderCarouselCourse('Trending')}
+            {renderCarouselCourse('Watch later')}
         </VStack>
     </Page>;
 };

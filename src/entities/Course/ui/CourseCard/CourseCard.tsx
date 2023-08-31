@@ -115,7 +115,13 @@ export const CourseCard = memo((props: CourseCardProps) => {
                     </div>
                 </HStack>
 
-                <Text text={course.title} color={'#fff'} fontSize={ courseView === CourseView.SMALL ? 16 : 18} className={cls.bottom} />
+                <Text
+                    text={course.title}
+                    color={'#fff'}
+                    fontSize={courseView === CourseView.SMALL ? 16 : 18}
+                    fontWeight={courseView === CourseView.SMALL ? 400 : 100}
+                    className={cls.bottom}
+                />
             </VStack>
         </Card>
     );
