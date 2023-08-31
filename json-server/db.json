@@ -313,6 +313,7 @@
       "userId": "1",
       "img": "https://github.com/Barklim/course/blob/main/hostImg/1.jpeg?raw=true",
       "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe1.jpeg?raw=true",
+      "swipeTitle": "Introduction",
       "title": "Fundamentals\nof investment",
       "price": "6.30",
       "views": 12,
@@ -364,6 +365,7 @@
       "userId": "2",
       "img": "https://github.com/Barklim/course/blob/main/hostImg/2.jpeg?raw=true",
       "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
       "title": "Lorem ipsum dolor sit amet ",
       "price": "6.30",
       "views": 12,
@@ -384,6 +386,7 @@
       "userId": "3",
       "img": "https://github.com/Barklim/course/blob/main/hostImg/3.jpeg?raw=true",
       "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe3.jpeg?raw=true",
+      "swipeTitle": "Key Concepts",
       "title": "Vitae nibh\nvenenatis orci",
       "price": "6.30",
       "views": 12,
@@ -404,6 +407,7 @@
       "userId": "4",
       "img": "https://github.com/Barklim/course/blob/main/hostImg/4.jpeg?raw=true",
       "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe4.jpeg?raw=true",
+      "swipeTitle": "Exploring Basics",
       "title": "Posuere quis et\neu massa amet",
       "price": "6.30",
       "views": 12,
@@ -424,6 +428,7 @@
       "userId": "5",
       "img": "https://github.com/Barklim/course/blob/main/hostImg/5.jpeg?raw=true",
       "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe5.jpeg?raw=true",
+      "swipeTitle": "Pro Tips",
       "title": "Diam pretium\neu ac venenatis",
       "price": "6.30",
       "views": 12,
@@ -444,6 +449,7 @@
       "userId": "6",
       "img": "https://github.com/Barklim/course/blob/main/hostImg/6.jpeg?raw=true",
       "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe6.jpeg?raw=true",
+      "swipeTitle": "Case Studies",
       "title": "Aliquam\npulvinar ac",
       "price": "6.30",
       "views": 12,
@@ -464,6 +470,7 @@
       "userId": "7",
       "img": "https://github.com/Barklim/course/blob/main/hostImg/7.jpeg?raw=true",
       "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe7.jpeg?raw=true",
+      "swipeTitle": "User Stories",
       "title": "Diam pretium\neu ac venenatis",
       "price": "6.30",
       "views": 12,
@@ -1454,7 +1461,7 @@
       "avatar": "https://github.com/Barklim/course/blob/main/hostImg/avatar.png?raw=true",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_light_theme"
+        "theme": "app_dark_theme"
       }
     },
     {

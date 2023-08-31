@@ -25,7 +25,7 @@
   overflow: hidden;
 }
 .fullWidthBg {
-  background: linear-gradient(186deg, #EF7E3C 0%, #F5B048 69.72%, #F7C64D 100%);
+  background: var(--swipe-bg);
 }
 
 .forelock {
@@ -76,6 +76,7 @@
   justify-self: center;
   padding: 18px 0;
   width: calc(960px + 32px + 32px);
+  height: 100%;
   z-index: 10;
 
   margin-left: auto;

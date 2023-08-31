@@ -9,7 +9,6 @@ import { useDebounce } from '@/app/lib/useDebounce';
 import cls from './Carousel.module.scss';
 import { Event } from '@/entities/Event';
 import { CardColorEnum, getGradientColor } from '@/shared/const/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 import { Theme } from '@/shared/const/theme';
 import { EventCardProps } from '@/entities/Event/ui/EventCard/EventCard';
 import useIsomorphicLayoutEffect from '../helpers/isomorphicLayout'
@@ -48,7 +47,7 @@ const Slide: React.FC<SlideProps> = ({
         <div property={'slide'} className={cls.slide} style={{ width: width }}>
             <div className={cls.preview}>
                 {EventCard ? (
-                    <EventCard cardColor={gradientColor} item={slide } isLoading={isLoading} />
+                    <EventCard cardColor={gradientColor} item={slide} isLoading={isLoading} />
                 ) : (
                     <div>Missing eventCard</div>
                 )}

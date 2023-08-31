@@ -6,8 +6,39 @@
     overflow: initial !important;
 }
 
+.slider-controler {
+    width: 68px;
+    height: 68px;
+    border-radius: 68px;
+    background:  rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+}
+
 .swiper-button-prev {
+    top: 34px;
+    left: 1px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+.swiper-button-prev:after {
+    font-weight: 700;
+    font-size: 24px;
+    content: '‹';
+    color: white;
 }
 
 .swiper-button-next {
+    top: 27px;
+    right: -1px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+.swiper-button-next:after {
+    font-size: 24px;
+    font-weight: 700;
+    height: 10px;
+    content: '›';
+    color: white;
 }

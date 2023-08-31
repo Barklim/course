@@ -19,7 +19,7 @@ import { Navbar } from '@/widgets/Navbar';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Button } from '@/shared/ui/revamped/Button';
-import { LOCAL_STORAGE_LAST_DESIGN_KEY, LOCAL_STORAGE_SIDEBAR_STATE } from '@/shared/const/localstorage';
+import { LOCAL_STORAGE_SIDEBAR_STATE } from '@/shared/const/localstorage';
 
 interface SidebarProps {
     className?: string;

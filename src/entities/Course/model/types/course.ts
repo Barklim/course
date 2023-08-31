@@ -5,6 +5,8 @@ export interface Course {
     id: string;
     user: User;
     img: string;
+    swipeImg: string;
+    swipeTitle: string;
     title: string;
     price: string;
     viewers: number;
