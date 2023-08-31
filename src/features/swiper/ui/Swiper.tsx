@@ -124,7 +124,7 @@ export const Swiper = React.memo(() => {
                             <div></div>
                         </div>
                         <SwiperReact
-                            
+                            // @ts-ignore
                             ref={swiperRef}
                             modules={[EffectCreative, Navigation]}
                             effect={'creative'}
