@@ -113,7 +113,7 @@ export const Swiper = React.memo(() => {
                             </div>
                             <div></div>
                         </div>
-                        {loading ?
+                        {courses ?
                             <SwiperReact
                                 modules={[EffectCreative, Navigation]}
                                 effect={'creative'}
@@ -146,6 +146,7 @@ export const Swiper = React.memo(() => {
                                 {renderSlides(courses)}
                             </SwiperReact> : null
                         }
+                        { !courses ?
                         <SwiperReact
                             modules={[EffectCreative, Navigation]}
                             effect={'creative'}
@@ -175,8 +176,9 @@ export const Swiper = React.memo(() => {
                             }}
                             initialSlide={0}
                         >
-                            {loading ? null : renderSlides(courses)}
-                        </SwiperReact>
+                            {renderSlides(courses)}
+                        </SwiperReact> : null
+                        }
                     </div>
                 </div>
             </div>
