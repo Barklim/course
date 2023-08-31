@@ -92,7 +92,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 
             const start = () => {
                 gsap.to(slider, {
-                    x: -sliderWidth/5 ,
+                    x: play ? -sliderWidth/5 : 0 ,
                     duration: numSlides * 5,
                     repeat: -1,
                     ease: "none"

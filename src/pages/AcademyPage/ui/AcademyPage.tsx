@@ -10,9 +10,27 @@ const AcademyPage = () => {
 
     return <Page data-testid="AcademyPage">
         <VStack max gap={'46'}>
-            <CarouselCourse header={t('New Playlist')} colorHeader={'#fff'} play={false} courseView={CourseView.BIG} />
-            <CarouselCourse header={t('Trending')} colorHeader={'#fff'} play={false} courseView={CourseView.BIG} />
-            <CarouselCourse header={t('Watch later')} colorHeader={'#fff'} play={false} courseView={CourseView.BIG} />
+            <CarouselCourse
+                header={t('New Playlist')}
+                colorHeader={'#fff'}
+                play={false}
+                draggable
+                courseView={CourseView.BIG}
+            />
+            <CarouselCourse
+                header={t('Trending')}
+                colorHeader={'#fff'}
+                play={false}
+                draggable
+                courseView={CourseView.BIG}
+            />
+            <CarouselCourse
+                header={t('Watch later')}
+                colorHeader={'#fff'}
+                play={false}
+                draggable
+                courseView={CourseView.BIG}
+            />
         </VStack>
     </Page>;
 };

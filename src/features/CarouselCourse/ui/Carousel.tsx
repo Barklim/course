@@ -19,9 +19,16 @@ interface CarouselProps {
     header: string;
     colorHeader?: string;
     courseView?: CourseView;
+    draggable?: boolean;
 }
 
-export const CarouselCourse:  React.FC<CarouselProps> = ({ play, header , colorHeader, courseView = CourseView.SMALL}) => {
+export const CarouselCourse:  React.FC<CarouselProps> = ({
+    play,
+    header ,
+    colorHeader,
+    draggable,
+    courseView = CourseView.SMALL
+}) => {
     const { t } = useTranslation('community');
     const courses = useSelector(getCourseData);
     const loading = useSelector(getCourseIsLoading);
@@ -52,6 +59,7 @@ export const CarouselCourse:  React.FC<CarouselProps> = ({ play, header , colorH
                         courseView={courseView}
                         items={courses}
                         loading={loading}
+                        draggable={draggable}
                         eventCard={CourseCard}
                         play={play}
                     />
