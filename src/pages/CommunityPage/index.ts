@@ -1,3 +1,3 @@
-import { CommunityAsync } from './ui/Community.async';
+import { CommunityPageAsync } from './ui/CommunityPage.async';
 
-export { CommunityAsync as CommunityPage };
+export { CommunityPageAsync as CommunityPage };

@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { Icon } from '@/shared/ui/revamped/Icon';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import Academy from '@/shared/assets/icons/academy.svg';
+import { CourseView } from '@/entities/Course/model/consts/courseConsts';
 
 const coinUrl = 'https://raw.githubusercontent.com/Barklim/course/76e32b645ad404f3069bc0c96d2e37d9f6245792/hostImg/coin.svg'
 
@@ -19,12 +20,17 @@ export interface CourseCardProps {
     item?: Course;
     isLoading?: boolean;
     cardColor?: string;
+    courseView?: CourseView;
 }
 
 export const CourseCard = memo((props: CourseCardProps) => {
-    const { className, item, isLoading, cardColor } = props;
+    const { className, item, isLoading, cardColor, courseView } = props;
     const { t } = useTranslation('');
     const course = item;
+
+    const skeletonTextHeight = courseView === CourseView.SMALL ? 20 : 24;
+    const skeletonTextWidth1 = courseView === CourseView.SMALL ? 125 : 190;
+    const skeletonTextWidth2 = courseView === CourseView.SMALL ? 95 : 160;
 
     if (isLoading) {
         return (
@@ -40,6 +46,7 @@ export const CourseCard = memo((props: CourseCardProps) => {
                     className={classNames(cls.cardInner, {}, [
                         className,
                     ])}
+                    style={{ padding: courseView === CourseView.SMALL ? "10px" : "16px" }}
                 >
                     <HStack justify="between" className={cls.header}>
                         <Skeleton width={75} height={30} border={'15px'} />
@@ -50,8 +57,8 @@ export const CourseCard = memo((props: CourseCardProps) => {
                     </HStack>
 
                     <VStack gap='8' className={cls.bottom}>
-                        <Skeleton width={125} height={20} border={'15px'}  />
-                        <Skeleton width={95} height={20} border={'15px'}  />
+                        <Skeleton width={skeletonTextWidth1} height={skeletonTextHeight} border={'15px'}  />
+                        <Skeleton width={skeletonTextWidth2} height={skeletonTextHeight} border={'15px'}  />
                     </VStack>
 
                 </VStack>
@@ -66,18 +73,19 @@ export const CourseCard = memo((props: CourseCardProps) => {
     return (
         <Card
             borderRadius={'16'}
-            bgImage={course.img}
+            bgImage={course?.img}
             fullWidth
             fullHeight
             className={cls.card}
         >
-            <div className={cls.cardBackGradient}></div>
+            <div className={cls.cardBackGradient} style={{ height: courseView === CourseView.SMALL ? "89px" : "126px" }}></div>
             <VStack
                 data-testid="CourseCard.Content"
                 justify={'between'}
                 className={classNames(cls.cardInner, {}, [
                     className,
                 ])}
+                style={{ padding: courseView === CourseView.SMALL ? "10px" : "16px" }}
             >
                 <HStack justify="between" className={cls.header}>
                     <Button
@@ -107,7 +115,7 @@ export const CourseCard = memo((props: CourseCardProps) => {
                     </div>
                 </HStack>
 
-                <Text text={course.title} color={'#fff'} className={cls.bottom} />
+                <Text text={course.title} color={'#fff'} fontSize={ courseView === CourseView.SMALL ? 16 : 18} className={cls.bottom} />
             </VStack>
         </Card>
     );

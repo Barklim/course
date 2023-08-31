@@ -1,1 +1,0 @@
-export { CarouselAcademy } from './ui/Carousel';

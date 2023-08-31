@@ -3,7 +3,6 @@
   display: flex;
 
   .slide{
-    height: 222px;
     &:not(:first-child){
       margin-left: 12px;
     }

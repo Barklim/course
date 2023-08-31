@@ -6,6 +6,9 @@ import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { SettingsPage } from '@/pages/SettingsPage';
+import { SwipePage } from '@/pages/SwipePage';
+import { AcademyPage } from '@/pages/AcademyPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
@@ -23,8 +26,6 @@ import {
     getRouteSettings, getRouteWatch, getRouteAcademy, getRouteCommunity,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
-import { SettingsPage } from '@/pages/SettingsPage';
-import { SwipePage } from '@/pages/SwipePage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -41,7 +42,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.ACADEMY]: {
         path: getRouteAcademy(),
-        element: <AboutPage />,
+        element: <AcademyPage />,
     },
     [AppRoutes.SETTINGS]: {
         path: getRouteSettings(),

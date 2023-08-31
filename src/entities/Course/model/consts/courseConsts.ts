@@ -1,7 +1,3 @@
-import { UserRole } from '@/entities/User';
-import { FeatureFlags } from '@/shared/types/featureFlags';
-import { JsonSettings } from '@/entities/User/model/types/jsonSettings';
-
 export enum CourseSortField {
     VIEWS = 'views',
     TITLE = 'title',

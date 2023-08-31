@@ -1,0 +1,1 @@
+export { CarouselCourse } from './ui/Carousel';

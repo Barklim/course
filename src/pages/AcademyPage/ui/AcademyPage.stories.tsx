@@ -1,20 +1,18 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import Community from './Community';
+import AcademyPage from './AcademyPage';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'pages/CommunityPage',
-    component: Community,
+    title: 'pages/AcademyPage',
+    component: AcademyPage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})],
-} as ComponentMeta<typeof Community>;
+} as ComponentMeta<typeof AcademyPage>;
 
-const Template: ComponentStory<typeof Community> = () => <Community />;
+const Template: ComponentStory<typeof AcademyPage> = () => <AcademyPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

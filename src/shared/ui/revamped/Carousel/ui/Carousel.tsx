@@ -16,11 +16,14 @@ import horizontalLoop from '../helpers/horizontalLoop';
 import { Course } from '@/entities/Course';
 import { CourseCardProps } from '@/entities/Course/ui/CourseCard/CourseCard';
 import { useLocalStorage } from '@/app/lib/useLocalStorage';
+import { CourseView } from '@/entities/Course/model/consts/courseConsts';
 
 interface CarouselProps {
     items: Event[] | Course[] | undefined;
     loading: boolean;
-    width?: number | undefined;
+    play?: boolean;
+    width?: string | undefined;
+    courseView?: CourseView;
     draggable?: boolean;
     eventCard?: React.ComponentType<EventCardProps> | React.ComponentType<CourseCardProps>;
 }
@@ -28,7 +31,8 @@ interface CarouselProps {
 interface SlideProps {
     slide: any;
     isLoading: boolean;
-    width: number | undefined;
+    width?: string | undefined;
+    courseView?: CourseView;
     cardColor?: CardColorEnum;
     theme?: Theme;
     eventCard?: React.ComponentType<EventCardProps> | React.ComponentType<CourseCardProps>;
@@ -38,16 +42,24 @@ const Slide: React.FC<SlideProps> = ({
     slide,
     isLoading,
     width,
+    courseView,
     cardColor,
     theme,
     eventCard: EventCard
 }) => {
     const gradientColor = cardColor ? getGradientColor(cardColor, theme) : '';
+    const slideWidth = courseView === CourseView.SMALL ? '150px' : '230px';
+    const slideHeight = courseView === CourseView.SMALL ? '222px' : '342px';
+
     return (
-        <div property={'slide'} className={cls.slide} style={{ width: width }}>
+        <div
+            property={'slide'} className={cls.slide} style={{
+                width: width ? width : slideWidth,
+                height: width ? '222px' : slideHeight
+            }}>
             <div className={cls.preview}>
                 {EventCard ? (
-                    <EventCard cardColor={gradientColor} item={slide} isLoading={isLoading} />
+                    <EventCard cardColor={gradientColor} item={slide} isLoading={isLoading} courseView={courseView} />
                 ) : (
                     <div>Missing eventCard</div>
                 )}
@@ -59,7 +71,9 @@ const Slide: React.FC<SlideProps> = ({
 export const Carousel: React.FC<CarouselProps> = ({
     items,
     loading,
+    play,
     width,
+    courseView,
     draggable,
     eventCard
 }) => {
@@ -122,7 +136,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                         paddingRight: 12,
                     });
                 }
-                setTimeout(tl, 1000);
+                play ? setTimeout(tl, 1000) : null;
             }, sliderRef);
 
             isAnimationCreatedRef.current = true; // Flag setting, generated animation
@@ -139,6 +153,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                         key={index}
                         slide={slide}
                         width={width}
+                        courseView={courseView}
                         isLoading={true}
                         eventCard={eventCard}
                     />
@@ -156,6 +171,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                         key={event.id}
                         slide={event}
                         width={width}
+                        courseView={courseView}
                         isLoading={false}
                         cardColor={currentCardColor}
                         theme={storageTheme}

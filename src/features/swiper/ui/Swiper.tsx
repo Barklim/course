@@ -21,6 +21,8 @@ import SwiperCore, { Manipulation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Swiper.css';
+import { getRouteAcademy, getRouteWatch } from '@/shared/const/router';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 
 SwiperCore.use([ Manipulation ]);
 
@@ -78,16 +80,17 @@ export const Swiper = React.memo(() => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={cls.wrapper} >
                 <HStack justify="between">
-                    <Button variant="borderNone" fontSize={14} className={cls.academy} addonLeft={
-                        <Icon
-                            data-testid="carousel-see-all"
-                            className={cls.academyIcon}
-                            Svg={ArrowIcon}
-                            setActive
-                            color={'#fff'}
-                        />
-                    }><Text fontSize={32} bold color={'#fff'} text={t('Academy')} /></Button>
-
+                    <AppLink to={getRouteAcademy()}>
+                        <Button variant="borderNone" fontSize={14} className={cls.academy} addonLeft={
+                            <Icon
+                                data-testid="carousel-see-all"
+                                className={cls.academyIcon}
+                                Svg={ArrowIcon}
+                                setActive
+                                color={'#fff'}
+                            />
+                        }><Text fontSize={32} bold color={'#fff'} text={t('Academy')} /></Button>
+                    </AppLink>
                     <Button
                         height={42}
                         light

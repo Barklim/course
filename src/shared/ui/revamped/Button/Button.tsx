@@ -107,7 +107,7 @@ export const Button = forwardRef(
                     width: width,
                     padding: padding,
                     borderRadius: borderRadius,
-                    color: fontColor,
+                    color: fontColor ? fontColor : undefined,
                     background: bgColor,
                     fontWeight: fontWeight,
                 }}

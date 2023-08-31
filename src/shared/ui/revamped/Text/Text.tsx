@@ -88,7 +88,7 @@ export const Text = memo((props: TextProps) => {
                 <HeaderTag
                     className={cls.title}
                     data-testid={`${dataTestId}.Header`}
-                    style={{ fontSize: fontSize, color: color, lineHeight: lineHeight }}
+                    style={{ fontSize: fontSize, color: color ? color : undefined, lineHeight: lineHeight }}
                 >
                     {title}
                 </HeaderTag>

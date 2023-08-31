@@ -14,6 +14,8 @@ import {
 import { useSelector } from 'react-redux';
 import { getEventIsLoading } from '@/entities/Event/model/selectors/event';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
+import { getRouteWatch } from '@/shared/const/router';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 
 export const CarouselEvents = () => {
     const { t } = useTranslation('community');
@@ -25,17 +27,19 @@ export const CarouselEvents = () => {
             <div className={cls.carouselWrapper}>
                 <HStack align="end" justify="between" className={cls.header}>
                     <Text selectNone title={t('Recent events')} fontSize={24} />
-                    <Button variant="borderNone" fontSize={14} className={cls.seeAll} addonRight={
-                        <Icon
-                            data-testid="carousel-see-all"
-                            className={cls.seeAllIcon}
-                            Svg={ArrowIcon}
-                            color={'#8D5DDA'}
-                        />
-                    }>{t('See all')}</Button>
+                    <AppLink to={getRouteWatch()}>
+                        <Button variant="borderNone" fontSize={14} className={cls.seeAll} addonRight={
+                            <Icon
+                                data-testid="carousel-see-all"
+                                className={cls.seeAllIcon}
+                                Svg={ArrowIcon}
+                                color={'#8D5DDA'}
+                            />
+                        }>{t('See all')}</Button>
+                    </AppLink>
                 </HStack>
                 <div className={cls.sliderWrapper}>
-                    <Carousel width={293} items={events} loading={loading} eventCard={EventCard} draggable />
+                    <Carousel width={'293px'} items={events} loading={loading} eventCard={EventCard} draggable />
                 </div>
             </div>
         </EventListDataProvider>
