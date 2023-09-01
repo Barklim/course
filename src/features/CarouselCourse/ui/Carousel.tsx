@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './Carousel.module.scss';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Text, TextColorByTheme } from '@/shared/ui/revamped/Text';
+import { Text } from '@/shared/ui/revamped/Text';
 import { Button } from '@/shared/ui/revamped/Button';
 import { Icon } from '@/shared/ui/revamped/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
@@ -18,7 +18,6 @@ interface CarouselProps {
     play?: boolean;
     header: string;
     page: AppRoutes;
-    textColorByTheme?: TextColorByTheme;
     colorTitle?: string;
     colorHeader?: string;
     courseView?: CourseView;
@@ -28,7 +27,6 @@ interface CarouselProps {
 export const CarouselCourse:  React.FC<CarouselProps> = ({
     play,
     header ,
-    textColorByTheme,
     page,
     draggable,
     courseView = CourseView.SMALL

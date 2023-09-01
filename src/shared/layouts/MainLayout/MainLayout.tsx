@@ -3,6 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './MainLayout.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useLocalStorage } from '@/app/lib/useLocalStorage';
+import { useLocation } from 'react-router-dom';
+import { getRouteArticles } from '@/shared/const/router';
 
 interface MainLayoutProps {
     className?: string;
@@ -14,7 +16,7 @@ interface MainLayoutProps {
     fullWidth?: boolean;
 }
 
-const contentRender = ({fullWidth, collapsed, content} : {fullWidth: boolean, collapsed: boolean, content: any}) => {
+const contentRender = ({fullWidth, collapsed, content, isOldPage} : {fullWidth: boolean, collapsed: boolean, content: any, isOldPage: boolean}) => {
     if (fullWidth) {
         if (collapsed) {
             return <div className={`${cls.contentFullWidth} ${cls.sidebarCollapsed}`}>{content}</div>
@@ -22,13 +24,18 @@ const contentRender = ({fullWidth, collapsed, content} : {fullWidth: boolean, co
             return <div className={`${cls.contentFullWidth} ${cls.sidebarOpen}`}>{content}</div>
         }
     } else {
-        return <div className={cls.contentRevamp}>{content}</div>
+        return <div
+            className={cls.contentRevamp}
+            style={{ width: isOldPage ? '100%' : 'calc(960px + 32px + 32px)'}}
+        >{content}</div>
     }
 }
 
 export const MainLayout = memo((props: MainLayoutProps) => {
     const { className, content, toolbar, header, sidebar, forelock, fullWidth = false } = props;
     const { sidebarState } = useLocalStorage();
+    const location = useLocation();
+    const isOldPage = location.pathname === getRouteArticles() || location.pathname.includes('articles') || location.pathname.includes('profile')
     const collapsed = sidebarState === "false";
     const contentWrapper = fullWidth ? `${cls.contentWrapper} ${cls.fullWidthBg}` : cls.contentWrapper;
 
@@ -44,7 +51,7 @@ export const MainLayout = memo((props: MainLayoutProps) => {
                             <div className={cls.forelock}>{forelock}</div>
                             <div className={cls.forelock2}>{forelock}</div>
                         </> : null }
-                        {contentRender({fullWidth, collapsed, content})}
+                        {contentRender({fullWidth, collapsed, content, isOldPage})}
                     </div>
                     <div className={cls.sidebarRevamp}>{sidebar}</div>
                     { toolbar ?

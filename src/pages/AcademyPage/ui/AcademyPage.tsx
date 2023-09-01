@@ -13,7 +13,6 @@ const AcademyPage = () => {
     const renderCarouselCourse = (headerText: string) => (
         <CarouselCourse
             header={t(headerText)}
-            textColorByTheme={'normal'}
             play={false}
             draggable
             courseView={CourseView.BIG}
