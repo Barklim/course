@@ -6,6 +6,7 @@ import {
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
+import { TextColorByTheme } from '@/shared/ui/revamped/Text';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled' | 'borderNone';
 export type ButtonColor = 'normal' | 'success' | 'error';
@@ -48,6 +49,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     borderRadius?: number;
     color?: ButtonColor;
     bgColor?: string;
+    textColorByTheme?: TextColorByTheme;
     fontColor?: string;
     fontWeight?: number;
 
@@ -75,6 +77,7 @@ export const Button = forwardRef(
             borderRadius,
             color = 'normal',
             bgColor,
+            textColorByTheme = 'normal',
             fontColor,
             fontWeight,
             ...otherProps
@@ -94,6 +97,7 @@ export const Button = forwardRef(
                 type="button"
                 className={classNames(cls.Button, mods, [
                     className,
+                    cls[textColorByTheme],
                     cls[variant],
                     cls[size],
                     cls[color],

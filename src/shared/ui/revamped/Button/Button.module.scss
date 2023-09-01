@@ -111,6 +111,22 @@
     width: 100%;
 }
 
+.minor {
+    color: var(--minor-white);
+}
+
+.normal {
+    color: var(--normal-text);
+}
+
+.inverse {
+    color: var(--inverse-text);
+}
+
+.purple {
+    color: var(--purple-text)
+}
+
 .dark {
     background-color: var(--button-dark);
     color: var(--button-dark-text);

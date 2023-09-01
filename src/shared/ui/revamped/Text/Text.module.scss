@@ -102,6 +102,24 @@
     }
 }
 
+.normal {
+    .title .text {
+        color: var(--normal-text)
+    }
+}
+
+.inverse {
+    .title .text {
+        color: var(--inverse-text)
+    }
+}
+
+.purple {
+    .title .text {
+        color: var(--purple-text)
+    }
+}
+
 .selectNone {
     user-select: none;
 }

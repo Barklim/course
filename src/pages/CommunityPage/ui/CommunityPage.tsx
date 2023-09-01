@@ -7,6 +7,7 @@ import { CarouselCourse } from '@/features/CarouselCourse';
 import { useTranslation } from 'react-i18next';
 import cls from './CommunityPage.module.scss';
 import { CourseView } from '@/entities/Course/model/consts/courseConsts';
+import { AppRoutes } from '@/shared/const/router';
 
 const CommunityPage = () => {
     const { t } = useTranslation('');
@@ -16,7 +17,7 @@ const CommunityPage = () => {
             <BannerCourse />
             <CarouselEvents />
             <BannerEarnings />
-            <CarouselCourse header={t('Academy')} play={true} courseView={CourseView.SMALL}/>
+            <CarouselCourse header={t('Academy')} play={true} courseView={CourseView.SMALL} page={AppRoutes.COMMUNITY} />
         </Page>
     );
 };

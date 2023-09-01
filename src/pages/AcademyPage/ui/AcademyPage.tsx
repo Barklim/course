@@ -5,6 +5,7 @@ import { CarouselCourse } from '@/features/CarouselCourse';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { CourseView } from '@/entities/Course/model/consts/courseConsts';
 import { FilteredHeader } from '@/features/filteredHeader';
+import { AppRoutes } from '@/shared/const/router';
 
 const AcademyPage = () => {
     const { t } = useTranslation('');
@@ -12,12 +13,11 @@ const AcademyPage = () => {
     const renderCarouselCourse = (headerText: string) => (
         <CarouselCourse
             header={t(headerText)}
-            // TODO: styles
-            colorTitle={'#fff'}
-            colorHeader={'#fff'}
+            textColorByTheme={'normal'}
             play={false}
             draggable
             courseView={CourseView.BIG}
+            page={AppRoutes.ACADEMY}
         />
     );
 

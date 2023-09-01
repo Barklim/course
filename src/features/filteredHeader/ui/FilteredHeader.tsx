@@ -21,10 +21,8 @@ export const FilteredHeader = React.memo(() => {
                             data-testid="carousel-see-all"
                             className={cls.academyIcon}
                             Svg={ArrowIcon}
-                            setActive
-                            color={'#fff'}
                         />
-                    }><Text fontSize={32} bold color={'#fff'} text={t('Academy')} /></Button>
+                    }><Text fontWeight={400} fontSize={32} text={t('Academy')} /></Button>
                 </AppLink>
                 <Button
                     height={42}

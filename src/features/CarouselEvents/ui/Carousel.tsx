@@ -28,12 +28,12 @@ export const CarouselEvents = () => {
                 <HStack align="end" justify="between" className={cls.header}>
                     <Text selectNone title={t('Recent events')} fontSize={24} />
                     <AppLink to={getRouteWatch()}>
-                        <Button variant="borderNone" fontSize={14} className={cls.seeAll} addonRight={
+                        <Button variant="borderNone" fontSize={14} className={cls.seeAll} textColorByTheme={'purple'} addonRight={
                             <Icon
                                 data-testid="carousel-see-all"
                                 className={cls.seeAllIcon}
                                 Svg={ArrowIcon}
-                                color={'#8D5DDA'}
+                                textColorByTheme={'purple'}
                             />
                         }>{t('See all')}</Button>
                     </AppLink>

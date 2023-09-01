@@ -8,10 +8,13 @@ export type TextAlign = 'right' | 'left' | 'center';
 
 export type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
+export type TextColorByTheme = 'normal' | 'inverse' | 'purple';
+
 interface TextProps {
     className?: string;
     title?: string;
     color?: string;
+    textColorByTheme?: TextColorByTheme;
     text?: string;
     variant?: TextVariant;
     align?: TextAlign;
@@ -51,6 +54,7 @@ export const Text = memo((props: TextProps) => {
         text,
         title,
         color,
+        textColorByTheme = 'normal',
         variant = 'primary',
         align = 'left',
         size = 'm',
@@ -68,7 +72,7 @@ export const Text = memo((props: TextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
     const sizeClass = mapSizeToClass[size];
 
-    const additionalClasses = [className, cls[variant], cls[align], sizeClass];
+    const additionalClasses = [className, cls[variant], cls[textColorByTheme], cls[align], sizeClass];
 
     return (
         <div
