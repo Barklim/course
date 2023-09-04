@@ -11,6 +11,7 @@ import { Text } from '@/shared/ui/revamped/Text';
 
 export const FilteredHeader = React.memo(() => {
     const { t } = useTranslation('');
+    const categories = ['All', 'Stocks', 'ETFs', 'Crypto', 'NFTs'];
 
     return (
         <div className={cls.wrapper}>
@@ -18,23 +19,26 @@ export const FilteredHeader = React.memo(() => {
                 <AppLink to={getRouteAcademy()} className={cls.navLink}>
                     <Button variant="borderNone" fontSize={14} addonLeft={
                         <Icon
-                            data-testid="carousel-see-all"
+                            data-testid="filtered-header"
                             className={cls.academyIcon}
                             Svg={ArrowIcon}
                         />
                     }><Text fontWeight={400} fontSize={32} text={t('Academy')} /></Button>
                 </AppLink>
-                <Button
-                    height={42}
-                    light
-                    variant="filled"
-                >
-                    <Text
-                        fontSize={17}
-                        bold
-                        color={'#000'}
-                        text={t('Skip')} />
-                </Button>
+                <HStack gap={'8'}>
+                    {categories.map((category, index) => (
+                        <Button
+                            key={index}
+                            height={42}
+                            padding={'12px'}
+                            borderRadius={22}
+                        >
+                        <Text
+                            fontSize={14}
+                            text={t(category)} />
+                        </Button>
+                    ))}
+                </HStack>
             </HStack>
         </div>
     );

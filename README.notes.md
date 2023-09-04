@@ -1,5 +1,8 @@
 ## Usefull links
 
+- [task](https://www.loom.com/share/1b78e1770ce1464282ed69227452c57a)
+- [figma](https://www.figma.com/file/UHMgactdAzRxEwfHFYmvvJ/Design-for-Test-(Copy)?node-id=0%3A1&mode=dev)
+- [animation-reference](https://chroniclehq.com/)
 - [astexplorer](https://astexplorer.net/)
 - [mobilepalette](https://mobilepalette.colorion.co/)
 - [floating-ui](https://floating-ui.com/)
@@ -11,17 +14,33 @@
 
 ## TODO
 
+* components
+    - first visit modal
+    - search input
+    - site tour
+    - course progress in tab right in article details
+* animations
+    - active menu icon sidebar should move
+    - inside input by hover
+    - change theme
+    - coins
+    - webgl coin parallax
+    - countdown slide down by digits
+    - движение анимации и задники в слайдере относительно пользователя, spec effect
+    - when open fall down components inside [List of slides](https://www.youtube.com/watch?v=H89vA8HwVvg&list=PLkY85cDHOEpt96vm9LEfs1kLlT8ECwPTs&index=47)
+* mobile
+    - fonts, layouts
+* db
+    - profile
+
 - z-index variables
 - react-helmet
 - jsdoc
 - check redux normalization
 - roadmap for progress
-- host images from some folder
-- course progress in tab right in article details
 - change-log file by commit
 - react-virtualized deprecated change to react-window or react-virtuoso
 - eslint css property order
-- site tour
 - html report must be here https://barklim.github.io/courses/report.html
 - react query
 - React.StrictMode
