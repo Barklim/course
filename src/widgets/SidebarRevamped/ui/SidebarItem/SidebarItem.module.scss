@@ -62,3 +62,19 @@
     border-radius: 7px;
     background: var(--watchers-count);
 }
+
+.communityWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.imgGap {
+    margin-left: -12px;
+}
+
+.communityImg {
+    border-radius: 30px;
+    border: 2px solid var(--sidebar-bg);
+}

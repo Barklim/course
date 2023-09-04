@@ -23,7 +23,7 @@ export const FilteredHeader = React.memo(() => {
                             className={cls.academyIcon}
                             Svg={ArrowIcon}
                         />
-                    }><Text fontWeight={400} fontSize={32} text={t('Academy')} /></Button>
+                    }><Text fontSize={32} fontWeight={400} text={t('Academy')} /></Button>
                 </AppLink>
                 <HStack gap={'8'}>
                     {categories.map((category, index) => (

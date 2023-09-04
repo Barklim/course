@@ -89,7 +89,7 @@ export const Swiper = React.memo(() => {
                                 setActive
                                 color={'#fff'}
                             />
-                        }><Text fontSize={32} bold color={'#fff'} text={t('Academy')} /></Button>
+                        }><Text fontSize={32} fontWeight={400} color={'#fff'} text={t('Academy')} /></Button>
                     </AppLink>
                     <Button
                         height={42}
