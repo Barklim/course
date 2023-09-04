@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+.playerWrapper {
+ //transform: rotate(-90deg);
+}
+
+.player {
+    border-radius: 16px;
+    display: inherit;
+    overflow: hidden;
+}
+
 .cardBackGradient {
     width: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%);
@@ -17,6 +27,11 @@
 
 .header {
     width: 100%;
+}
+
+.earnButtonWrapper {
+    z-index: 100;
+    position: absolute;
 }
 
 .earnButton {
@@ -39,6 +54,14 @@
 .bottomGradient {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%);
 }
+
+.bottomWrapper {
+    position: absolute;
+    bottom: 0;
+    white-space: pre-wrap;
+    z-index: 400;
+}
+
 
 .bottom {
     white-space: pre-wrap;

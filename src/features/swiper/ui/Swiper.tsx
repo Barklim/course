@@ -21,7 +21,7 @@ import SwiperCore, { Manipulation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Swiper.css';
-import { getRouteAcademy, getRouteWatch } from '@/shared/const/router';
+import { getRouteAcademy } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 
 SwiperCore.use([ Manipulation ]);

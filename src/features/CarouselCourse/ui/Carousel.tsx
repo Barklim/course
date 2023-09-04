@@ -11,7 +11,7 @@ import { CourseView } from '@/entities/Course/model/consts/courseConsts';
 import { useSelector } from 'react-redux';
 import { getCourseIsLoading } from '@/entities/Course/model/selectors/course';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
-import { AppRoutes, getRouteWatch } from '@/shared/const/router';
+import { AppRoutes, getRouteSwipe } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 
 interface CarouselProps {
@@ -44,7 +44,7 @@ export const CarouselCourse:  React.FC<CarouselProps> = ({
             <div className={cls.carouselWrapper}>
                 <HStack align="end" justify="between" className={cls.header}>
                     <Text selectNone title={header} textColorByTheme={getColor(page)} fontSize={24} />
-                    <AppLink to={getRouteWatch()}>
+                    <AppLink to={getRouteSwipe()}>
                         <Button
                             variant="borderNone"
                             fontSize={14}

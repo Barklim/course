@@ -14,7 +14,7 @@ import {
 import { useSelector } from 'react-redux';
 import { getEventIsLoading } from '@/entities/Event/model/selectors/event';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
-import { getRouteWatch } from '@/shared/const/router';
+import { getRouteSwipe } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 
 export const CarouselEvents = () => {
@@ -27,7 +27,7 @@ export const CarouselEvents = () => {
             <div className={cls.carouselWrapper}>
                 <HStack align="end" justify="between" className={cls.header}>
                     <Text selectNone title={t('Recent events')} fontSize={24} />
-                    <AppLink to={getRouteWatch()}>
+                    <AppLink to={getRouteSwipe()}>
                         <Button variant="borderNone" fontSize={14} className={cls.seeAll} textColorByTheme={'purple'} addonRight={
                             <Icon
                                 data-testid="carousel-see-all"

@@ -23,7 +23,11 @@ import {
     getRouteArticles,
     getRouteMain,
     getRouteProfile,
-    getRouteSettings, getRouteWatch, getRouteAcademy, getRouteCommunity,
+    getRouteSettings,
+    getRouteWatch,
+    getRouteAcademy,
+    getRouteCommunity,
+    getRouteSwipe,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 
@@ -32,13 +36,17 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: getRouteMain(),
         element: <CommunityPage />,
     },
+    [AppRoutes.SWIPE]: {
+        path: getRouteSwipe(),
+        element: <SwipePage />,
+    },
     [AppRoutes.WATCH]: {
         path: getRouteWatch(),
-        element: <SwipePage />,
+        element: <ForbiddenPage />,
     },
     [AppRoutes.COMMUNITY]: {
         path: getRouteCommunity(),
-        element: <CommunityPage />,
+        element: <ForbiddenPage />,
     },
     [AppRoutes.ACADEMY]: {
         path: getRouteAcademy(),

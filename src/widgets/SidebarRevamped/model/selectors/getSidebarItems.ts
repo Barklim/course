@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 
 import MainIcon from '@/shared/assets/icons/homeR.svg';
+import CompassIcon from '@/shared/assets/icons/compass.svg';
 import PlayIcon from '@/shared/assets/icons/play.svg';
 import GroupIcon from '@/shared/assets/icons/group.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
@@ -12,7 +13,9 @@ import {
     getRouteAcademy,
     getRouteArticles,
     getRouteCommunity,
-    getRouteMain, getRouteWatch,
+    getRouteMain,
+    getRouteSwipe,
+    getRouteWatch,
 } from '@/shared/const/router';
 
 export const useSidebarItems = () => {
@@ -22,6 +25,11 @@ export const useSidebarItems = () => {
             path: getRouteMain(),
             Icon: MainIcon,
             text: 'Главная',
+        },
+        {
+            path: getRouteSwipe(),
+            Icon: CompassIcon,
+            text: 'Свайпер',
         },
         {
             path: getRouteWatch(),

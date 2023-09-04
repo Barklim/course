@@ -6,7 +6,7 @@ export function useAppFullWidth() {
     const appRoute = useRouteChange();
 
     const toolbarByAppRoute: OptionalRecord<AppRoutes, boolean> = {
-        [AppRoutes.WATCH]: true,
+        [AppRoutes.SWIPE]: true,
     };
 
     return toolbarByAppRoute[appRoute];

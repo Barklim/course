@@ -21,6 +21,7 @@
     - course progress in tab right in article details
 * animations
     - active menu icon sidebar should move
+    - run video in card opacity transition
     - inside input by hover
     - change theme
     - coins
