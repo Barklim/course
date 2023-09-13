@@ -6,7 +6,7 @@ import { Text } from '@/shared/ui/revamped/Text';
 import { Button } from '@/shared/ui/revamped/Button';
 import { Icon } from '@/shared/ui/revamped/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
-import { Course, CourseCard, CourseListDataProvider } from '@/entities/Course';
+import { CourseCard, CourseListDataProvider } from '@/entities/Course';
 import { getCourses, getCoursesFilterByCategory } from '@/entities/Course/model/slices/courseSlice';
 import { CourseCategoryType, CourseView } from '@/entities/Course/model/consts/courseConsts';
 import { useSelector } from 'react-redux';

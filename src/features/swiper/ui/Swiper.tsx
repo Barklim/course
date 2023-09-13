@@ -1,7 +1,7 @@
 import React from 'react';
 import cls from './Swiper.module.scss';
 import { useSelector } from 'react-redux';
-import { Course, getCourseAllData, getCourseAllIsLoading } from '@/entities/Course';
+import { Course, CourseCategoryType, getCourseAllData, getCourseAllIsLoading } from '@/entities/Course';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/revamped/Text';
@@ -32,7 +32,7 @@ export const Swiper = React.memo(() => {
     const loading = useSelector(getCourseAllIsLoading);
 
     useInitialEffect(() => {
-        dispatch(fetchAllCourses());
+        dispatch(fetchAllCourses(CourseCategoryType.FEATURED));
     });
 
     const reducers: ReducersList = {

@@ -11,8 +11,7 @@ export const fetchAllCourses = createAsyncThunk<
 
     try {
         const response = await extra.api.get<Course[]>(
-            // `/courses?category=${category}`,
-            `/courses`,
+            `/courses?category=${category}`,
             {
                 headers: { authorization: '1' },
                 params: {
