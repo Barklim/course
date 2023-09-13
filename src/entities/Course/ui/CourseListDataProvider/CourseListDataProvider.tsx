@@ -2,8 +2,9 @@ import { memo } from 'react';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { courseReducer } from '@/entities/Course/model/slices/courseSlice';
-import { fetchCourses } from '@/entities/Course/model/services/fetchCourses/fetchCourses';
+import { coursesReducer } from '@/entities/Course/model/slices/courseSlice';
+import { initCourses } from '@/entities/Course/model/services/initCourses/initCourses';
+import { useSearchParams } from 'react-router-dom';
 
 interface EventListProps {
     children?: any;
@@ -11,13 +12,14 @@ interface EventListProps {
 
 export const CourseListDataProvider = memo((props: EventListProps) => {
     const dispatch = useAppDispatch();
+    const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
-        dispatch(fetchCourses());
+        dispatch(initCourses(searchParams));
     });
 
     const reducers: ReducersList = {
-        course: courseReducer,
+        course: coursesReducer,
     };
 
     return (

@@ -6,8 +6,9 @@ import { Text } from '@/shared/ui/revamped/Text';
 import { Button } from '@/shared/ui/revamped/Button';
 import { Icon } from '@/shared/ui/revamped/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
-import { CourseCard, CourseListDataProvider, getCourseData } from '@/entities/Course';
-import { CourseView } from '@/entities/Course/model/consts/courseConsts';
+import { Course, CourseCard, CourseListDataProvider } from '@/entities/Course';
+import { getCourses, getCoursesFilterByCategory } from '@/entities/Course/model/slices/courseSlice';
+import { CourseCategoryType, CourseView } from '@/entities/Course/model/consts/courseConsts';
 import { useSelector } from 'react-redux';
 import { getCourseIsLoading } from '@/entities/Course/model/selectors/course';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
@@ -20,8 +21,9 @@ interface CarouselProps {
     page: AppRoutes;
     colorTitle?: string;
     colorHeader?: string;
-    courseView?: CourseView;
     draggable?: boolean;
+    category?: CourseCategoryType;
+    courseView?: CourseView;
 }
 
 export const CarouselCourse:  React.FC<CarouselProps> = ({
@@ -29,10 +31,12 @@ export const CarouselCourse:  React.FC<CarouselProps> = ({
     header ,
     page,
     draggable,
+    category,
     courseView = CourseView.SMALL
 }) => {
     const { t } = useTranslation('community');
-    const courses = useSelector(getCourseData);
+    const coursesAll = useSelector(getCourses.selectAll);
+    const courses = getCoursesFilterByCategory(coursesAll, category as CourseCategoryType)
     const loading = useSelector(getCourseIsLoading);
 
     const getColor = (page: AppRoutes) => {

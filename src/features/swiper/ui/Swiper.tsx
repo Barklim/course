@@ -1,16 +1,15 @@
 import React from 'react';
 import cls from './Swiper.module.scss';
 import { useSelector } from 'react-redux';
-import { Course, getCourseData } from '@/entities/Course';
+import { Course, getCourseAllData, getCourseAllIsLoading } from '@/entities/Course';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/revamped/Text';
 import { Button } from '@/shared/ui/revamped/Button';
-import { fetchCourses } from '@/entities/Course/model/services/fetchCourses/fetchCourses';
+import { fetchAllCourses } from '@/entities/Course/model/services/fetchAllCourses/fetchAllCourses';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { courseReducer } from '@/entities/Course/model/slices/courseSlice';
-import { getCourseIsLoading } from '@/entities/Course/model/selectors/course';
+import { courseReducer } from '@/entities/Course/model/slices/courseAllSlice';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@/shared/ui/revamped/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
@@ -29,15 +28,15 @@ SwiperCore.use([ Manipulation ]);
 export const Swiper = React.memo(() => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('');
-    const courses = useSelector(getCourseData);
-    const loading = useSelector(getCourseIsLoading);
+    const courses = useSelector(getCourseAllData);
+    const loading = useSelector(getCourseAllIsLoading);
 
     useInitialEffect(() => {
-        dispatch(fetchCourses());
+        dispatch(fetchAllCourses());
     });
 
     const reducers: ReducersList = {
-        course: courseReducer,
+        courseAll: courseReducer,
     };
 
     const renderSlides = (courses: Course[] | undefined) => {

@@ -1,5 +1,5 @@
 import { User } from '@/entities/User';
-import { CourseType, Content } from '@/entities/Course/model/consts/courseConsts';
+import { CourseType, Content, CourseCategoryType } from '@/entities/Course/model/consts/courseConsts';
 
 export interface Course {
     id: string;
@@ -15,5 +15,6 @@ export interface Course {
     createdAt: string;
     earn?: string;
     type: CourseType[];
+    category: CourseCategoryType;
     content: Content[]
 }

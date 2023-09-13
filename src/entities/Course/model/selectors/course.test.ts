@@ -1,8 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    getCourseData,
-    getCourseError,
-    getCourseIsLoading,
+    getCourseAllData,
+    getCourseAllError,
+    getCourseAllIsLoading,
 } from './course';
 
 describe('coursesDetails.test', () => {
@@ -35,7 +35,7 @@ describe('coursesDetails.test', () => {
     // });
     test('should work with empty state data', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getCourseData(state as StateSchema)).toEqual(undefined);
+        expect(getCourseAllData(state as StateSchema)).toEqual(undefined);
     });
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
@@ -43,11 +43,11 @@ describe('coursesDetails.test', () => {
                 error: 'error',
             },
         };
-        expect(getCourseError(state as StateSchema)).toEqual('error');
+        expect(getCourseAllError(state as StateSchema)).toEqual('error');
     });
     test('should work with empty state error', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getCourseError(state as StateSchema)).toEqual(undefined);
+        expect(getCourseAllError(state as StateSchema)).toEqual(undefined);
     });
     test('should return isLoading', () => {
         const state: DeepPartial<StateSchema> = {
@@ -55,10 +55,10 @@ describe('coursesDetails.test', () => {
                 isLoading: true,
             },
         };
-        expect(getCourseIsLoading(state as StateSchema)).toEqual(true);
+        expect(getCourseAllIsLoading(state as StateSchema)).toEqual(true);
     });
     test('should work with empty state isLoading', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getCourseIsLoading(state as StateSchema)).toEqual(false);
+        expect(getCourseAllIsLoading(state as StateSchema)).toEqual(false);
     });
 });

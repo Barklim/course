@@ -5,7 +5,14 @@ export enum CourseSortField {
     FEATURE = 'feature'
 }
 
+export enum CourseCategoryType {
+    FEATURED = 'featured',
+    NEW = 'new',
+    TRENDING = 'trending'
+}
+
 export enum CourseType {
+    ALL = 'ALL',
     STOCKS = 'STOCKS',
     ETFS = 'ETFS',
     CRYPTO = 'CRYPTO',

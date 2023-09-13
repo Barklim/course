@@ -6,7 +6,7 @@ export const fetchEvents = createAsyncThunk<
     Event[],
     string | undefined,
     ThunkConfig<string>
->('event/fetchCourses', async ( additionalParams, thunkApi) => {
+>('event/fetchAllCourses', async ( additionalParams, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
 
     try {

@@ -6,4 +6,14 @@ export { CourseListDataProvider } from './ui/CourseListDataProvider/CourseListDa
 
 export type { Course } from './model/types/course';
 
-export { getCourseData } from './model/selectors/course';
+export {
+    getCourseAllData,
+    getCourseAllIsLoading,
+} from './model/selectors/course';
+
+export {
+    CourseSortField,
+    CourseCategoryType,
+    CourseType,
+    CourseView,
+} from './model/consts/courseConsts';

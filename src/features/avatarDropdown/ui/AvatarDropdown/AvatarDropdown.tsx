@@ -65,6 +65,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         },
     ];
 
+    // TODO: change direction dropdown for revamped app when it collapsed
     return (
         <ToggleFeatures
             feature="isAppRedesigned"

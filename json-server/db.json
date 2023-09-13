@@ -327,6 +327,7 @@
         "CRYPTO",
         "NFTS"
       ],
+      "category": "featured",
       "content": [
         {
           "id": "1",
@@ -379,6 +380,7 @@
         "CRYPTO",
         "NFTS"
       ],
+      "category": "featured",
       "content": []
     },
     {
@@ -400,6 +402,7 @@
         "CRYPTO",
         "NFTS"
       ],
+      "category": "featured",
       "content": []
     },
     {
@@ -421,6 +424,7 @@
         "CRYPTO",
         "NFTS"
       ],
+      "category": "featured",
       "content": []
     },
     {
@@ -442,6 +446,7 @@
         "CRYPTO",
         "NFTS"
       ],
+      "category": "featured",
       "content": []
     },
     {
@@ -463,6 +468,7 @@
         "CRYPTO",
         "NFTS"
       ],
+      "category": "featured",
       "content": []
     },
     {
@@ -484,6 +490,235 @@
         "CRYPTO",
         "NFTS"
       ],
+      "category": "featured",
+      "content": []
+    },
+    {
+      "id": "101",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseNew1.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "Demystifying Blockchain:\nA Beginner's Guide",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "22",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "new",
+      "content": []
+    },
+    {
+      "id": "102",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseNew2.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "The Future of Finance:\n Exploring Blockchain Technology",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "20",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "new",
+      "content": []
+    },
+    {
+      "id": "103",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseNew3.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "Blockchain Explained:\n How Does It Work and Why It Matters",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "21",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "new",
+      "content": []
+    },
+    {
+      "id": "104",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseNew4.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "Crypto Crash Course:\n Understanding Blockchain and Cryptocurrency",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "24",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "new",
+      "content": []
+    },
+    {
+      "id": "105",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseNew1.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "Lorem ipsum dolor sit amet",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "21",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "new",
+      "content": []
+    },
+    {
+      "id": "106",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseNew2.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "Diam pretium\neu ac venenatis",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "20",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "new",
+      "content": []
+    },
+    {
+      "id": "201",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseTrending1.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe1.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "The NFT Revolution:\nUnlocking Digital Ownership",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "23",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "trending",
+      "content": []
+    },
+    {
+      "id": "202",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseTrending2.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe1.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "NFTs in Gaming:\n The Future of Virtual Assets",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "21",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "trending",
+      "content": []
+    },
+    {
+      "id": "203",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseTrending3.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe1.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "Demystifying NFTs:\n What You Need to Know",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "22",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "trending",
+      "content": []
+    },
+    {
+      "id": "204",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseTrending4.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe1.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "NFTs and Music:\n Transforming the Music Industry",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "25",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "trending",
+      "content": []
+    },
+    {
+      "id": "205",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseTrending1.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe1.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "The Sustainability Debate:\n  Environmental Impact of NFTs",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "22",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "trending",
+      "content": []
+    },
+    {
+      "id": "206",
+      "userId": "2",
+      "img": "https://github.com/Barklim/course/blob/main/hostImg/courseTrending2.jpeg?raw=true",
+      "swipeImg": "https://github.com/Barklim/course/blob/main/hostImg/swipe1.jpeg?raw=true",
+      "swipeTitle": "Getting Started",
+      "title": "NFTs and Copyright\n The Legal Challenges of Digital Ownership",
+      "price": "6.30",
+      "views": 12,
+      "startDate": "",
+      "endDate": "",
+      "createdAt": "13.07.2023",
+      "earn": "21",
+      "type": [
+        "CRYPTO"
+      ],
+      "category": "trending",
       "content": []
     }
   ],
@@ -1411,7 +1646,7 @@
       ],
       "features": {
         "isAppRedesigned": true,
-        "isAppRevamped": true,
+        "isAppRevamped": false,
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
         "isLayoutRedesigned": false
@@ -1461,7 +1696,7 @@
       "avatar": "https://github.com/Barklim/course/blob/main/hostImg/avatar.png?raw=true",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_dark_theme"
+        "theme": "app_light_theme"
       }
     },
     {
