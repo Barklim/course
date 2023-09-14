@@ -1,0 +1,41 @@
+.slider {
+  position: absolute;
+  display: flex;
+
+  .slide{
+    &:not(:first-child){
+      margin-left: 12px;
+    }
+    .preview{
+      height: 100%;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+
+.container {
+  //display: initial !important;
+}
+
+.swiperReact {
+  //width: 100px;
+  //height: 100px;
+}
+
+.swiperSlide {
+  //width: 20px !important;
+}
+
+.communityImg {
+  width: 30px !important;
+  height: 30px !important;
+
+  border-radius: 30px;
+  border: 2px solid var(--sidebar-bg);
+}

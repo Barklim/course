@@ -17,6 +17,7 @@
 ## TODO
 
 * redux
+    - redux hooks form of mines swidden
     - slice for swipe page
 * components
     - first visit modal
