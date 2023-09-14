@@ -11,6 +11,7 @@ import { getRouteWatch, getRouteCommunity } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { SequentialAnimatedList } from '@/shared/ui/revamped/SequentialAnimatedList';
 
 interface SidebarItemProps {
     item: SidebarItemType;
@@ -72,27 +73,7 @@ export const SidebarItem = memo(({ item, collapsed, isActive, onClick }: Sidebar
                                 </>
                                 :
                                 <>
-                                    <AppImage
-                                        fallback={<Skeleton border="50%" width={30} height={30} className={cls.imgGap} />}
-                                        src={img1}
-                                        className={classNames(cls.communityImg, {}, [])}
-                                        width={30}
-                                        height={30}
-                                    />
-                                    <AppImage
-                                        fallback={<Skeleton border="50%" width={30} height={30} className={cls.imgGap} />}
-                                        src={img2}
-                                        className={classNames(cls.communityImg, {}, [cls.imgGap])}
-                                        width={30}
-                                        height={30}
-                                    />
-                                    <AppImage
-                                        fallback={<Skeleton border="50%" width={30} height={30} className={cls.imgGap} />}
-                                        src={img3}
-                                        className={classNames(cls.communityImg, {}, [cls.imgGap])}
-                                        width={30}
-                                        height={30}
-                                    />
+                                    <SequentialAnimatedList />
                                 </>
                         }
                     </div>

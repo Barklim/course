@@ -1,15 +1,4 @@
-.swiper-wrapper {
-    /*display: initial !important;*/
-}
-
-.swiper {
-    /*overflow: initial !important;*/
-}
-
-.slider-controler {
-    /*width: 68px;*/
-    /*height: 68px;*/
-    /*border-radius: 68px;*/
-    /*background:  rgba(255, 255, 255, 0.15);*/
-    /*backdrop-filter: blur(20px);*/
+.shifted {
+    transform: translateX(20px) !important;
+    transition: transform 0.4s ease !important;
 }
