@@ -1,7 +1,9 @@
-.communityImg {
-  //width: 0  !important;
-  //height: 0 !important;
+.wrapper {
+  display: flex;
+  align-items: center;
+}
 
+.communityImg {
   border-radius: 30px;
   border: 2px solid var(--sidebar-bg);
   transition: width 0.9s, height 0.9s;
@@ -12,16 +14,32 @@
   border: 2px solid var(--sidebar-bg);
 }
 
-.firstIem {
-  //opacity: 0.2;
-  //width: 30px;
-  width: 30px !important;
-  height: 30px !important;
-  //transform: scale(2);
-  //transition: width 0.9s, height 0.9s;
+.imgGapFirstItem {
+  margin-right: -18px;
 }
 
-.shifted {
-  transform: translateX(20px) !important;
-  transition: transform 0.4s ease !important;
+@keyframes hideElement {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+.hidden {
+  animation: hideElement 1s;
+}
+
+@keyframes showElement {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.shown {
+  animation: showElement 1s;
 }

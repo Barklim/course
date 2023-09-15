@@ -3,7 +3,6 @@ import cls from './SequentialAnimatedList.module.scss';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import './SequentialAnimatedList.css';
 
 const img1 = 'https://github.com/Barklim/course/blob/main/hostImg/swipe2.jpeg?raw=true';
 const img2 = 'https://github.com/Barklim/course/blob/main/hostImg/3.jpeg?raw=true';
@@ -15,14 +14,25 @@ const images = [img1, img2, img3, img5, img4, img3 ,img5];
 
 interface SequentialAnimatedListProps {}
 
-function shiftArrayIndices(arr: any) {
+function getRandomInterval() {
+    return Math.floor(Math.random() * 10 + 1) * 1000;
+}
+
+function shiftArrayIndices(arr: number[]): number[] {
     const newArr = [...arr];
     const lastItem = newArr.pop();
-    newArr.unshift(lastItem);
+    newArr.unshift(lastItem as number);
     return newArr;
 }
 
-function getImages(arrIndexes: any, images: any) {
+function unShiftArrayIndices(arr: number[]): number[] {
+    const newArr = [...arr];
+    const firstItem = newArr.shift();
+    newArr.push(firstItem as number);
+    return newArr;
+}
+
+function getImages(arrIndexes: number[], images: string[]): string[] {
     const imgArr: Array<string> = [];
     imgArr.push(images[arrIndexes[0]]);
     imgArr.push(images[arrIndexes[1]]);
@@ -31,15 +41,21 @@ function getImages(arrIndexes: any, images: any) {
 }
 
 export const SequentialAnimatedList: React.FC<SequentialAnimatedListProps> = ({
-    // TODO: Props items AppImages, count of shows elements, speed changes, e.t.c.
-    // items,
-    // loading,
-    // play,
+// TODO: Props items AppImages, count of shows elements, speed changes, e.t.c.
+// TODO: direction animation and orientation
+// items,
+// loading,
+// play,
 }) => {
-    const [arrayIndex, setArrayIndex] = useState<number[]>([0, 1, 2])
+    const [arrayIndex, setArrayIndex] = useState<number[]>([0, 1, 2]);
+    const [animate, setAnimate] = useState(false);
 
     const shift = () => {
-        setArrayIndex((prevArrayIndex) => shiftArrayIndices(prevArrayIndex));
+        setAnimate(true);
+        setTimeout(() => {
+            setArrayIndex((prevArrayIndex) => shiftArrayIndices(prevArrayIndex));
+            setAnimate(false);
+        }, 1000);
     }
 
     useEffect(() => {
@@ -51,13 +67,9 @@ export const SequentialAnimatedList: React.FC<SequentialAnimatedListProps> = ({
     }, []);
 
     useEffect(() => {
-        // TODO: change classes
-    }, [arrayIndex]);
-
-    useEffect(() => {
         const intervalId = setInterval(() => {
             shift();
-        }, 4000);
+        }, getRandomInterval());
 
         return () => {
             clearInterval(intervalId);
@@ -65,20 +77,47 @@ export const SequentialAnimatedList: React.FC<SequentialAnimatedListProps> = ({
     }, []);
 
     const renderList = getImages(arrayIndex, images)?.map((img, index) => {
+        const transformStyle = animate
+            ? { transition: 'transform 1s ease', transform: `translateX(${18}px)` }
+            : { transition: 'transform 0s ease', transform: 'translateX(0)' };
+
         return (
-            <AppImage
+            <div
                 key={index}
-                fallback={<Skeleton border="50%" width={30} height={30} className={cls.imgGap} />}
-                src={img}
-                className={classNames(cls.communityImg, {}, [
-                    index === 0 ? cls.imgGap : cls.imgGap,
-                    index === 0 ? cls.firstIem : ''
+                style={transformStyle}
+                className={classNames(cls.wrapper, {}, [
+                    index === 2 && animate ? cls.hidden : ''
                 ] )}
-                width={30}
-                height={30}
-            />
+            >
+                <AppImage
+                    fallback={<Skeleton border="50%" width={30} height={30} className={cls.imgGap} />}
+                    src={img}
+                    width={30}
+                    height={30}
+                    className={classNames(cls.communityImg, {}, [
+                        index === 0 ? cls.imgGap : cls.imgGap,
+                    ] )}
+                />
+            </div>
         );
     });
 
-    return <>{renderList}</>;
+    return <>
+        {animate ?
+            <div
+                className={classNames(cls.wrapper, {}, [cls.shown])}
+            >
+                <AppImage
+                    fallback={<Skeleton border="50%" width={30} height={30} className={cls.imgGapFirstItem} />}
+                    src={getImages(shiftArrayIndices(arrayIndex), images)[0]}
+                    width={30}
+                    height={30}
+                    className={classNames(cls.communityImg, {}, [
+                         cls.imgGapFirstItem
+                    ] )}
+                />
+            </div> : null
+        }
+        {renderList}
+    </>;
 };
