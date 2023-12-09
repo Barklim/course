@@ -1,9 +1,8 @@
 ## Избранные курсы
 
 Приложение для размещения и оценки ресурсов для разработки, курсов, книг и прочее.
-Основано на курсе [ulbi](https://ulbitv.ru/frontend)
 
-- Ссылка клиент - [netlify](https://main--mellifluous-rolypoly-f95eb8.netlify.app/)
+- Ссылка клиент - [netlify](https://coursearn.netlify.app)
 - Ссылка json-server - [vercel](https://production-project-server-opal.vercel.app/)
 
 #### Реквизиты для входа
