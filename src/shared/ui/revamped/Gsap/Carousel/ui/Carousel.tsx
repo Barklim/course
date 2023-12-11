@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 // @ts-ignore
-import gsap from '../../../../../../modules/gsap-trial';
+import gsap from '../../../../../../../modules/gsap-trial';
 // @ts-ignore
-import InertiaPlugin from '../../../../../../modules/gsap-trial/dist/InertiaPlugin';
+import InertiaPlugin from '../../../../../../../modules/gsap-trial/dist/InertiaPlugin';
 // @ts-ignore
-import Draggable from '../../../../../../modules/gsap-trial/dist/Draggable';
+import Draggable from '../../../../../../../modules/gsap-trial/dist/Draggable';
 import { useDebounce } from '@/app/lib/useDebounce';
 import cls from './Carousel.module.scss';
 import { Event } from '@/entities/Event';

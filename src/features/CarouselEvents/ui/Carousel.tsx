@@ -13,7 +13,7 @@ import {
 } from '@/entities/Event';
 import { useSelector } from 'react-redux';
 import { getEventIsLoading } from '@/entities/Event/model/selectors/event';
-import { Carousel } from '@/shared/ui/revamped/Carousel';
+import { Carousel } from '@/shared/ui/revamped/Gsap/Carousel';
 import { getRouteSwipe } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 

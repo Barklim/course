@@ -11,7 +11,7 @@ import { getCourses, getCoursesFilterByCategory } from '@/entities/Course/model/
 import { CourseCategoryType, CourseView } from '@/entities/Course/model/consts/courseConsts';
 import { useSelector } from 'react-redux';
 import { getCourseIsLoading } from '@/entities/Course/model/selectors/course';
-import { Carousel } from '@/shared/ui/revamped/Carousel';
+import { Carousel } from '@/shared/ui/revamped/Gsap/Carousel';
 import { AppRoutes, getRouteSwipe } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 

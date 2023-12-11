@@ -1,9 +1,9 @@
 // @ts-ignore
-import gsap from '../../../../../../modules/gsap-trial';
+import gsap from '../../../../../../../modules/gsap-trial';
 // @ts-ignore
-import InertiaPlugin from '../../../../../../modules/gsap-trial/dist/InertiaPlugin';
+import InertiaPlugin from '../../../../../../../modules/gsap-trial/dist/InertiaPlugin';
 // @ts-ignore
-import Draggable from '../../../../../../modules/gsap-trial/dist/Draggable';
+import Draggable from '../../../../../../../modules/gsap-trial/dist/Draggable';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(Draggable, InertiaPlugin);

@@ -27,9 +27,10 @@ import {
     getRouteWatch,
     getRouteAcademy,
     getRouteCommunity,
-    getRouteSwipe,
+    getRouteSwipe, getRouteHistory,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
+import HistoryPage from '@/pages/HistoryPage/ui/HistoryPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -90,6 +91,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRole.MANAGER, UserRole.ADMIN],
+    },
+    [AppRoutes.HISTORY]: {
+        path: getRouteHistory(),
+        element: <HistoryPage />,
     },
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
