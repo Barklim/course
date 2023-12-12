@@ -6,6 +6,7 @@ import {
     PointsCountType,
     rotateArray,
     toRadians,
+    calculateMoves,
 } from '@/shared/ui/revamped/Gsap/Circle/helpers/helpers';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -162,8 +163,44 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
         }
     }, [isInit]);
 
+    const handleClick = (count: number) => {
+        const activePointElement = document.querySelectorAll(`.${cls.activePoint}`);
+
+        let activeEl = 100;
+        activePointElement.forEach((item) => {
+            if (item.id.includes(id)) {
+                activeEl = Number(item.firstElementChild?.innerHTML);
+            }
+        })
+
+        if (activeEl === count) {
+            return null
+        }
+
+        const pointContainer = document.getElementById(id)
+        const statePoints: Array<number> = [];
+
+        pointContainer?.childNodes.forEach((item) => {
+            statePoints.push(Number(item.childNodes[0].childNodes[0].textContent))
+        })
+
+        const moves = calculateMoves(statePoints, count, activeEl)
+
+        if (moves.direction) {
+            const arrRotated = rotateArray(points, moves.movesCount);
+            setPoints(arrRotated);
+            setAnimationPlaying(true);
+            setForwardDirection(true)
+        } else {
+            const arrRotated = rotateArray(points, moves.movesCount, true);
+            setPoints(arrRotated);
+            setAnimationPlaying(true);
+            setForwardDirection(false)
+        }
+    }
+
     const renderPoints =
-    <>
+    <div id={id}>
         {points?.map((pointPosition, index) => {
             index = index + 1
             const count = getCountByAngle(pointPosition, pointCount, extraRotation);
@@ -201,6 +238,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
                              ${isActive  ? cls.activePoint : ''}
                              ${isDecrease  ? cls.decrease : ''}
                          `}
+                         onClick={() => handleClick(count)}
                     >
                         <div className={classNames(cls.number, {}, [numberVisibility ? cls.number_visible : undefined])}>
                             {count}
@@ -209,7 +247,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
                 </div>
             )
         })}
-    </>
+    </div>
 
     return (
         <>

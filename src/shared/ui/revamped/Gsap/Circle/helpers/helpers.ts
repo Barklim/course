@@ -64,3 +64,31 @@ export function rotateArray(arr: any, positions: any, reverse = false) {
         : [...arr.slice(shift), ...arr.slice(0, shift)];
     return rotatedArray;
 }
+
+export function calculateMoves(array: Array<number>, a: number, b: number) {
+    const n = array.length;
+
+    const getIndex = (num: number) => {
+        const index = array.indexOf(num);
+        return index === -1 ? array.lastIndexOf(num) : index;
+    };
+
+    const indexA = getIndex(a);
+    const indexB = getIndex(b);
+
+    let clockwiseMoves = 0;
+    let anticlockwiseMoves = 0;
+
+    for (let i = indexB; i !== indexA; i = (i + 1) % n) {
+        clockwiseMoves++;
+    }
+
+    for (let i = indexB; i !== indexA; i = (i - 1 + n) % n) {
+        anticlockwiseMoves++;
+    }
+
+    return {
+        movesCount: Math.min(clockwiseMoves, anticlockwiseMoves),
+        direction: clockwiseMoves <= anticlockwiseMoves,
+    };
+}
