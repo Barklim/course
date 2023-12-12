@@ -169,6 +169,15 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
             const count = getCountByAngle(pointPosition, pointCount, extraRotation);
             const pointId = `point${index}__${id}`
 
+            const isActive = index === 2 && !isAnimationPlaying
+            const isIncrease = index === 2 && isAnimationPlaying
+            let isDecrease = true;
+            if (isForwardDirection) {
+                isDecrease = index === 1 && isAnimationPlaying
+            } else {
+                isDecrease = index === 3 && isAnimationPlaying
+            }
+
             return (
                 <div
                     key={pointId}
@@ -177,7 +186,22 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
                     // TODO: workaround
                     style={{ width: `${radius}px`, height: `${radius}px`, top:`${radius/2}px`, left: `${radius/2}px` }}
                 >
-                    <div id={pointId} className={cls.point}>
+                    <div id={pointId}
+                         // TODO: when clicked point
+                         // className={`
+                         //     ${cls.point}
+                         //     ${isHovered ? cls.pointHovered : ''}
+                         //     // ${index === 2 ? cls.activePoint : ''}
+                         //     // Show all when moving
+                         //     // ${isAnimationPlaying  ? cls.activePoint : ''}
+                         // `}
+                         className={`
+                             ${cls.point} 
+                             ${isIncrease ? cls.increase : ''} 
+                             ${isActive  ? cls.activePoint : ''}
+                             ${isDecrease  ? cls.decrease : ''}
+                         `}
+                    >
                         <div className={classNames(cls.number, {}, [numberVisibility ? cls.number_visible : undefined])}>
                             {count}
                         </div>

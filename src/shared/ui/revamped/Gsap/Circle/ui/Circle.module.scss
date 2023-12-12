@@ -28,11 +28,79 @@
   }
 }
 
-.number {
-  // TODO: to width: 9px; or better create outer container for better hover UX.
-  //width: 20px;
-  //height: 20px;
+.increase {
+  width: 6px;
+  height: 6px;
+  animation: pointIncreaseAnimation 0.9s ease;
 
+  .number {
+    opacity: 0;
+    animation: opacityIncreaseAnimation 0.9s ease;
+  }
+}
+@keyframes pointIncreaseAnimation {
+  to {
+    width: 56px;
+    height: 56px;
+    left: calc(50% - 28px);
+    top: calc(50% - 28px);
+    border: 1px solid #42567a;
+    background: #fff;
+  }
+}
+@keyframes opacityIncreaseAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+
+.decrease {
+  width: 56px;
+  height: 56px;
+  left: calc(50% - 28px);
+  top: calc(50% - 28px);
+  border: 1px solid #42567a;
+
+  animation: pointDecreaseAnimation 0.9s ease;
+
+  .number {
+    opacity: 1;
+    animation: opacityDecreaseAnimation 0.9s ease;
+  }
+}
+@keyframes pointDecreaseAnimation {
+  to {
+    width: 6px;
+    height: 6px;
+    left: calc(50% - 2px);
+    top: calc(50% - 2px);
+
+    border: 1px solid #42567a;
+    background: #fff;
+  }
+}
+@keyframes opacityDecreaseAnimation {
+  to {
+    opacity: 0;
+  }
+}
+
+
+.activePoint {
+  width: 56px;
+  height: 56px;
+  left: calc(50% - 28px);
+  top: calc(50% - 28px);
+  border: 1px solid #42567a;
+  background: #fff;
+
+  .number {
+    opacity: 1;
+  }
+}
+
+.number {
   z-index: 1000000;
   position: absolute;
   top: 50%;
