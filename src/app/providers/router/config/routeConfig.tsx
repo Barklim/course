@@ -30,7 +30,7 @@ import {
     getRouteSwipe, getRouteHistory,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
-import HistoryPage from '@/pages/HistoryPage/ui/HistoryPage';
+import { HistoryPage } from '@/pages/HistoryPage/';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {

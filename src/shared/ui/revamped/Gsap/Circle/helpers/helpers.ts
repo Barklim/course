@@ -33,15 +33,28 @@ export function getAngleDiff(pointCount: PointsCountType) {
     return angleMap[pointCount] || 100;
 }
 
-export function getCountByAngle(angle: number, pointCount: PointsCountType) {
+export function getCountByAngle(angle: number, pointCount: PointsCountType, extraRotation: number) {
+    const adjustedAngle = angle;
+
     const countMap: Record<PointsCountType, Record<number, number>> = {
-        [PointsCountType.SIX]: { 0: 1, 60: 2, 120: 3, 180: 4, 240: 5, 300: 6 },
-        [PointsCountType.FIVE]: { 0: 1, 72: 2, 144: 3, 216: 4, 288: 5 },
-        [PointsCountType.FOUR]: { 0: 1, 90: 2, 180: 3, 270: 4 },
-        [PointsCountType.TREE]: { 0: 1, 120: 2, 240: 3 },
-        [PointsCountType.TWO]: { 0: 1, 180: 2 },
+        [PointsCountType.SIX]: { 0: 6, 60: 1, 120: 2, 180: 3, 240: 4, 300: 5 },
+        [PointsCountType.FIVE]: { 0: 5, 72: 1, 144: 2, 216: 3, 288: 4 },
+        [PointsCountType.FOUR]: { 0: 4, 90: 1, 180: 2, 270: 3 },
+        [PointsCountType.TREE]: { 0: 3, 120: 1, 240: 2 },
+        [PointsCountType.TWO]: { 0: 2, 180: 1 },
     };
-    return countMap[pointCount]?.[angle] || 100;
+
+    const adjustedCountMap: Record<number, number> = {};
+
+    Object.entries(countMap[pointCount]).forEach(([key, value]) => {
+        const parsedKey = parseFloat(key);
+
+        if (!isNaN(parsedKey)) {
+            adjustedCountMap[(parsedKey + extraRotation + 360) % 360] = value;
+        }
+    });
+
+    return adjustedCountMap[adjustedAngle] !== undefined ? adjustedCountMap[adjustedAngle] : 100;
 }
 
 export function rotateArray(arr: any, positions: any, reverse = false) {

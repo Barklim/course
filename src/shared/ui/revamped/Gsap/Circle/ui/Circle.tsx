@@ -8,22 +8,24 @@ import {
     toRadians,
 } from '@/shared/ui/revamped/Gsap/Circle/helpers/helpers';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface CircleProps {
     id: string;
     items: any[] | undefined;
     loading: boolean;
     pointCount: PointsCountType;
-    radius?: number
+    radius?: number;
+    extraRotation?: number;
+    numberVisibility?: boolean;
+    duration?: number;
 }
 
-export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount = 2, radius= 125 }) => {
+export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount = 2, radius= 90 , extraRotation = 45, numberVisibility = false, duration= 0.8}) => {
     const [isAnimationPlaying, setAnimationPlaying] = useState(false);
     const [isInit, setInitPosition] = useState(false);
     const [points, setPoints] = useState<Array<number>>([0, 0])
     const [isForwardDirection, setForwardDirection] = useState<Boolean>(true)
-
-    const DURATION = 0.8;
 
     const play = () => {
         const arrRotated = rotateArray(points, 1);
@@ -46,22 +48,22 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
 
         switch (pointCount) {
             case PointsCountType.TWO:
-                setPoints([0, 180]);
+                setPoints([0 + extraRotation, 180 + extraRotation]);
                 break;
             case PointsCountType.TREE:
-                setPoints([0, 120, 240]);
+                setPoints([0 + extraRotation, 120 + extraRotation, 240 + extraRotation]);
                 break;
             case PointsCountType.FOUR:
-                setPoints([0, 90, 180, 270]);
+                setPoints([0 + extraRotation, 90 + extraRotation, 180 + extraRotation, 270 + extraRotation]);
                 break;
             case PointsCountType.FIVE:
-                setPoints([0, 72, 144, 216, 288]);
+                setPoints([0 + extraRotation, 72 + extraRotation, 144 + extraRotation, 216 + extraRotation, 288 + extraRotation]);
                 break;
             case PointsCountType.SIX:
-                setPoints([0, 60, 120, 180, 240, 300]);
+                setPoints([0 + extraRotation, 60 + extraRotation, 120 + extraRotation, 180 + extraRotation, 240 + extraRotation, 300 + extraRotation]);
                 break;
             default:
-                setPoints([0, 180]);
+                setPoints([0 + extraRotation, 180 + extraRotation]);
         }
     };
 
@@ -87,7 +89,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
                 { rotation: startPosition },
                 {
                     rotation: endPosition,
-                    duration: DURATION,
+                    duration: duration,
                     ease: Linear.easeNone
                 }
             );
@@ -98,7 +100,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
                     { rotation: -startPosition },
                     {
                         rotation: -endPosition,
-                        duration: DURATION,
+                        duration: duration,
                         ease: Linear.easeNone
                     }
                 );
@@ -116,7 +118,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
 
             setTimeout(() => {
                 setAnimationPlaying(false);
-            }, DURATION * 1000);
+            }, duration * 1000);
         }
     }, [isAnimationPlaying, points]);
 
@@ -164,17 +166,21 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
     <>
         {points?.map((pointPosition, index) => {
             index = index + 1
-            const count = getCountByAngle(pointPosition, pointCount);
+            const count = getCountByAngle(pointPosition, pointCount, extraRotation);
             const pointId = `point${index}__${id}`
 
             return (
                 <div
+                    key={pointId}
                     id={`pointContainer__${id}`}
                     className={cls.pointContainer}
-                    style={{ width: `${radius*2}px`, height: `${radius*2}px` }}
+                    // TODO: workaround
+                    style={{ width: `${radius}px`, height: `${radius}px`, top:`${radius/2}px`, left: `${radius/2}px` }}
                 >
                     <div id={pointId} className={cls.point}>
-                        <div className={cls.number}>{count}</div>
+                        <div className={classNames(cls.number, {}, [numberVisibility ? cls.number_visible : undefined])}>
+                            {count}
+                        </div>
                     </div>
                 </div>
             )
@@ -184,9 +190,8 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
     return (
         <>
             <VStack gap='8'>
-                <div className={cls.circleContainer}>
-                    <div className={cls.circle}
-                         style={{ width: `${radius*2}px`, height: `${radius*2}px` }}>
+                <div>
+                    <div className={cls.circle} style={{ width: `${radius*2}px`, height: `${radius*2}px` }}>
                         <div className={cls.horizontalLine} style={{ width: `${radius*2}px`, left: `calc(50% - ${radius}px)` }}></div>
                         <div className={cls.verticalLine} style={{ height: `${radius*2}px`, top: `calc(50% - ${radius}px)` }}></div>
                         {renderPoints}
@@ -196,7 +201,6 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
                     <button onClick={playReverse}>👈</button>
                     <button onClick={play}>👉</button>
                 </HStack>
-
             </VStack>
         </>
     );

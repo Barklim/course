@@ -1,3 +1,3 @@
 import { HistoryPageAsync } from './ui/HistoryPage.async';
 
-export { HistoryPageAsync as AdminPanelPage };
+export { HistoryPageAsync as HistoryPage };
