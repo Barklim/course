@@ -13,8 +13,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface CircleProps {
     id: string;
-    items: any[] | undefined;
-    loading: boolean;
+    items?: any[] | undefined;
+    titles?: string[] | undefined;
+    loading?: boolean;
     pointCount: PointsCountType;
     radius?: number;
     extraRotation?: number;
@@ -22,23 +23,37 @@ interface CircleProps {
     duration?: number;
 }
 
-export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount = 2, radius= 90 , extraRotation = 45, numberVisibility = false, duration= 0.8}) => {
+export const Circle: React.FC<CircleProps> = ({ id, items, titles, loading, pointCount = 2, radius= 90 , extraRotation = 45, numberVisibility = false, duration= 0.8}) => {
     const [isAnimationPlaying, setAnimationPlaying] = useState(false);
     const [isInit, setInitPosition] = useState(false);
     const [points, setPoints] = useState<Array<number>>([0, 0])
     const [isForwardDirection, setForwardDirection] = useState<Boolean>(true)
+    const [activeItem, setActiveItem] = useState<number>(0)
 
-    const play = () => {
+    const play = (activeEl: number) => {
         const arrRotated = rotateArray(points, 1);
         setPoints(arrRotated);
+
+        if (titles?.length === activeEl + 1) {
+            setActiveItem(0)
+        } else {
+            setActiveItem(activeEl + 1)
+        }
 
         setAnimationPlaying(true);
         setForwardDirection(true)
     };
 
-    const playReverse = () => {
+    const playReverse = (activeEl: number) => {
         const arrRotated = rotateArray(points, 1, true);
         setPoints(arrRotated);
+
+        if (activeEl === 0) {
+            const maxLength = titles?.length || 100;
+            setActiveItem(maxLength - 1)
+        } else {
+            setActiveItem(activeEl - 1)
+        }
 
         setAnimationPlaying(true);
         setForwardDirection(false)
@@ -173,6 +188,8 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
             }
         })
 
+        setActiveItem(count - 1);
+
         if (activeEl === count) {
             return null
         }
@@ -243,6 +260,9 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
                         <div className={classNames(cls.number, {}, [numberVisibility ? cls.number_visible : undefined])}>
                             {count}
                         </div>
+                        {
+                            titles ? <div className={classNames(cls.title, {}, [isActive ? cls.title_visible : undefined, isActive ? cls.decrease1 : undefined])}>{titles[count - 1]}</div> : null
+                        }
                     </div>
                 </div>
             )
@@ -251,17 +271,19 @@ export const Circle: React.FC<CircleProps> = ({ id, items, loading, pointCount =
 
     return (
         <>
-            <VStack gap='8'>
-                <div>
-                    <div className={cls.circle} style={{ width: `${radius*2}px`, height: `${radius*2}px` }}>
-                        <div className={cls.horizontalLine} style={{ width: `${radius*2}px`, left: `calc(50% - ${radius}px)` }}></div>
-                        <div className={cls.verticalLine} style={{ height: `${radius*2}px`, top: `calc(50% - ${radius}px)` }}></div>
-                        {renderPoints}
+            <VStack gap='32'>
+                <HStack gap='0'>
+                    <div>
+                        <div className={cls.circle} style={{ width: `${radius*2}px`, height: `${radius*2}px` }}>
+                            <div className={cls.horizontalLine} style={{ width: `${radius*2}px`, left: `calc(50% - ${radius}px)` }}></div>
+                            <div className={cls.verticalLine} style={{ height: `${radius*2}px`, top: `calc(50% - ${radius}px)` }}></div>
+                            {renderPoints}
+                        </div>
                     </div>
-                </div>
+                </HStack>
                 <HStack gap='8'>
-                    <button onClick={playReverse}>👈</button>
-                    <button onClick={play}>👉</button>
+                    <button onClick={() => playReverse(activeItem)}>👈</button>
+                    <button onClick={() => play(activeItem)}>👉</button>
                 </HStack>
             </VStack>
         </>

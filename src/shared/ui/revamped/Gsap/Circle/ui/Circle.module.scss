@@ -37,6 +37,11 @@
     opacity: 0;
     animation: opacityIncreaseAnimation 0.9s ease;
   }
+
+  .title {
+    opacity: 0;
+    animation: titleIncreaseAnimation 0.9s ease;
+  }
 }
 @keyframes pointIncreaseAnimation {
   to {
@@ -53,6 +58,12 @@
     opacity: 1;
   }
 }
+@keyframes titleIncreaseAnimation {
+  to {
+    opacity: 1;
+    left: 60px;
+  }
+}
 
 
 .decrease {
@@ -67,6 +78,12 @@
   .number {
     opacity: 1;
     animation: opacityDecreaseAnimation 0.9s ease;
+  }
+
+  .title {
+    opacity: 1;
+    left: 60px;
+    animation: titleDecreaseAnimation 0.9s ease;
   }
 }
 @keyframes pointDecreaseAnimation {
@@ -85,6 +102,12 @@
     opacity: 0;
   }
 }
+@keyframes titleDecreaseAnimation {
+  to {
+    opacity: 0;
+    left: 40px;
+  }
+}
 
 
 .activePoint {
@@ -96,6 +119,10 @@
   background: #fff;
 
   .number {
+    opacity: 1;
+  }
+
+  .title {
     opacity: 1;
   }
 }
@@ -170,4 +197,16 @@
   .number {
     opacity: 1;
   }
+}
+
+.title {
+  position: relative;
+  left: 60px;
+  bottom: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.2s;
 }

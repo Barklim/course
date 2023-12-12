@@ -1,3 +1,9 @@
+export const mockTitle2 = ['Title1','Title2',];
+export const mockTitle3 = ['Title1','Title2','Title3', ];
+export const mockTitle4 = ['Title1','Title2','Title3', 'Title4',];
+export const mockTitle5 = ['Title1','Title2','Title3', 'Title4','Title5'];
+export const mockTitle6 = ['Title1','Title2','Title3', 'Title4','Title5','Title6'];
+
 export const mockTitleCountPoints = '<HStack gap=\'32\'>\n' +
     '  <Circle id=\'2item_90rad\' pointCount={2}/>' +
     '\n' +
