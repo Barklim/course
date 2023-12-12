@@ -1,7 +1,13 @@
 {
   "title page": "Демо компонента gsap",
   "title points": "Разное количество точек",
-  "title visibility": "Видимость чисел и углы поворота",
-  "title duration": "Длительность анимации шага",
-  "title radius": "Разный радиус"
+  "title points subtext": "Каждому компоненту Circle необходим уникальный идентификатор.",
+  "title visibility": "Видимость чисел и углы поворота.",
+  "title visibility subtext": "Угол 45° по умолчанию",
+  "title duration": "Длительность анимации шага.",
+  "title duration subtext": "Продолжительность анимации шага по умолчанию составляет 0,8.",
+  "title radius": "Разный радиус",
+  "title radius subtext": "Радиус по умолчанию 90.",
+  "title titles": "Ввод заголовков",
+  "title titles subtext": "Заголовок по умолчанию пуст."
 }

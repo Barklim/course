@@ -1,7 +1,13 @@
 {
   "title page": "Circle gsap showcase",
   "title points": "Different number of points",
+  "title points subtext": "Every Circle component need unique id.",
   "title visibility": "Visibility numbers and angles",
+  "title visibility subtext": "45° angles by default.",
   "title duration": "Step animation duration",
-  "title radius": "Different radius"
+  "title duration subtext": "Step animation duration by default is 0.8.",
+  "title radius": "Different radius",
+  "title radius subtext": "Radius by default 90.",
+  "title titles": "Input titles",
+  "title titles subtext": "Title by default is empty."
 }
