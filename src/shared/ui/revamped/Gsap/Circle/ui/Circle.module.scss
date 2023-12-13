@@ -10,7 +10,7 @@
 
   border-radius: 56px;
   background: #42567A;
-  //transition: width 0.8s, height 0.8s, left 0.8s, top 0.8s, background 0.8s;
+  // Hover point
   transition: width 0.2s, height 0.2s, left 0.2s, top 0.2s, background 0.2s;
 
   &:hover {
@@ -27,88 +27,6 @@
     }
   }
 }
-
-.increase {
-  width: 6px;
-  height: 6px;
-  animation: pointIncreaseAnimation 0.9s ease;
-
-  .number {
-    opacity: 0;
-    animation: opacityIncreaseAnimation 0.9s ease;
-  }
-
-  .title {
-    opacity: 0;
-    animation: titleIncreaseAnimation 0.9s ease;
-  }
-}
-@keyframes pointIncreaseAnimation {
-  to {
-    width: 56px;
-    height: 56px;
-    left: calc(50% - 28px);
-    top: calc(50% - 28px);
-    border: 1px solid #42567a;
-    background: #fff;
-  }
-}
-@keyframes opacityIncreaseAnimation {
-  to {
-    opacity: 1;
-  }
-}
-@keyframes titleIncreaseAnimation {
-  to {
-    opacity: 1;
-    left: 60px;
-  }
-}
-
-
-.decrease {
-  width: 56px;
-  height: 56px;
-  left: calc(50% - 28px);
-  top: calc(50% - 28px);
-  border: 1px solid #42567a;
-
-  animation: pointDecreaseAnimation 0.9s ease;
-
-  .number {
-    opacity: 1;
-    animation: opacityDecreaseAnimation 0.9s ease;
-  }
-
-  .title {
-    opacity: 1;
-    left: 60px;
-    animation: titleDecreaseAnimation 0.9s ease;
-  }
-}
-@keyframes pointDecreaseAnimation {
-  to {
-    width: 6px;
-    height: 6px;
-    left: calc(50% - 2px);
-    top: calc(50% - 2px);
-
-    border: 1px solid #42567a;
-    background: #fff;
-  }
-}
-@keyframes opacityDecreaseAnimation {
-  to {
-    opacity: 0;
-  }
-}
-@keyframes titleDecreaseAnimation {
-  to {
-    opacity: 0;
-    left: 40px;
-  }
-}
-
 
 .activePoint {
   width: 56px;
@@ -144,7 +62,6 @@
   align-items: center;
   justify-content: center;
 
-  //transition: opacity 0.8s;
   transition: opacity 0.2s;
 
   &_visible {

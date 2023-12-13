@@ -58,7 +58,7 @@ const HistoryPage = () => {
                 <Text size={'m'} selectNone title={t('title duration')}></Text>
                 <HStack gap='32'>
                     <VStack>
-                        <Circle id='6item_duration' radius={150} pointCount={6} numberVisibility={true} titles={mockTitle6} />
+                        <Circle id='6item_duration_default' radius={150} pointCount={6} numberVisibility={true} titles={mockTitle6} />
                         <HStack gap='32'>
                             <Circle id='2item_duration04' radius={110} pointCount={2} numberVisibility={true} duration={0.4} titles={mockTitle2}/>
                             <Circle id='6item_duration04' radius={110} pointCount={6} numberVisibility={true} duration={0.4} titles={mockTitle6}/>

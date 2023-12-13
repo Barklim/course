@@ -1,17 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, CSSProperties } from 'react';
 import { Linear, gsap } from 'gsap';
 import cls from './Circle.module.scss';
 import {
-    getAngleDiff, getCircleX, getCircleY, getCountByAngle,
+    getAngleDiff,
+    getCircleX,
+    getCircleY,
+    getCountByAngle,
     PointsCountType,
     rotateArray,
     toRadians,
     calculateMoves,
-} from '@/shared/ui/revamped/Gsap/Circle/helpers/helpers';
+    keyframes,
+    getInlineStyles,
+    pointCountDefault,
+    radiusDefault,
+    extraRotationDefault,
+    numberVisibilityDefault,
+    durationDefault,
+    mergeStyles,
+} from '../helpers';
+
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-interface CircleProps {
+export interface CircleProps {
+    // TODO: remove uniq id
     id: string;
     items?: any[] | undefined;
     titles?: string[] | undefined;
@@ -23,7 +36,15 @@ interface CircleProps {
     duration?: number;
 }
 
-export const Circle: React.FC<CircleProps> = ({ id, items, titles, loading, pointCount = 2, radius= 90 , extraRotation = 45, numberVisibility = false, duration= 0.8}) => {
+export const Circle: React.FC<CircleProps> = ({
+    id, items,
+    titles, loading,
+    pointCount = pointCountDefault,
+    radius= radiusDefault,
+    extraRotation = extraRotationDefault,
+    numberVisibility = numberVisibilityDefault,
+    duration= durationDefault
+}) => {
     const [isAnimationPlaying, setAnimationPlaying] = useState(false);
     const [isInit, setInitPosition] = useState(false);
     const [points, setPoints] = useState<Array<number>>([0, 0])
@@ -139,7 +160,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, titles, loading, poin
     }, [isAnimationPlaying, points]);
 
     useEffect(() => {
-        const DURATION = 0.0;
+        const DURATION_INIT = 0.2;
 
         let startPosition = getAngleDiff(pointCount)
         let endPosition = getAngleDiff(pointCount)
@@ -150,7 +171,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, titles, loading, poin
                 { rotation: startPosition },
                 {
                     rotation: endPosition,
-                    duration: DURATION,
+                    duration: DURATION_INIT,
                     ease: Linear.easeNone,
                 }
             );
@@ -159,7 +180,7 @@ export const Circle: React.FC<CircleProps> = ({ id, items, titles, loading, poin
                 return gsap.fromTo(
                     `#${pointId}__${id}`,
                     { rotation: startPosition, x: 0, y: -radius },
-                    { rotation: -endPosition, x, y, duration: DURATION, ease: Linear.easeNone }
+                    { rotation: -endPosition, x, y, duration: DURATION_INIT, ease: Linear.easeNone }
                 );
             };
 
@@ -232,6 +253,11 @@ export const Circle: React.FC<CircleProps> = ({ id, items, titles, loading, poin
                 isDecrease = index === 3 && isAnimationPlaying
             }
 
+            const inlineStyles = getInlineStyles(duration || 0.8);
+            const pointStyles = mergeStyles(isIncrease ? inlineStyles.pointIncrease : '' as CSSProperties, isDecrease ? inlineStyles.pointDecrease : '' as CSSProperties)
+            const numberStyles = mergeStyles(isIncrease ? inlineStyles.numberIncrease : '' as CSSProperties, isDecrease ? inlineStyles.numberDecrease : '' as CSSProperties)
+            const titleStyles = mergeStyles(isIncrease ? inlineStyles.titleIncrease : '' as CSSProperties, isDecrease ? inlineStyles.titleDecrease : '' as CSSProperties)
+
             return (
                 <div
                     key={pointId}
@@ -241,29 +267,21 @@ export const Circle: React.FC<CircleProps> = ({ id, items, titles, loading, poin
                     style={{ width: `${radius}px`, height: `${radius}px`, top:`${radius/2}px`, left: `${radius/2}px` }}
                 >
                     <div id={pointId}
-                         // TODO: when clicked point
-                         // className={`
-                         //     ${cls.point}
-                         //     ${isHovered ? cls.pointHovered : ''}
-                         //     // ${index === 2 ? cls.activePoint : ''}
-                         //     // Show all when moving
-                         //     // ${isAnimationPlaying  ? cls.activePoint : ''}
-                         // `}
                          className={`
                              ${cls.point} 
-                             ${isIncrease ? cls.increase : ''} 
                              ${isActive  ? cls.activePoint : ''}
-                             ${isDecrease  ? cls.decrease : ''}
                          `}
+                         style={pointStyles}
                          onClick={() => handleClick(count)}
                     >
-                        <div className={classNames(cls.number, {}, [numberVisibility ? cls.number_visible : undefined])}>
+                        <div style={numberStyles} className={classNames(cls.number, {}, [numberVisibility ? cls.number_visible : undefined])}>
                             {count}
                         </div>
                         {
-                            titles ? <div className={classNames(cls.title, {}, [isActive ? cls.title_visible : undefined, isActive ? cls.decrease1 : undefined])}>{titles[count - 1]}</div> : null
+                            titles ? <div style={titleStyles} className={classNames(cls.title, {}, [isActive ? cls.title_visible : undefined, isActive ? cls.decrease1 : undefined])}>{titles[count - 1]}</div> : null
                         }
                     </div>
+                    <style>{keyframes}</style>
                 </div>
             )
         })}
