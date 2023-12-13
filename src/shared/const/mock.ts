@@ -3,6 +3,7 @@ export const mockTitle3 = ['Title1','Title2','Title3', ];
 export const mockTitle4 = ['Title1','Title2','Title3', 'Title4',];
 export const mockTitle5 = ['Title1','Title2','Title3', 'Title4','Title5'];
 export const mockTitle6 = ['Title1','Title2','Title3', 'Title4','Title5','Title6'];
+export const mockTitleSpec = ['you so', 'f@ckin', 'precious', 'when you', '❤️❤ smile ❤❤️️', '']
 
 export const mockTitleCountPoints =
     '<Circle pointCount={2}/>' +
@@ -45,11 +46,12 @@ export const mockTitleRadius =
 export const mockTitleTitles =
     '<Circle pointCount={4} />' +
     '\n' +
+    '<Circle pointCount={6} titles={arrayOfComponents} />' +
+    '\n' +
     '<Circle' +
     '\n' +
-    '  pointCount={6}' +
+    '  pointCount={5}' +
     '\n' +
-    '  titles={[\'you so\', \'f@ckin\', \'precious\', \'when you\', \'❤️❤ smile ❤❤️️\', \'\']}/>' +
+    '  titles={[<div>🔥</div>, <div>❄️</div>, <div>🌳</div>, <div>💧</div>, <div>⚡</div>]}' +
     '\n' +
     '/>'
-

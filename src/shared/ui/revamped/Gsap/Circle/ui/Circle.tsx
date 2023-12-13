@@ -27,7 +27,7 @@ export interface CircleProps {
     // TODO: remove uniq id
     id: string;
     items?: any[] | undefined;
-    titles?: string[] | undefined;
+    titles?: React.ReactNode[] | undefined;
     loading?: boolean;
     pointCount: PointsCountType;
     radius?: number;
@@ -278,7 +278,9 @@ export const Circle: React.FC<CircleProps> = ({
                             {count}
                         </div>
                         {
-                            titles ? <div style={titleStyles} className={classNames(cls.title, {}, [isActive ? cls.title_visible : undefined, isActive ? cls.decrease1 : undefined])}>{titles[count - 1]}</div> : null
+                            titles ? <div style={titleStyles} className={classNames(cls.title, {}, [isActive ? cls.title_visible : undefined])}>
+                                {titles[count - 1]}
+                            </div> : null
                         }
                     </div>
                     <style>{keyframes}</style>
