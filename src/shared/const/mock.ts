@@ -3,7 +3,7 @@ export const mockTitle3 = ['Title1','Title2','Title3', ];
 export const mockTitle4 = ['Title1','Title2','Title3', 'Title4',];
 export const mockTitle5 = ['Title1','Title2','Title3', 'Title4','Title5'];
 export const mockTitle6 = ['Title1','Title2','Title3', 'Title4','Title5','Title6'];
-export const mockTitleSpec = ['you so', 'f@ckin', 'precious', 'when you', '❤️❤ smile ❤❤️️', '']
+export const mockTitleSpec = ['you so', 'luckin', 'precious', 'when you', '❤️❤ smile ❤❤️️', '']
 
 export const mockTitleCountPoints =
     '<Circle pointCount={2}/>' +
@@ -28,15 +28,17 @@ export const mockTitleVisibilityNumbers =
     '<Circle numberVisibility={true} extraRotation={15}/>'
 
 export const mockTitleAnimationDuration =
-    '<Circle pointCount={6} numberVisibility={true}' +
+    '<Circle pointCount={2}' +
     '\n' +
-    '<Circle pointCount={2} numberVisibility={true} duration={0.4}/>' +
+    '<Circle pointCount={6}' +
     '\n' +
-    '<Circle pointCount={6} numberVisibility={true} duration={0.4}/>' +
+    '<Circle pointCount={2} duration={0.4}/>' +
     '\n' +
-    '<Circle pointCount={2} numberVisibility={true} duration={2}/>' +
+    '<Circle pointCount={6} duration={0.4}/>' +
     '\n' +
-    '<Circle pointCount={6} numberVisibility={true} duration={2}/>'
+    '<Circle pointCount={2} duration={2}/>' +
+    '\n' +
+    '<Circle pointCount={6} duration={2}/>'
 
 export const mockTitleRadius =
     '<Circle pointCount={5} radius={175}/>' +

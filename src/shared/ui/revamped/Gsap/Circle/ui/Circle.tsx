@@ -51,7 +51,7 @@ export const Circle: React.FC<CircleProps> = ({
     const [isForwardDirection, setForwardDirection] = useState<Boolean>(true)
     const [activeItem, setActiveItem] = useState<number>(0)
 
-    const play = (activeEl: number) => {
+    const playClockwise = (activeEl: number) => {
         const arrRotated = rotateArray(points, 1);
         setPoints(arrRotated);
 
@@ -65,7 +65,7 @@ export const Circle: React.FC<CircleProps> = ({
         setForwardDirection(true)
     };
 
-    const playReverse = (activeEl: number) => {
+    const playCounterClockwise = (activeEl: number) => {
         const arrRotated = rotateArray(points, 1, true);
         setPoints(arrRotated);
 
@@ -302,8 +302,8 @@ export const Circle: React.FC<CircleProps> = ({
                     </div>
                 </HStack>
                 <HStack gap='8'>
-                    <button onClick={() => playReverse(activeItem)}>👈</button>
-                    <button onClick={() => play(activeItem)}>👉</button>
+                    <button onClick={() => playClockwise(activeItem)}>👈</button>
+                    <button onClick={() => playCounterClockwise(activeItem)}>👉</button>
                 </HStack>
             </VStack>
         </>

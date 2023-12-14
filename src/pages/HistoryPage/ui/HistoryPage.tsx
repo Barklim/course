@@ -35,11 +35,11 @@ const HistoryPage = () => {
             <VStack gap='32' max>
                 <Text size={'m'} selectNone title={t('title points')}></Text>
                 <HStack gap='32'>
-                    <Circle id='2item_90rad' pointCount={2} titles={mockTitle2El}/>
-                    <Circle id='3item_90rad' pointCount={3} titles={mockTitle3El}/>
-                    <Circle id='4item_90rad' pointCount={4} titles={mockTitle4El}/>
-                    <Circle id='5item_90rad' pointCount={5} titles={mockTitle5El}/>
-                    <Circle id='6item_90rad' pointCount={6} titles={mockTitle6El}/>
+                    <Circle id='2item_90rad' radius={83} pointCount={2} titles={mockTitle2El}/>
+                    <Circle id='3item_90rad' radius={83} pointCount={3} titles={mockTitle3El}/>
+                    <Circle id='4item_90rad' radius={83} pointCount={4} titles={mockTitle4El}/>
+                    <Circle id='5item_90rad' radius={83} pointCount={5} titles={mockTitle5El}/>
+                    <Circle id='6item_90rad' radius={83} pointCount={6} titles={mockTitle6El}/>
                 </HStack>
                 <VStack gap='8' max>
                     <Text size={'m'} selectNone text={t('title points subtext')}></Text>
@@ -50,11 +50,11 @@ const HistoryPage = () => {
 
                 <Text size={'m'} selectNone title={t('title visibility')}></Text>
                 <HStack gap='32'>
-                    <Circle id='6item_angles' pointCount={6} numberVisibility={true}/>
-                    <Circle id='2item_angles' pointCount={2} numberVisibility={true} extraRotation={0}/>
-                    <Circle id='3item_angles' pointCount={3} numberVisibility={true} extraRotation={45}/>
-                    <Circle id='4item_angles' pointCount={4} numberVisibility={true} extraRotation={89}/>
-                    <Circle id='5item_angles' pointCount={5} numberVisibility={true} extraRotation={15}/>
+                    <Circle id='6item_angles' radius={83} pointCount={6} numberVisibility={true}/>
+                    <Circle id='2item_angles' radius={83} pointCount={2} numberVisibility={true} extraRotation={0}/>
+                    <Circle id='3item_angles' radius={83} pointCount={3} numberVisibility={true} extraRotation={45}/>
+                    <Circle id='4item_angles' radius={83} pointCount={4} numberVisibility={true} extraRotation={89}/>
+                    <Circle id='5item_angles' radius={83} pointCount={5} numberVisibility={true} extraRotation={15}/>
                 </HStack>
                 <VStack gap='8' max>
                     <Text size={'m'} selectNone text={t('title visibility subtext')}></Text>
@@ -65,13 +65,16 @@ const HistoryPage = () => {
 
                 <Text size={'m'} selectNone title={t('title duration')}></Text>
                 <HStack gap='32'>
-                    <VStack>
-                        <Circle id='6item_duration_default' radius={150} pointCount={6} numberVisibility={true} titles={mockTitle6} />
+                    <VStack gap='32'>
                         <HStack gap='32'>
-                            <Circle id='2item_duration04' radius={110} pointCount={2} numberVisibility={true} duration={0.4} titles={mockTitle2El}/>
-                            <Circle id='6item_duration04' radius={110} pointCount={6} numberVisibility={true} duration={0.4} titles={mockTitle6El}/>
-                            <Circle id='2item_duration2' radius={110} pointCount={2} numberVisibility={true} duration={2} titles={mockTitle2El}/>
-                            <Circle id='6item_duration2' radius={110} pointCount={6} numberVisibility={true} duration={2} titles={mockTitle6El}/>
+                            <Circle id='2item_duration_default' radius={108} pointCount={2} numberVisibility={true} titles={mockTitle6} />
+                            <Circle id='6item_duration_default' radius={108} pointCount={6} numberVisibility={true} titles={mockTitle6} />
+                        </HStack>
+                        <HStack gap='32'>
+                            <Circle id='2item_duration04' radius={108} pointCount={2} numberVisibility={true} duration={0.4} titles={mockTitle2El}/>
+                            <Circle id='6item_duration04' radius={108} pointCount={6} numberVisibility={true} duration={0.4} titles={mockTitle6El}/>
+                            <Circle id='2item_duration2' radius={108} pointCount={2} numberVisibility={true} duration={2} titles={mockTitle2El}/>
+                            <Circle id='6item_duration2' radius={108} pointCount={6} numberVisibility={true} duration={2} titles={mockTitle6El}/>
                         </HStack>
                     </VStack>
                 </HStack>
