@@ -13,7 +13,7 @@ export function useAppForelock() {
         [AppRoutes.SETTINGS]: true,
         [AppRoutes.COMMUNITY]: true,
         [AppRoutes.ACADEMY]: true,
-        [AppRoutes.HISTORY]: true,
+        [AppRoutes.HISTORY]: false,
     };
 
     return toolbarByAppRoute[appRoute];

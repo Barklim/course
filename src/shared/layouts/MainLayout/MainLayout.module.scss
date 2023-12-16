@@ -27,6 +27,9 @@
 .fullWidthBg {
   background: var(--swipe-bg);
 }
+.specThemeBg {
+  background: var(--spec-theme-bg);
+}
 
 .forelock {
   width: -webkit-fill-available;
@@ -73,7 +76,6 @@
   grid-area: content;
   max-width: 1200px;
   justify-self: center;
-  padding: 18px 0;
   width: calc(960px + 32px + 32px);
   height: 100%;
   z-index: 10;
