@@ -37,10 +37,10 @@ export function getCountByAngle(angle: number, pointCount: PointsCountType, extr
     const adjustedAngle = angle;
 
     const countMap: Record<PointsCountType, Record<number, number>> = {
-        [PointsCountType.SIX]: { 0: 6, 60: 1, 120: 2, 180: 3, 240: 4, 300: 5 },
-        [PointsCountType.FIVE]: { 0: 5, 72: 1, 144: 2, 216: 3, 288: 4 },
-        [PointsCountType.FOUR]: { 0: 4, 90: 1, 180: 2, 270: 3 },
-        [PointsCountType.TREE]: { 0: 3, 120: 1, 240: 2 },
+        [PointsCountType.SIX]: { 0: 2, 60: 1, 120: 6, 180: 5, 240: 4, 300: 3 },
+        [PointsCountType.FIVE]: { 0: 2, 72: 1, 144: 5, 216: 4, 288: 3 },
+        [PointsCountType.FOUR]: { 0: 2, 90: 1, 180: 4, 270: 3 },
+        [PointsCountType.TREE]: { 0: 2, 120: 1, 240: 3 },
         [PointsCountType.TWO]: { 0: 2, 180: 1 },
     };
 

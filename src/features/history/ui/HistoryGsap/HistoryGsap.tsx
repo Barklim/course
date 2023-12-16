@@ -1,5 +1,4 @@
 import React, { memo, useRef } from 'react';
-// import { useGetHistory, useHistory } from '../../api/historyGsapApi';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Circle } from '@/shared/ui/revamped/Gsap';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';

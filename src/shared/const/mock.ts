@@ -4,6 +4,7 @@ export const mockTitle4 = ['Title1','Title2','Title3', 'Title4',];
 export const mockTitle5 = ['Title1','Title2','Title3', 'Title4','Title5'];
 export const mockTitle6 = ['Title1','Title2','Title3', 'Title4','Title5','Title6'];
 export const mockTitleSpec = ['you so', 'luckin', 'precious', 'when you', '❤️❤ smile ❤❤️️', '']
+export const mockTitleAssembled = ['Технологии', 'Кино', 'Литература', 'Театр', 'Музыка️️', 'Наука']
 
 export const mockTitleCountPoints =
     '<Circle pointCount={2}/>' +

@@ -19,7 +19,8 @@
     left: calc(50% - 28px);
     top: calc(50% - 28px);
 
-    border: 1px solid #42567A;
+    // TODO: theming
+    border: 1px solid rgba(48, 62, 88, 0.7);
     background: #fff;
 
     .number {
@@ -33,7 +34,7 @@
   height: 56px;
   left: calc(50% - 28px);
   top: calc(50% - 28px);
-  border: 1px solid #42567a;
+  border: 1px solid rgba(48, 62, 88, 0.5);
   background: #fff;
 
   .number {
@@ -75,7 +76,7 @@
 
 .circle {
   position: relative;
-  border: 1px solid #fff;
+  border: 1px solid #d0d5e0;
   border-radius: 50%;
 
   //top: 100px;
@@ -87,7 +88,7 @@
 .horizontalLine,
 .verticalLine {
   position: absolute;
-  background-color: #fff;
+  background-color: #d0d5e0;
 }
 
 .horizontalLine {
