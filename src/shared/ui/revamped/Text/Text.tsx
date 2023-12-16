@@ -8,7 +8,7 @@ export type TextAlign = 'right' | 'left' | 'center';
 
 export type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
-export type TextColorByTheme = 'normal' | 'inverse' | 'purple';
+export type TextColorByTheme = 'normal' | 'inverse' | 'purple' | 'history';
 
 interface TextProps {
     className?: string;
@@ -85,7 +85,8 @@ export const Text = memo((props: TextProps) => {
                     [cls.textFontFamily]: text,
                     [cls.titleFontFamily]: title,
                     [cls.titleFont]: titleFont,
-                    [cls.textFont]: textFont
+                    [cls.textFont]: textFont,
+                    [cls.historyTheme]: textColorByTheme === 'history',
                 },
                 additionalClasses,
             )}

@@ -40,6 +40,10 @@
     --icon-toolbar: #000;
     --banner-earnings: linear-gradient(224deg, rgb(181, 137, 217) 0%, rgb(164, 86, 227) 100%);
 
+    // history theme
+    --history-theme-dark: #152A4F;
+    --history-text-color: var(--history-theme-dark);
+
     // buttons
     --button-dark: rgba(48, 48, 48, 0.10);
     --button-dark-text: rgba(256, 256, 256, 1);

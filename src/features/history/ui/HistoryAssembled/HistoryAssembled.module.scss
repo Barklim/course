@@ -11,3 +11,24 @@
 .border {
   border: 1px solid red;
 }
+
+.linesWrapper {
+  position: relative;
+}
+
+.horizontalLine {
+  position: absolute;
+  background-color: #d0d5e0;
+}
+
+.horizontalLine {
+  height: 1px;
+  top: 265px;
+  left: calc((-100vw + 1200px)/2 );
+  width: 100vw;
+}
+@media (max-width: 1200px) {
+  .horizontalLine {
+    left: 0;
+  }
+}

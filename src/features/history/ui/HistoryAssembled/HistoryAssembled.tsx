@@ -11,7 +11,7 @@ export interface HistoryAssembledProps {
     className?: string;
 }
 
-const mockTitles = mockTitleAssembled.map((title) => (<Text text={title} />));
+const mockTitles = mockTitleAssembled.map((title) => (<Text textColorByTheme='history' fontSize={20} selectNone lineHeight='30px' fontWeight='700' text={title} />));
 
 const HistoryAssembled = memo((props: HistoryAssembledProps) => {
     const { className } = props;
@@ -26,12 +26,16 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
     const circleComponent =
         <React.Fragment>
             <VStack max className={cls.border}>
+                <div className={cls.linesWrapper}>
+                    <div className={cls.horizontalLine} />
+                </div>
                 <HStack max justify='center' align='center'>
                     <Circle
                         id={'history_assembled'}
                         titles={mockTitles}
                         pointCount={6}
                         radius={265}
+                        extraRotation={60}
                         duration={0.8}
                         buttonPlay={buttonRefs[0]}
                         buttonPlayReverse={buttonRefs[1]}

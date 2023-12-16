@@ -28,7 +28,7 @@ export const keyframes = generateKeyframes([
                 left: calc(50% - 28px);
                 top: calc(50% - 28px);
                 border: 1px solid #42567a;
-                background: #fff;
+                background: var(--spec-theme-bg);
             }
       `,
     },
@@ -61,7 +61,7 @@ export const keyframes = generateKeyframes([
                 top: calc(50% - 2px);
                 
                 border: 1px solid #42567a;
-                background: #fff;
+                background: var(--spec-theme-bg);
             }
       `,
     },
@@ -75,6 +75,7 @@ export const keyframes = generateKeyframes([
     },
     {
         name: 'titleDecreaseAnimation',
+        // TODO: offset left, and active point for top when hover and active
         styles: `
             to {
                 opacity: 0;

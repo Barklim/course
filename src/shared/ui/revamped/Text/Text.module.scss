@@ -147,3 +147,9 @@
         font-family: var(--font-family-text-revamped);
     }
 }
+
+.historyTheme {
+    .title, .text  {
+        color: var(--history-text-color);
+    }
+}

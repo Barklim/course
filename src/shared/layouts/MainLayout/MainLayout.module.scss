@@ -28,7 +28,31 @@
   background: var(--swipe-bg);
 }
 .specThemeBg {
+  padding: 0 0 18px 0;
   background: var(--spec-theme-bg);
+}
+
+.verticalLine {
+  position: absolute;
+  background-color: #d0d5e0;
+}
+.verticalLine {
+  width: 1px;
+  height: 100vh;
+  left: calc(50vw + 139px);
+}
+@media (max-width: 1200px) {
+  .verticalLine {
+    left: calc(50vw + 145px);
+  }
+}
+.verticalLineCollapsed {
+  left: calc(50vw + 49px);
+}
+@media (max-width: 1200px) {
+  .verticalLineCollapsed {
+    left: calc(50vw + 55px );
+  }
 }
 
 .forelock {

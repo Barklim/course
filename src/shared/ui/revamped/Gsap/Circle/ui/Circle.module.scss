@@ -21,7 +21,7 @@
 
     // TODO: theming
     border: 1px solid rgba(48, 62, 88, 0.7);
-    background: #fff;
+    background: var(--spec-theme-bg);
 
     .number {
       opacity: 1;
@@ -35,7 +35,7 @@
   left: calc(50% - 28px);
   top: calc(50% - 28px);
   border: 1px solid rgba(48, 62, 88, 0.5);
-  background: #fff;
+  background: var(--spec-theme-bg);
 
   .number {
     opacity: 1;
