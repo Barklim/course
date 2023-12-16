@@ -45,7 +45,7 @@ export const keyframes = generateKeyframes([
         styles: `
             to {
                 opacity: 1;
-                left: 60px;
+                left: calc(56px + 20px);
             }
       `,
     },
@@ -78,7 +78,7 @@ export const keyframes = generateKeyframes([
         styles: `
             to {
                 opacity: 0;
-                left: 40px;
+                left: 20px;
             }
       `,
     },
@@ -93,7 +93,7 @@ export type TInlineStyles = {
     titleDecrease: CSSProperties,
 }
 
-export const getInlineStyles = (duration: number): TInlineStyles => {
+export const getInlineStyles = (duration: number, titleOffset: string): TInlineStyles => {
     const pointIncrease: CSSProperties = {
         width: '6px',
         height: '6px',
@@ -122,7 +122,7 @@ export const getInlineStyles = (duration: number): TInlineStyles => {
     };
     const titleDecrease: CSSProperties = {
         opacity: 1,
-        left: '60px',
+        left: titleOffset,
         animation: `titleDecreaseAnimation ${duration + 0.1}s ease`,
     };
 

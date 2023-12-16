@@ -1,4 +1,4 @@
-import React, { useEffect, useState, CSSProperties } from 'react';
+import React, { useEffect, useState, CSSProperties, MutableRefObject } from 'react';
 import { Linear, gsap } from 'gsap';
 import cls from './Circle.module.scss';
 import {
@@ -17,6 +17,7 @@ import {
     extraRotationDefault,
     numberVisibilityDefault,
     durationDefault,
+    titleOffsetDefault,
     mergeStyles,
 } from '../helpers';
 
@@ -34,6 +35,9 @@ export interface CircleProps {
     extraRotation?: number;
     numberVisibility?: boolean;
     duration?: number;
+    titleOffset?: string;
+    buttonPlay?: MutableRefObject<HTMLElement | null> | null;
+    buttonPlayReverse?: MutableRefObject<HTMLElement | null> | null;
 }
 
 export const Circle: React.FC<CircleProps> = ({
@@ -43,7 +47,10 @@ export const Circle: React.FC<CircleProps> = ({
     radius= radiusDefault,
     extraRotation = extraRotationDefault,
     numberVisibility = numberVisibilityDefault,
-    duration= durationDefault
+    duration= durationDefault,
+    titleOffset= titleOffsetDefault,
+    buttonPlay,
+    buttonPlayReverse
 }) => {
     const [isAnimationPlaying, setAnimationPlaying] = useState(false);
     const [isInit, setInitPosition] = useState(false);
@@ -51,7 +58,28 @@ export const Circle: React.FC<CircleProps> = ({
     const [isForwardDirection, setForwardDirection] = useState<Boolean>(true)
     const [activeItem, setActiveItem] = useState<number>(0)
 
-    const playClockwise = (activeEl: number) => {
+    useEffect(() => {
+        const handleClick: EventListener = (event) => {
+            const mouseEvent = event as MouseEvent;
+            if (buttonPlay?.current && buttonPlay.current.contains(mouseEvent.target as Node)) {
+                playClockwise();
+            }
+            if (buttonPlayReverse?.current && buttonPlayReverse?.current?.contains(mouseEvent.target as Node)) {
+                playCounterClockwise();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClick);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClick);
+        };
+    }, [points]);
+
+
+    const playClockwise = () => {
+        const activeEl = activeItem;
+
         const arrRotated = rotateArray(points, 1);
         setPoints(arrRotated);
 
@@ -65,7 +93,9 @@ export const Circle: React.FC<CircleProps> = ({
         setForwardDirection(true)
     };
 
-    const playCounterClockwise = (activeEl: number) => {
+    const playCounterClockwise = () => {
+        const activeEl = activeItem;
+
         const arrRotated = rotateArray(points, 1, true);
         setPoints(arrRotated);
 
@@ -253,7 +283,7 @@ export const Circle: React.FC<CircleProps> = ({
                 isDecrease = index === 3 && isAnimationPlaying
             }
 
-            const inlineStyles = getInlineStyles(duration || 0.8);
+            const inlineStyles = getInlineStyles(duration || 0.8, titleOffset || '0px');
             const pointStyles = mergeStyles(isIncrease ? inlineStyles.pointIncrease : '' as CSSProperties, isDecrease ? inlineStyles.pointDecrease : '' as CSSProperties)
             const numberStyles = mergeStyles(isIncrease ? inlineStyles.numberIncrease : '' as CSSProperties, isDecrease ? inlineStyles.numberDecrease : '' as CSSProperties)
             const titleStyles = mergeStyles(isIncrease ? inlineStyles.titleIncrease : '' as CSSProperties, isDecrease ? inlineStyles.titleDecrease : '' as CSSProperties)
@@ -300,10 +330,6 @@ export const Circle: React.FC<CircleProps> = ({
                             {renderPoints}
                         </div>
                     </div>
-                </HStack>
-                <HStack gap='8'>
-                    <button onClick={() => playClockwise(activeItem)}>👈</button>
-                    <button onClick={() => playCounterClockwise(activeItem)}>👉</button>
                 </HStack>
             </VStack>
         </>
