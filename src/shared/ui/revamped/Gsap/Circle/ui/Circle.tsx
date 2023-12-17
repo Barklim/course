@@ -19,6 +19,7 @@ import {
     durationDefault,
     titleOffsetDefault,
     fullModeDefault,
+    activeItemDefault,
     mergeStyles,
 } from '../helpers';
 
@@ -38,6 +39,8 @@ export interface CircleProps {
     duration?: number;
     titleOffset?: string;
     fullMode?: boolean;
+    activeItem: number;
+    setActiveItem: React.Dispatch<React.SetStateAction<number>>;
     buttonPlay?: MutableRefObject<HTMLElement | null> | null;
     buttonPlayReverse?: MutableRefObject<HTMLElement | null> | null;
 }
@@ -52,6 +55,8 @@ export const Circle: React.FC<CircleProps> = ({
     duration= durationDefault,
     titleOffset= titleOffsetDefault,
     fullMode= fullModeDefault,
+    activeItem = activeItemDefault,
+    setActiveItem,
     buttonPlay,
     buttonPlayReverse
 }) => {
@@ -59,7 +64,6 @@ export const Circle: React.FC<CircleProps> = ({
     const [isInit, setInitPosition] = useState(false);
     const [points, setPoints] = useState<Array<number>>([0, 0])
     const [isForwardDirection, setForwardDirection] = useState<Boolean>(true)
-    const [activeItem, setActiveItem] = useState<number>(0)
 
     useEffect(() => {
         const handleClick: EventListener = (event) => {
@@ -86,10 +90,11 @@ export const Circle: React.FC<CircleProps> = ({
         const arrRotated = rotateArray(points, 1);
         setPoints(arrRotated);
 
-        if (titles?.length === activeEl + 1) {
-            setActiveItem(0)
+        if (activeEl === 0) {
+            const maxLength = titles?.length || 100;
+            setActiveItem(maxLength - 1)
         } else {
-            setActiveItem(activeEl + 1)
+            setActiveItem(activeEl - 1)
         }
 
         setAnimationPlaying(true);
@@ -102,11 +107,10 @@ export const Circle: React.FC<CircleProps> = ({
         const arrRotated = rotateArray(points, 1, true);
         setPoints(arrRotated);
 
-        if (activeEl === 0) {
-            const maxLength = titles?.length || 100;
-            setActiveItem(maxLength - 1)
+        if (titles?.length === activeEl + 1) {
+            setActiveItem(0)
         } else {
-            setActiveItem(activeEl - 1)
+            setActiveItem(activeEl + 1)
         }
 
         setAnimationPlaying(true);

@@ -22,5 +22,6 @@ export {
     numberVisibilityDefault,
     durationDefault,
     titleOffsetDefault,
-    fullModeDefault
+    fullModeDefault,
+    activeItemDefault
 } from './const';

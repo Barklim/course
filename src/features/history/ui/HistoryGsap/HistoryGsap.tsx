@@ -1,11 +1,11 @@
-import React, { memo, useRef } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Circle } from '@/shared/ui/revamped/Gsap';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { CircleProps } from '@/shared/ui/revamped/Gsap/Circle/ui/Circle';
 import cls from './HistoryGsap.module.scss';
 
-export interface HistoryGsapProps extends CircleProps {
+export interface HistoryGsapProps extends Omit<CircleProps, 'activeItem' | 'setActiveItem'> {
     className?: string;
 }
 
@@ -16,6 +16,8 @@ const HistoryGsap = memo((props: HistoryGsapProps) => {
     if (isLoading) {
         return <Skeleton width="100%" height={140} />;
     }
+
+    const [activeItem, setActiveItem] = useState<number>(0)
 
     const buttonRefs = Array.from({ length: 2 }).map(() => useRef<HTMLButtonElement | null>(null));
 
@@ -29,6 +31,8 @@ const HistoryGsap = memo((props: HistoryGsapProps) => {
                 extraRotation={extraRotation}
                 numberVisibility={numberVisibility}
                 duration={duration}
+                activeItem={activeItem}
+                setActiveItem={setActiveItem}
                 buttonPlay={buttonRefs[0]}
                 buttonPlayReverse={buttonRefs[1]}
             />

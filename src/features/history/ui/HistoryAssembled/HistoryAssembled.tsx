@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react';
+import React, { memo, useRef, useState } from 'react';
 // import { useGetHistory, useHistory } from '../../api/historyGsapApi';
 import { HistorySwipeButton } from '../HistorySwipeButton/HistorySwipeButton';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
@@ -19,6 +19,7 @@ const mockTitles = mockTitleAssembled.map((title) => (<Text textColorByTheme='hi
 const HistoryAssembled = memo((props: HistoryAssembledProps) => {
     const { className } = props;
     const { t } = useTranslation('history');
+    const [activeItem, setActiveItem] = useState<number>(0)
 
     const isLoading = false;
     if (isLoading) {
@@ -27,11 +28,14 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
 
     const buttonRefs = Array.from({ length: 2 }).map(() => useRef<any | null>(null));
 
+    const isFirstItem = activeItem === 0;
+    const isLastItem = activeItem + 1 === mockTitles.length;
+
     // TODO: useWidth hook.
     const browserWidth = document.body.clientWidth;
     const radius = browserWidth > 1440 ? 265 : Math.round(browserWidth/6)
 
-    const circleComponent =
+    const circleComponent = (activeItem: number, setActiveItem: any) => (
         <React.Fragment>
             <BrowserView>
                 <VStack max gap='0' className={cls.wrapper} justify='around'>
@@ -52,28 +56,36 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                             <Circle
                                 id={'history_assembled'}
                                 titles={mockTitles}
-                                pointCount={6}
+                                pointCount={mockTitles.length}
                                 radius={radius}
                                 extraRotation={60}
                                 duration={0.6}
                                 fullMode
+                                activeItem={activeItem}
+                                setActiveItem={setActiveItem}
                                 buttonPlay={buttonRefs[0]}
                                 buttonPlayReverse={buttonRefs[1]}
                             />
                         </HStack>
                         <VStack gap='32' className={cls.buttonsWrapper} max>
-                            <Text textColorByTheme='history' fontSize={14} selectNone lineHeight='0px' fontWeight='400' text={'06/06'} className={cls.buttonsTitle} />
+                            <Text textColorByTheme='history' fontSize={14} selectNone lineHeight='0px' fontWeight='400' text={`0${activeItem + 1}/06`} className={cls.buttonsTitle} />
                             <HStack gap='16' align='end' justify='end' className={cls.buttons}>
-                                <HistorySwipeButton left ref={buttonRefs[0]} />
-                                <HistorySwipeButton right ref={buttonRefs[1]} disabled />
+                                <HistorySwipeButton left ref={ isFirstItem ? null : buttonRefs[0]} disabled={isFirstItem} />
+                                <HistorySwipeButton right ref={isLastItem ? null : buttonRefs[1]} disabled={isLastItem} />
                             </HStack>
                         </VStack>
                     </VStack>
                     <VStack className={cls.border}>
+                        <Text
+                            textColorByTheme='history'
+                            fontSize={56}
+                            selectNone
+                            title={'Carousel'}
+                            fontWeight='700'
+                            lineHeight='57px'
+                            className={cls.title1}
+                        />
                         <div>Carousel</div>
-                        <div>123</div>
-                        <div>123</div>
-                        <div>123</div>
                     </VStack>
                 </VStack>
             </BrowserView>
@@ -81,10 +93,11 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                 <div>MobileView</div>
             </MobileView>
         </React.Fragment>
+    );
 
     return (
         <>
-            {circleComponent}
+            {circleComponent(activeItem, setActiveItem)}
         </>
     );
 });
