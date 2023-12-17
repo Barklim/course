@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, MutableRefObject } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
 
@@ -6,6 +6,7 @@ type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 
 interface IconBaseProps extends SvgProps {
     className?: string;
+    ref?: MutableRefObject<SVGSVGElement | null> | null;
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
@@ -24,6 +25,7 @@ export const Icon = memo((props: IconProps) => {
     const {
         className,
         Svg,
+        ref,
         width = 32,
         height = 32,
         clickable,
@@ -32,6 +34,7 @@ export const Icon = memo((props: IconProps) => {
 
     const icon = (
         <Svg
+            ref={ref}
             className={classNames(cls.Icon, {}, [className])}
             width={width}
             height={height}

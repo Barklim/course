@@ -17,6 +17,7 @@ import {
     mockTitleTitles,
 } from '@/shared/const/mock';
 import {HistoryGsapAsync as HistoryGsap}  from '../HistoryGsap/HistoryGsap.async';
+import cls from './HistoryGsapList.module.scss';
 
 const mockTitle2El = mockTitle2.map((title) => (<Text textColorByTheme='history' text={title} />));
 const mockTitle3El = mockTitle3.map((title) => (<Text textColorByTheme='history' text={title} />));
@@ -32,7 +33,7 @@ export const HistoryGsapList = () => {
     const radius4items = 130;
 
     return <div data-testid="HistoryGsapList">
-        <VStack gap='16'>
+        <VStack gap='16' className={cls.wrapper}>
             <Text size={'l'} selectNone textColorByTheme='history' title={t('title page')}></Text>
             <VStack gap='32' max>
                 <Text size={'m'} selectNone textColorByTheme='history' title={t('title points')}></Text>

@@ -1,0 +1,49 @@
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  border: 1px solid var(--history-theme-dark05);
+  transition: background 0.5s ease;
+
+  &:hover {
+    background: var(--spec-theme-bg2);
+    border: 1px solid var(--history-theme-dark07);
+  }
+
+  &_disabled {
+    opacity: 0.4 !important;
+    &:hover {
+      border: 1px solid var(--history-theme-dark05);
+    }
+  }
+}
+
+.icon {
+  opacity: 1;
+  color: var(--history-theme-dark05) !important;
+
+  &_left {
+    transform: rotate(90deg);
+    position: relative;
+    right: 1px;
+  }
+
+  &_right {
+    transform: rotate(-90deg);
+    position: relative;
+    left: 1px;
+  }
+
+  &:hover {
+    color: var(--history-theme-dark1) !important;
+  }
+
+  &_disabled {
+    &:hover {
+      color: var(--history-theme-dark05) !important;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React, { memo, useRef } from 'react';
 // import { useGetHistory, useHistory } from '../../api/historyGsapApi';
+import { HistorySwipeButton } from '../HistorySwipeButton/HistorySwipeButton';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Circle } from '@/shared/ui/revamped/Gsap';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -24,7 +25,11 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
         return <Skeleton width="100%" height={140} />;
     }
 
-    const buttonRefs = Array.from({ length: 2 }).map(() => useRef<HTMLButtonElement | null>(null));
+    const buttonRefs = Array.from({ length: 2 }).map(() => useRef<any | null>(null));
+
+    // TODO: useWidth hook.
+    const browserWidth = document.body.clientWidth;
+    const radius = browserWidth > 1440 ? 265 : Math.round(browserWidth/6)
 
     const circleComponent =
         <React.Fragment>
@@ -48,7 +53,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                                 id={'history_assembled'}
                                 titles={mockTitles}
                                 pointCount={6}
-                                radius={265}
+                                radius={radius}
                                 extraRotation={60}
                                 duration={0.6}
                                 fullMode
@@ -56,12 +61,20 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                                 buttonPlayReverse={buttonRefs[1]}
                             />
                         </HStack>
-                        <HStack gap='8' align='end' justify='end' className={cls.buttons}>
-                            <button ref={buttonRefs[0]}>⬅</button>
-                            <button ref={buttonRefs[1]}>⮕</button>
-                        </HStack>
+                        <VStack gap='32' className={cls.buttonsWrapper} max>
+                            <Text textColorByTheme='history' fontSize={14} selectNone lineHeight='0px' fontWeight='400' text={'06/06'} className={cls.buttonsTitle} />
+                            <HStack gap='16' align='end' justify='end' className={cls.buttons}>
+                                <HistorySwipeButton left ref={buttonRefs[0]} />
+                                <HistorySwipeButton right ref={buttonRefs[1]} disabled />
+                            </HStack>
+                        </VStack>
                     </VStack>
-                    <div className={cls.border}>Carousel</div>
+                    <VStack className={cls.border}>
+                        <div>Carousel</div>
+                        <div>123</div>
+                        <div>123</div>
+                        <div>123</div>
+                    </VStack>
                 </VStack>
             </BrowserView>
             <MobileView>

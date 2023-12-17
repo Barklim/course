@@ -15,7 +15,6 @@
   }
 }
 
-
 .preTitle {
   height: 0;
   position: relative;
@@ -51,6 +50,12 @@
   }
 }
 
-.buttons {
+.buttonsWrapper {
   height: 0;
+  position: relative;
+  bottom: 50px;
 }
+
+.buttonsTitle {}
+
+.buttons {}

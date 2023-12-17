@@ -21,12 +21,12 @@ interface NonClickableIconProps extends IconBaseProps {
 
 interface ClickableBaseProps extends IconBaseProps {
     clickable: true;
-    onClick: () => void;
+    onClick?: () => void;
 }
 
 type IconProps = NonClickableIconProps | ClickableBaseProps;
 
-export const Icon = memo((props: IconProps) => {
+export const Icon = memo(React.forwardRef((props: IconProps, ref) => {
     const {
         className,
         Svg,
@@ -63,9 +63,10 @@ export const Icon = memo((props: IconProps) => {
     if (clickable) {
         return (
             <button
+                ref={ref as React.MutableRefObject<HTMLButtonElement | null>}
                 type="button"
                 className={cls.button}
-                onClick={props.onClick}
+                onClick={props.onClick ? props.onClick : undefined}
                 style={{ height, width }}
             >
                 {icon}
@@ -74,4 +75,4 @@ export const Icon = memo((props: IconProps) => {
     }
 
     return icon;
-});
+}));
