@@ -21,5 +21,6 @@ export {
     extraRotationDefault,
     numberVisibilityDefault,
     durationDefault,
-    titleOffsetDefault
+    titleOffsetDefault,
+    fullModeDefault
 } from './const';

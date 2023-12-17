@@ -54,11 +54,6 @@ export const MainLayout = memo((props: MainLayoutProps) => {
                     [cls.layoutWithToolbar]: !toolbar,
                 })}>
                     <div className={classNames('', {}, [contentWrapper, swiperBg, historyBg])}>
-                        { isHistoryPage ? <>
-                            <div className={classNames(cls.verticalLine, {
-                                [cls.verticalLineCollapsed]: collapsed
-                            }, [])}></div>
-                        </> : null}
                         { forelock ? <>
                             <div className={cls.forelock}>{forelock}</div>
                             <div className={cls.forelock2}>{forelock}</div>

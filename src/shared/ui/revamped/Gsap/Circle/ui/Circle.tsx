@@ -18,6 +18,7 @@ import {
     numberVisibilityDefault,
     durationDefault,
     titleOffsetDefault,
+    fullModeDefault,
     mergeStyles,
 } from '../helpers';
 
@@ -36,6 +37,7 @@ export interface CircleProps {
     numberVisibility?: boolean;
     duration?: number;
     titleOffset?: string;
+    fullMode?: boolean;
     buttonPlay?: MutableRefObject<HTMLElement | null> | null;
     buttonPlayReverse?: MutableRefObject<HTMLElement | null> | null;
 }
@@ -49,6 +51,7 @@ export const Circle: React.FC<CircleProps> = ({
     numberVisibility = numberVisibilityDefault,
     duration= durationDefault,
     titleOffset= titleOffsetDefault,
+    fullMode= fullModeDefault,
     buttonPlay,
     buttonPlayReverse
 }) => {
@@ -325,8 +328,10 @@ export const Circle: React.FC<CircleProps> = ({
                 <HStack gap='0'>
                     <div>
                         <div className={cls.circle} style={{ width: `${radius*2}px`, height: `${radius*2}px` }}>
-                            <div className={cls.horizontalLine} style={{ width: `${radius*2}px`, left: `calc(50% - ${radius}px)` }}></div>
-                            <div className={cls.verticalLine} style={{ height: `${radius*2}px`, top: `calc(50% - ${radius}px)` }}></div>
+                            <div className={classNames(cls.horizontalLine, {}, [fullMode ? cls.horizontalLine_full : undefined])}
+                                 style={{ width: `${radius * 2}px`, left: `calc(50% - ${radius}px)` }}/>
+                            <div className={classNames(cls.verticalLine, {}, [fullMode ? cls.verticalLine_full : undefined])}
+                                 style={{ height: `${radius * 2}px`, top: `calc(50% - ${radius}px)` }} />
                             {renderPoints}
                         </div>
                     </div>

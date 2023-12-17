@@ -88,17 +88,29 @@
 .horizontalLine,
 .verticalLine {
   position: absolute;
-  background-color: #d0d5e0;
+  background-color: #42567A;
+  opacity: 0.1;
 }
 
 .horizontalLine {
   height: 1px;
   top: calc(50% - 0px);
+
+  &_full {
+    width: 150vw !important;
+    //left: calc(50% - 'radius') !important;
+    left: -50vw !important;
+  }
 }
 
 .verticalLine {
   width: 1px;
   left: calc(50% + 0px);
+
+  &_full {
+    height: 150vh !important;
+    top: -50vh !important;
+  }
 }
 
 .point:hover {

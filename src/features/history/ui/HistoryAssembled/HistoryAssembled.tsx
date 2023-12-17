@@ -43,9 +43,6 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                             lineHeight='57px'
                             className={cls.title}
                         />
-                        <div className={cls.linesWrapper}>
-                            <div className={cls.horizontalLine} />
-                        </div>
                         <HStack max justify='center' align='center'>
                             <Circle
                                 id={'history_assembled'}
@@ -54,6 +51,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                                 radius={265}
                                 extraRotation={60}
                                 duration={0.6}
+                                fullMode
                                 buttonPlay={buttonRefs[0]}
                                 buttonPlayReverse={buttonRefs[1]}
                             />

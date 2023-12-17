@@ -54,24 +54,3 @@
 .buttons {
   height: 0;
 }
-
-.linesWrapper {
-  position: relative;
-}
-
-.horizontalLine {
-  position: absolute;
-  background-color: #d0d5e0;
-}
-
-.horizontalLine {
-  height: 1px;
-  top: 265px;
-  left: calc((-100vw + 1440px)/2 - 80px);
-  width: 100vw;
-}
-@media (max-width: 1440px) {
-  .horizontalLine {
-    left: -80px;
-  }
-}

@@ -32,35 +32,6 @@
   background: var(--spec-theme-bg);
 }
 
-.verticalLine {
-  position: absolute;
-  background-color: #d0d5e0;
-}
-.verticalLine {
-  width: 1px;
-  height: 100vh;
-  left: calc(50vw + 139px);
-}
-
-@media (max-width: 1702px) {
-  .verticalLine {
-    left: calc(50vw + 145px);
-  }
-}
-@media (max-width: 500px) {
-  .verticalLine {
-    display: none;
-  }
-}
-.verticalLineCollapsed {
-  left: calc(50vw + 49px);
-}
-@media (max-width: 1520px) {
-  .verticalLineCollapsed {
-    left: calc(50vw + 55px );
-  }
-}
-
 .forelock {
   width: -webkit-fill-available;
   height: 400px;
