@@ -6,11 +6,6 @@ import { ToggleFeatures } from '@/shared/lib/features';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
-    const [value, setValue] = useState('');
-
-    const onChange = (val: string) => {
-        setValue(val);
-    };
 
     return (
         <Page data-testid="MainPage">

@@ -51,6 +51,11 @@ export function getCountByAngle(angle: number, pointCount: PointsCountType, extr
 
         if (!isNaN(parsedKey)) {
             adjustedCountMap[(parsedKey + extraRotation + 360) % 360] = value;
+
+            // TODO: solve for any angles. Now working for extraRotation 0...maxAngleStep
+            if (value === 3) {
+                adjustedCountMap[360] = 3
+            }
         }
     });
 

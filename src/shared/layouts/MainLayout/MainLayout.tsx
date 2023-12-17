@@ -18,16 +18,18 @@ interface MainLayoutProps {
 }
 
 const contentRender = ({fullWidth, collapsed, content, isOldPage, specTheme} : {fullWidth: boolean, collapsed: boolean, content: any, isOldPage: boolean, specTheme: boolean}) => {
+    const specThemeCls = specTheme ? cls.contentSpecTheme : undefined;
+
     if (fullWidth) {
         if (collapsed) {
-            return <div className={`${cls.contentFullWidth} ${cls.sidebarCollapsed}`}>{content}</div>
+            return <div className={`${cls.contentFullWidth} ${cls.sidebarCollapsed} ${specThemeCls}`}>{content}</div>
         } else {
-            return <div className={`${cls.contentFullWidth} ${cls.sidebarOpen}`}>{content}</div>
+            return <div className={`${cls.contentFullWidth} ${cls.sidebarOpen} ${specThemeCls}`}>{content}</div>
         }
     } else {
         return <div
-            className={cls.contentRevamp}
-            style={{ width: isOldPage ? '100%' : 'calc(960px + 32px + 32px)'}}
+            className={`${cls.contentRevamp}`}
+            style={{ width: isOldPage ? '100%' : 'calc(960px + 32px + 32px)', maxWidth: specThemeCls ? '1460px': '1200px'}}
         >{content}</div>
     }
 }

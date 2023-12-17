@@ -41,15 +41,21 @@
   height: 100vh;
   left: calc(50vw + 139px);
 }
-@media (max-width: 1200px) {
+
+@media (max-width: 1702px) {
   .verticalLine {
     left: calc(50vw + 145px);
+  }
+}
+@media (max-width: 500px) {
+  .verticalLine {
+    display: none;
   }
 }
 .verticalLineCollapsed {
   left: calc(50vw + 49px);
 }
-@media (max-width: 1200px) {
+@media (max-width: 1520px) {
   .verticalLineCollapsed {
     left: calc(50vw + 55px );
   }
@@ -106,6 +112,10 @@
 
   margin-left: auto;
   margin-right: auto;
+}
+
+.contentSpecTheme {
+  max-width: 1440px;
 }
 
 .sidebarCollapsed {

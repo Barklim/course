@@ -15,6 +15,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { useAppForelock } from '@/app/lib/useAppForelock';
 import { useAppFullWidth } from '@/app/lib/useAppFullWidth';
+import { useAppSpecTheme } from '@/app/lib/useAppSpecTheme';
 import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 import { LOCAL_STORAGE_LAST_DESIGN_KEY, LOCAL_STORAGE_REVAMP_KEY } from '@/shared/const/localstorage';
 
@@ -25,6 +26,7 @@ const App = memo(() => {
     const toolbar = useAppToolbar();
     const forelock = useAppForelock();
     const fullWidth = useAppFullWidth();
+    const specTheme = useAppSpecTheme();
 
     useEffect(() => {
         const designKey = localStorage.getItem(LOCAL_STORAGE_REVAMP_KEY);
@@ -111,6 +113,7 @@ const App = memo(() => {
                             toolbar={toolbar}
                             forelock={forelock}
                             fullWidth={fullWidth}
+                            specTheme={specTheme}
                         />
                     </Suspense>
                 </div>

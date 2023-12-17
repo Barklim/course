@@ -6,7 +6,8 @@ export function useAppSpecTheme() {
     const appRoute = useRouteChange();
 
     const specThemeRoute: OptionalRecord<AppRoutes, boolean> = {
-        [AppRoutes.SWIPE]: true,
+        [AppRoutes.SWIPE]: false,
+        [AppRoutes.ARTICLES]: true,
         [AppRoutes.HISTORY]: true
     };
 

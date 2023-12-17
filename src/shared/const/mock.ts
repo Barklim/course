@@ -24,7 +24,7 @@ export const mockTitleVisibilityNumbers =
     '\n' +
     '<Circle numberVisibility={true} extraRotation={45}/>' +
     '\n' +
-    '<Circle numberVisibility={true} extraRotation={89}/>' +
+    '<Circle numberVisibility={true} extraRotation={90}/>' +
     '\n' +
     '<Circle numberVisibility={true} extraRotation={15}/>'
 
@@ -43,6 +43,8 @@ export const mockTitleAnimationDuration =
 
 export const mockTitleRadius =
     '<Circle pointCount={5} radius={175}/>' +
+    '\n' +
+    '<Circle pointCount={3}/>' +
     '\n' +
     '<Circle pointCount={2} radius={50}/>'
 
