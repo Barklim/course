@@ -118,9 +118,10 @@ export const HistoryGsapList = () => {
                 </HStack>
                 <HStack gap='32' max justify='center'>
                     <HistoryGsap id='3item_intervals' radius={165} pointCount={3} titles={mockTitle3El} intervals={mockIntervalsEl3}/>
+                    <HistoryGsap id='4item_intervals' radius={34} pointCount={4} titles={mockTitle4El} intervals={mockIntervalsEl4}/>
                 </HStack>
                 <HStack gap='32' max justify='center'>
-                    <HistoryGsap id='4item_intervals' radius={65} pointCount={4} titles={mockTitle3El} intervals={mockIntervalsEl4}/>
+
                 </HStack>
                 <VStack gap='8' max>
                     <Text size={'m'} selectNone textColorByTheme='history' text={t('title intervals subtext')}></Text>

@@ -368,7 +368,7 @@ export const Circle: React.FC<CircleProps> = ({
         if (!intervals) {return null}
 
         return (
-            <HStack gap={'8'} className={cls.intervals} style={{top: radius, position: 'relative'}}>
+            <HStack gap={'8'} className={cls.intervals} style={{top: radius, position: 'relative', fontSize: `${radius - 65}px`}}>
                 <span className={cls.intervals__left}>{startInterval.value}</span>
                 <span className={cls.intervals__right}>{endInterval.value}</span>
             </HStack>

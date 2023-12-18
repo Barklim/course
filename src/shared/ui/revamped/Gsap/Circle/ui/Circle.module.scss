@@ -130,13 +130,17 @@
   height: 0;
   gap: 78px;
   font-weight: 700;
-  font-size: 200px;
 
   &__left {
-    color: #5D5FEF;
+    color: var(--history-theme-interval-text-left);
   }
 
   &__right {
-    color: #EF5DA8;
+    color: var(--history-theme-interval-text-right);
+  }
+}
+@media (max-width: 1440px) {
+  .intervals {
+    //font-size: calc((10.1vw + 10px + 1em)) !important;
   }
 }
