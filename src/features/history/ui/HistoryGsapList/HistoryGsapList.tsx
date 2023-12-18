@@ -8,13 +8,10 @@ import {
     mockTitleRadius,
     mockTitleVisibilityNumbers,
     mockTitleAnimationDuration,
-    mockTitle2,
-    mockTitle3,
-    mockTitle4,
-    mockTitle5,
-    mockTitle6,
-    mockTitleSpec,
-    mockTitleTitles,
+    mockTitle2, mockTitle3, mockTitle4,
+    mockTitle5, mockTitle6, mockTitleSpec,
+    mockTitleTitles, mockTitleIntervals,
+    mockIntervalsEl5, mockIntervalsEl4, mockIntervalsEl3
 } from '@/shared/const/mock';
 import {HistoryGsapAsync as HistoryGsap}  from '../HistoryGsap/HistoryGsap.async';
 import cls from './HistoryGsapList.module.scss';
@@ -111,6 +108,24 @@ export const HistoryGsapList = () => {
                     <Text size={'m'} selectNone textColorByTheme='history' text={t('title titles subtext')}></Text>
                     <div style={{width: '100%'}}>
                         <Code text={mockTitleTitles} />
+                    </div>
+                </VStack>
+
+
+                <Text size={'m'} selectNone textColorByTheme='history' title={t('title intervals')}></Text>
+                <HStack gap='32' max justify='center'>
+                    <HistoryGsap id='5item_intervals' radius={265} pointCount={5} titles={mockTitle5El} intervals={mockIntervalsEl5}/>
+                </HStack>
+                <HStack gap='32' max justify='center'>
+                    <HistoryGsap id='3item_intervals' radius={165} pointCount={3} titles={mockTitle3El} intervals={mockIntervalsEl3}/>
+                </HStack>
+                <HStack gap='32' max justify='center'>
+                    <HistoryGsap id='4item_intervals' radius={65} pointCount={4} titles={mockTitle3El} intervals={mockIntervalsEl4}/>
+                </HStack>
+                <VStack gap='8' max>
+                    <Text size={'m'} selectNone textColorByTheme='history' text={t('title intervals subtext')}></Text>
+                    <div style={{width: '100%'}}>
+                        <Code text={mockTitleIntervals} />
                     </div>
                 </VStack>
             </VStack>

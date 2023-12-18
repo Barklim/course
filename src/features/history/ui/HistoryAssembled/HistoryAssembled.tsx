@@ -5,7 +5,7 @@ import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Circle } from '@/shared/ui/revamped/Gsap';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import cls from './HistoryAssembled.module.scss';
-import { mockTitleAssembled } from '@/shared/const/mock';
+import { mockIntervalsEl6, mockTitleAssembled } from '@/shared/const/mock';
 import { Text } from '@/shared/ui/revamped/Text';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
@@ -56,6 +56,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                             <Circle
                                 id={'history_assembled'}
                                 titles={mockTitles}
+                                intervals={mockIntervalsEl6}
                                 pointCount={mockTitles.length}
                                 radius={radius}
                                 extraRotation={60}

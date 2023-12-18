@@ -10,5 +10,7 @@
   "title radius": "Different radius",
   "title radius subtext": "Radius by default 90.",
   "title titles": "Input titles",
-  "title titles subtext": "Title by default is empty."
+  "title titles subtext": "Title by default is empty.",
+  "title intervals": "Input intervals",
+  "title intervals subtext": "Intervals by default is empty."
 }

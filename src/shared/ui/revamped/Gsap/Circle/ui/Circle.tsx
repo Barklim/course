@@ -25,12 +25,14 @@ import {
 
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { TInterval } from '../../model/types/interval';
 
 export interface CircleProps {
     // TODO: remove uniq id
     id: string;
     items?: any[] | undefined;
     titles?: React.ReactNode[] | undefined;
+    intervals?: TInterval;
     loading?: boolean;
     pointCount: PointsCountType;
     radius?: number;
@@ -48,6 +50,7 @@ export interface CircleProps {
 export const Circle: React.FC<CircleProps> = ({
     id, items,
     titles, loading,
+    intervals,
     pointCount = pointCountDefault,
     radius= radiusDefault,
     extraRotation = extraRotationDefault,
@@ -64,6 +67,41 @@ export const Circle: React.FC<CircleProps> = ({
     const [isInit, setInitPosition] = useState(false);
     const [points, setPoints] = useState<Array<number>>([0, 0])
     const [isForwardDirection, setForwardDirection] = useState<Boolean>(true)
+
+    const [startInterval, setStartInterval] = React.useState({ value: intervals ? intervals[1].start : 2000 })
+    const [endInterval, setEndInterval] = React.useState({ value: intervals ? intervals[1].end : 2000 })
+
+    useEffect(() => {
+        const target = { value: startInterval.value };
+        if (intervals) {
+            const startPosition = intervals[activeItem + 1].start
+            gsap.to(target, {
+                duration: duration*1,
+                value: startPosition,
+                roundProps: "value",
+                ease: 'circ.out',
+                onUpdate() {
+                    setStartInterval({ value: target.value });
+                }
+            });
+        }
+    }, [activeItem]);
+
+    useEffect(() => {
+        const target = { value: endInterval.value };
+        if (intervals) {
+            const endPosition = intervals[activeItem + 1].end
+            gsap.to(target, {
+                duration: duration*1,
+                value: endPosition,
+                roundProps: "value",
+                ease: 'circ.out',
+                onUpdate() {
+                    setEndInterval({ value: target.value });
+                }
+            });
+        }
+    }, [activeItem]);
 
     useEffect(() => {
         const handleClick: EventListener = (event) => {
@@ -326,20 +364,28 @@ export const Circle: React.FC<CircleProps> = ({
         })}
     </div>
 
+    const renderIntervals = () => {
+        if (!intervals) {return null}
+
+        return (
+            <HStack gap={'8'} className={cls.intervals} style={{top: radius, position: 'relative'}}>
+                <span className={cls.intervals__left}>{startInterval.value}</span>
+                <span className={cls.intervals__right}>{endInterval.value}</span>
+            </HStack>
+        )
+    }
+
     return (
         <>
-            <VStack gap='32'>
-                <HStack gap='0'>
-                    <div>
-                        <div className={cls.circle} style={{ width: `${radius*2}px`, height: `${radius*2}px` }}>
-                            <div className={classNames(cls.horizontalLine, {}, [fullMode ? cls.horizontalLine_full : undefined])}
-                                 style={{ width: `${radius * 2}px`, left: `calc(50% - ${radius}px)` }}/>
-                            <div className={classNames(cls.verticalLine, {}, [fullMode ? cls.verticalLine_full : undefined])}
-                                 style={{ height: `${radius * 2}px`, top: `calc(50% - ${radius}px)` }} />
-                            {renderPoints}
-                        </div>
+            <VStack gap='0' align='center'>
+                    {renderIntervals()}
+                    <div className={cls.circle} style={{ width: `${radius*2}px`, height: `${radius*2}px` }}>
+                        <div className={classNames(cls.horizontalLine, {}, [fullMode ? cls.horizontalLine_full : undefined])}
+                             style={{ width: `${radius * 2}px`, left: `calc(50% - ${radius}px)` }}/>
+                        <div className={classNames(cls.verticalLine, {}, [fullMode ? cls.verticalLine_full : undefined])}
+                             style={{ height: `${radius * 2}px`, top: `calc(50% - ${radius}px)` }} />
+                        {renderPoints}
                     </div>
-                </HStack>
             </VStack>
         </>
     );

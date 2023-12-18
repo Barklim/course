@@ -10,7 +10,7 @@ export interface HistoryGsapProps extends Omit<CircleProps, 'activeItem' | 'setA
 }
 
 const HistoryGsap = memo((props: HistoryGsapProps) => {
-    const { className, id, titles, pointCount, radius, extraRotation, numberVisibility, duration } = props;
+    const { className, id, titles, intervals, pointCount, radius, extraRotation, numberVisibility, duration } = props;
 
     const isLoading = false;
     if (isLoading) {
@@ -26,6 +26,7 @@ const HistoryGsap = memo((props: HistoryGsapProps) => {
             <Circle
                 id={id}
                 titles={titles}
+                intervals={intervals}
                 pointCount={pointCount}
                 radius={radius}
                 extraRotation={extraRotation}
@@ -36,14 +37,14 @@ const HistoryGsap = memo((props: HistoryGsapProps) => {
                 buttonPlay={buttonRefs[0]}
                 buttonPlayReverse={buttonRefs[1]}
             />
-            <HStack gap='8'>
+            <HStack gap='8' align='start' justify='start'>
                 <button ref={buttonRefs[0]}>⬅</button>
                 <button ref={buttonRefs[1]}>⮕</button>
             </HStack>
         </React.Fragment>
 
     return (
-        <VStack gap='32' max>
+        <VStack gap='32' align='start'>
             {circleComponent}
         </VStack>
     );
