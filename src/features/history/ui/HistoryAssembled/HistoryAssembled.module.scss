@@ -23,7 +23,7 @@
   &__border {
     height: 120px;
     border-left: 5px solid transparent;
-    border-image: linear-gradient(186deg, #3877EE 0%, #EF5DA8 100%);
+    border-image: var(--history-theme-pretitle);
     border-image-slice: 1;
   }
 }

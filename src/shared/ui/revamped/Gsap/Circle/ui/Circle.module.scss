@@ -130,6 +130,7 @@
   height: 0;
   gap: 78px;
   font-weight: 700;
+  user-select: none;
 
   &__left {
     color: var(--history-theme-interval-text-left);
