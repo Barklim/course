@@ -9,6 +9,7 @@ import { mockIntervalsEl6, mockTitleAssembled } from '@/shared/const/mock';
 import { Text } from '@/shared/ui/revamped/Text';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
+import { Carousel } from '@/shared/ui/revamped/Carousel';
 
 export interface HistoryAssembledProps {
     className?: string;
@@ -77,16 +78,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                         </VStack>
                     </VStack>
                     <VStack className={cls.border}>
-                        <Text
-                            textColorByTheme='history'
-                            fontSize={56}
-                            selectNone
-                            title={'Carousel'}
-                            fontWeight='700'
-                            lineHeight='57px'
-                            className={cls.title1}
-                        />
-                        <div>Carousel</div>
+                        <Carousel items={[1981, 1982, 1983, 1984, 1985, 1986]} />
                     </VStack>
                 </VStack>
             </BrowserView>
