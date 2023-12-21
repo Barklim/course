@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/revamped/Text';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
@@ -18,9 +18,39 @@ export const HistoryCarousel = (props: HistoryCarouselProps) => {
     let windowWidth = window.innerWidth;
 
     const [debouncedItem, setDebouncedItem] = useState(activeItem);
+    const [animationStatus, setAnimationStatus] = useState<'fadeIn' | 'fadeOut' | 'none'>('none');
+    const renderCounter = useRef(0);
+
+    const fadeStyles = {
+        fadeOut: {
+            opacity: 0,
+            transition: `opacity ${duration/2}s ease-in-out`,
+        },
+        fadeIn: {
+            opacity: 1,
+            transition: `opacity ${duration/2}s ease-in-out`,
+        },
+        none: {
+            opacity: 1,
+        },
+    };
+
+    useEffect(() => {
+        if (renderCounter.current >= 1) {
+            setAnimationStatus('fadeOut');
+        }
+        renderCounter.current += 1;
+    }, [activeItem]);
 
     useDebouncedEffect(() => {
-        setDebouncedItem(activeItem)
+        if (activeItem !== debouncedItem) {
+            setTimeout(() => {
+                setDebouncedItem(activeItem);
+                setAnimationStatus('fadeIn');
+            }, duration*0.75);
+        } else {
+            setDebouncedItem(activeItem);
+        }
         return () => {};
     }, duration * 1000 ,[activeItem]);
 
@@ -55,7 +85,7 @@ export const HistoryCarousel = (props: HistoryCarouselProps) => {
         </VStack>
     ));
 
-    return <div data-testid="HistoryCarousel">
+    return <div data-testid="HistoryCarousel" style={fadeStyles[animationStatus]}>
         <Carousel items={mockIntervals} width={swipeWidth} />
     </div>;
 };
