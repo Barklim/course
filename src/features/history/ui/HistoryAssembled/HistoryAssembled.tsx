@@ -1,6 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
 // import { useGetHistory, useHistory } from '../../api/historyGsapApi';
 import { HistorySwipeButton } from '../HistorySwipeButton/HistorySwipeButton';
+import { HistoryCarousel } from '../HistoryCarousel/HistoryCarousel';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Circle } from '@/shared/ui/revamped/Gsap';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -78,7 +79,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                         </VStack>
                     </VStack>
                     <VStack className={cls.border}>
-                        <Carousel items={[1981, 1982, 1983, 1984, 1985, 1986]} />
+                        <HistoryCarousel activeItem={activeItem + 1} />
                     </VStack>
                 </VStack>
             </BrowserView>

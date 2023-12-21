@@ -10,7 +10,6 @@
 
 .skeleton {
   width: 240px;
-  height: 130px !important;
 
   &__title {
     margin-bottom: 20px;
@@ -26,11 +25,7 @@
 }
 .swiperSlide {
   max-width: calc(100%);
-  height: 135px;
+  min-height: 158px;
 }
 
-.slideContent {
-  padding: 20px;
-  background-color: #74A2B2;
-  height: 135px;
-}
+.slideContent {}

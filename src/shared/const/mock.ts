@@ -1,3 +1,5 @@
+import { PointsType } from '@/shared/types/gsap';
+
 export const mockTitle2 = ['Title1','Title2',];
 export const mockTitle3 = ['Title1','Title2','Title3', ];
 export const mockTitle4 = ['Title1','Title2','Title3', 'Title4',];
@@ -213,47 +215,47 @@ export const mockIntervalsEl3 = {
     },
 };
 
-const year1980 = 'Sinclair Research \n выпускает домашний \n компьютер ZX80'
+const year1980 = 'Sinclair Research \nвыпускает домашний \nкомпьютер ZX80'
 const year1981 = ''
-const year1982 = 'Появился домашний \n компьютер ZX Spectrum \n выпущенный британской \n компанией Sinclair Research'
-const year1983 = 'В 1983 году за сетью \n ARPANET закрепился термин \n «Интернет»'
-const year1984 = 'Первая версия Mac OS\n была опубликована вместе \n с первым компьютером \n Macintosh'
-const year1985 = 'Корпорация Intel представила \n новый процессор 80386 '
+const year1982 = 'Появился домашний \nкомпьютер ZX Spectrum \nвыпущенный британской \nкомпанией Sinclair Research'
+const year1983 = 'В 1983 году за сетью \nARPANET закрепился термин \n«Интернет»'
+const year1984 = 'Первая версия Mac OS\nбыла опубликована вместе \nс первым компьютером \nMacintosh'
+const year1985 = 'Корпорация Intel представила \nновый процессор 80386 '
 
-const year1987 = '«Хищник»/Predator, США(реж.\n Джон Мактирнан)'
-const year1988 = '«Кто подставил Кролика \n Роджера»/Who Framed Roger \n Rabbit, США (реж. Роберт \n Земекис)'
-const year1989 = '«Назад в будущее 2»/Back To \n The Future 2, США (реж. Роберт \n Земекис)'
+const year1987 = '«Хищник»/Predator, США(реж.\nДжон Мактирнан)'
+const year1988 = '«Кто подставил Кролика \nРоджера»/Who Framed Roger \nRabbit, США (реж. Роберт \nЗемекис)'
+const year1989 = '«Назад в будущее 2»/Back To \nThe Future 2, США (реж. Роберт \nЗемекис)'
 const year1990 = '«Крепкий Орешек 2»/Die Hard 2, \n США(реж. Ренни Харлин)'
-const year1991 = '«Семейка Аддамс»/The Addams \n Family, США, (реж. Барри \n Зонненфельд)'
+const year1991 = '«Семейка Аддамс»/The Addams \nFamily, США, (реж. Барри \nЗонненфельд)'
 
-const year1992 = 'Нобелевская премия по \n литературе - Дерек Уолкотт, \n «За блестящий образец \n карибского эпоса в 64 разделах».'
+const year1992 = 'Нобелевская премия по \nлитературе - Дерек Уолкотт, \n«За блестящий образец \nкарибского эпоса в 64 разделах».'
 const year1993 = ''
-const year1994 = '«Бессоница» — роман Стивена \n Кинга.'
-const year1995 = 'Нобелевская премия по \\n литературе — Шеймас Хини'
+const year1994 = '«Бессоница» — роман Стивена \nКинга.'
+const year1995 = 'Нобелевская премия по \nлитературе — Шеймас Хини'
 const year1996 = ''
-const year1997 = '«Гарри Поттер и философский \n камень» — Джоан \n Роулинг.'
+const year1997 = '«Гарри Поттер и философский \nкамень» — Джоан \nРоулинг.'
 
-const year1999 = 'Премьера балета «Золушка» в \n постановке Жан-Кристофа Майо, \n сценография Эрнеста Пиньона'
-const year2000 = 'Возобнавлено издание журнала \n «Театр».'
+const year1999 = 'Премьера балета «Золушка» в \nпостановке Жан-Кристофа Майо, \nсценография Эрнеста Пиньона'
+const year2000 = 'Возобнавлено издание журнала \n«Театр».'
 const year2001 = ''
-const year2002 = 'Премьера трилогии Тома \n Стоппарда «Берег Утопии», \n Королевский Национальный театр, Лондон'
-const year2003 = 'В Венеции театр «Ла \n Фениче» сгорел \n в пожаре'
+const year2002 = 'Премьера трилогии Тома \nСтоппарда «Берег Утопии», \nКоролевский Национальный театр, Лондон'
+const year2003 = 'В Венеции театр «Ла \nФениче» сгорел \nв пожаре'
 const year2004 = ''
 
-const year2006 = 'Баскетбольный клуб \n ЦСКА стал победителем \n национального \n первенства России.'
+const year2006 = 'Баскетбольный клуб \nЦСКА стал победителем \nнационального \nпервенства России.'
 const year2007 = ''
-const year2008 = 'С 8 по 24 августа в \n Пекине прошли 29-е \n летние Олимпийские \n игры.'
+const year2008 = 'С 8 по 24 августа в \nПекине прошли 29-е \nлетние Олимпийские \nигры.'
 const year2009 = ''
-const year2010 = '13-28 февраля в \n Ванкувере: Зимние \n Олимпиские игры 2010 \n года.'
+const year2010 = '13-28 февраля в \nВанкувере: Зимние \nОлимпиские игры 2010 \nгода.'
 const year2011 = ''
-const year2012 = '2 августа — Летние \n Олимпийские игры.'
-const year2013 = 'XXII зимние Олимпийские \n игры (Сочи, Россия).'
+const year2012 = '2 августа — Летние \nОлимпийские игры.'
+const year2013 = 'XXII зимние Олимпийские \nигры (Сочи, Россия).'
 
-const year2015 = '13 сентября — частное солнечное \n затмение, видимое в Южной \n Африке и части Антарктиды'
-const year2016 = 'Телескоп «Хаббл» обнаружил самую \n удалённую из всех обнаруженных галактик, \n получившую обозначение GN-z11'
-const year2017 = 'Компания Tesla официально \n представила первый в мире \n электрический грузовик Tesla Semi'
-const year2018 = 'Старт космического аппарата \n Solar Probe Plus, \n предназначенного для изучения \n Солнца'
-const year2019 = 'Google объявил о создании 54- \n кубитного квантового \n компьютера.'
+const year2015 = '13 сентября — частное солнечное \nзатмение, видимое в Южной \nАфрике и части Антарктиды'
+const year2016 = 'Телескоп «Хаббл» обнаружил самую \nудалённую из всех обнаруженных галактик, \nполучившую обозначение GN-z11'
+const year2017 = 'Компания Tesla официально \nпредставила первый в мире \nэлектрический грузовик Tesla Semi'
+const year2018 = 'Старт космического аппарата \nSolar Probe Plus, \nпредназначенного для изучения \nСолнца'
+const year2019 = 'Google объявил о создании 54- \nкубитного квантового \nкомпьютера.'
 const year2020 = 'Корабль Crew Dragon вернулся на Землю из первого пилотируемого полета'
 const year2021 = ''
 const year2022 = ''
@@ -303,12 +305,11 @@ const sixth6 = { title: '2020', text: year2020}
 const sixth7 = { title: '2021', text: year2021}
 const sixth8 = { title: '2022', text: year2022}
 
-const intervalCarouselEl6 =
-    {
-        1: [first1, first3, first4, first5, first6],
-        2: [second1, second2, second3, second4, second5],
-        3: [third1, third3, third4, third6],
-        4: [fourth1, fourth2, fourth4, fourth5],
-        5: [fifth1, fifth3, fifth5, fifth7, fifth8],
-        6: [sixth1, sixth2, sixth3, sixth4, sixth5, sixth6],
-    }
+export const intervalCarouselEl6 = {
+    [PointsType.One]: [first1, first3, first4, first5, first6],
+    [PointsType.Two]: [second1, second2, second3, second4, second5],
+    [PointsType.Three]: [third1, third3, third4, third6],
+    [PointsType.Four]: [fourth1, fourth2, fourth4, fourth5],
+    [PointsType.Five]: [fifth1, fifth3, fifth5, fifth7, fifth8],
+    [PointsType.Six]: [sixth1, sixth2, sixth3, sixth4, sixth5, sixth6],
+};

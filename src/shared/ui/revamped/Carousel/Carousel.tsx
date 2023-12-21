@@ -5,10 +5,10 @@ import { Navigation, Pagination, Scrollbar } from 'swiper';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { LOCAL_STORAGE_SIDEBAR_STATE } from '@/shared/const/localstorage';
+import { useLocalStorage } from '@/app/lib/useLocalStorage';
 
 export type Direction = 'forward' | 'backward';
 
@@ -31,6 +31,10 @@ interface CarouselProps extends HTMLAttributes<HTMLElement> {
      */
     fullWidth?: boolean;
     /**
+     * Ширина карусели
+     */
+    width?: number;
+    /**
      * Флаг, автозапуска анимации пролистывания
      */
     isAnimate?: boolean;
@@ -42,9 +46,6 @@ interface CarouselProps extends HTMLAttributes<HTMLElement> {
      * Слайды
      */
     items?: any;
-    /**
-     * TODO: skeleton, itemSlide layout
-     */
 }
 
 export const Carousel = memo((props: CarouselProps) => {
@@ -55,10 +56,12 @@ export const Carousel = memo((props: CarouselProps) => {
         loop = false,
         direction = 'forward',
         fullWidth = true,
+        width,
         items,
         ...otherProps
     } = props;
 
+    const { sidebarState } = useLocalStorage();
 
     const [loading1, setLoading] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_STATE) === "false");
 
@@ -71,11 +74,6 @@ export const Carousel = memo((props: CarouselProps) => {
             clearTimeout(timeoutId);
         };
     }, []);
-    
-    // TODO: provide swipe width by props
-    const windowWidth = window.innerWidth;
-    const contentWidth = windowWidth > 1440 ? windowWidth - 280 : windowWidth - 200;
-    const swipeWidth = windowWidth > 1560 ? 1280 : contentWidth
 
     const mods: Mods = {
         [cls.fullWidth]: fullWidth,
@@ -86,10 +84,10 @@ export const Carousel = memo((props: CarouselProps) => {
             <SwiperSlide key={item} className={cls.swiperSlide} property={'skeleton'} virtualIndex={item}>
                 <div className={cls.skeleton}>
                     <VStack gap={'8'}>
-                        <Skeleton className={cls.skeleton__title} width="35%" height={40} />
-                        <Skeleton width="100%" height={30} />
-                        <Skeleton width="85%" height={30} />
-                        <Skeleton width="65%" height={30} />
+                        <Skeleton className={cls.skeleton__title} width="35%" height={32} />
+                        <Skeleton width="100%" height={24} />
+                        <Skeleton width="85%" height={24} />
+                        <Skeleton width="65%" height={24} />
                     </VStack>
                 </div>
             </SwiperSlide>
@@ -123,8 +121,8 @@ export const Carousel = memo((props: CarouselProps) => {
                         // }}
                         navigation
                         pagination={{ clickable: true }}
-                        width={swipeWidth}
-                        style={{ maxWidth: swipeWidth}}
+                        width={width}
+                        style={{ maxWidth: width}}
                         setWrapperSize={true}
 
                         initialSlide={0}
