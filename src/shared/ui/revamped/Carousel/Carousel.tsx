@@ -63,18 +63,6 @@ export const Carousel = memo((props: CarouselProps) => {
 
     const { sidebarState } = useLocalStorage();
 
-    const [loading1, setLoading] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_STATE) === "false");
-
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setLoading(false);
-        }, 700);
-
-        return () => {
-            clearTimeout(timeoutId);
-        };
-    }, []);
-
     const mods: Mods = {
         [cls.fullWidth]: fullWidth,
     };
@@ -95,7 +83,7 @@ export const Carousel = memo((props: CarouselProps) => {
     };
 
     const renderSlides = (items: any[] | undefined) => {
-        if (loading1) {
+        if (loading) {
             return renderSkeleton();
         } else {
             return items?.map((item, index) => (

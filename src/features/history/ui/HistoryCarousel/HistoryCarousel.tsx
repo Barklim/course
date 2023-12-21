@@ -10,10 +10,11 @@ import useDebouncedEffect from '@/app/lib/useDebounceEffect';
 export interface HistoryCarouselProps {
     activeItem: PointsType;
     duration: number;
+    loading: boolean;
 }
 
 export const HistoryCarousel = (props: HistoryCarouselProps) => {
-    const { activeItem, duration } = props;
+    const { activeItem, duration, loading } = props;
     const { sidebarState } = useLocalStorage();
     let windowWidth = window.innerWidth;
 
@@ -86,7 +87,7 @@ export const HistoryCarousel = (props: HistoryCarouselProps) => {
     ));
 
     return <div data-testid="HistoryCarousel" style={fadeStyles[animationStatus]}>
-        <Carousel items={mockIntervals} width={swipeWidth} />
+        <Carousel items={mockIntervals} width={swipeWidth} loading={loading} />
     </div>;
 };
 

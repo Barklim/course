@@ -26,6 +26,7 @@ import {
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { TInterval } from '../../model/types/interval';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 export interface CircleProps {
     // TODO: remove uniq id
@@ -49,7 +50,8 @@ export interface CircleProps {
 
 export const Circle: React.FC<CircleProps> = ({
     id, items,
-    titles, loading,
+    titles,
+    loading,
     intervals,
     pointCount = pointCountDefault,
     radius= radiusDefault,
@@ -235,7 +237,7 @@ export const Circle: React.FC<CircleProps> = ({
     }, [isAnimationPlaying, points]);
 
     useEffect(() => {
-        const DURATION_INIT = 0.2;
+        const DURATION_INIT = 0.0;
 
         let startPosition = getAngleDiff(pointCount)
         let endPosition = getAngleDiff(pointCount)
@@ -354,7 +356,12 @@ export const Circle: React.FC<CircleProps> = ({
                         </div>
                         {
                             titles ? <div style={titleStyles} className={classNames(cls.title, {}, [isActive ? cls.title_visible : undefined])}>
-                                {titles[count - 1]}
+                                {
+                                    loading ?
+                                        <Skeleton width="100px" height={24} />
+                                    :
+                                        titles[count - 1]
+                                }
                             </div> : null
                         }
                     </div>
@@ -369,8 +376,22 @@ export const Circle: React.FC<CircleProps> = ({
 
         return (
             <HStack gap={'8'} className={cls.intervals} style={{top: radius, position: 'relative', fontSize: `${radius - 65}px`}}>
-                <span className={cls.intervals__left}>{startInterval.value}</span>
-                <span className={cls.intervals__right}>{endInterval.value}</span>
+                <span className={cls.intervals__left}>
+                    {
+                        loading ?
+                            <Skeleton width={`${radius*1.5}px`} height={`${radius*0.6}px`} />
+                            :
+                            startInterval.value
+                    }
+                </span>
+                <span className={cls.intervals__right}>
+                    {
+                        loading ?
+                            <Skeleton width={`${radius*1.5}px`} height={`${radius*0.6}px`} />
+                            :
+                            endInterval.value
+                    }
+                </span>
             </HStack>
         )
     }

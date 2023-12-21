@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 // import { useGetHistory, useHistory } from '../../api/historyGsapApi';
 import { HistorySwipeButton } from '../HistorySwipeButton/HistorySwipeButton';
 import { HistoryCarousel } from '../HistoryCarousel/HistoryCarousel';
@@ -11,6 +11,7 @@ import { Text } from '@/shared/ui/revamped/Text';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
+import { LOCAL_STORAGE_SIDEBAR_STATE } from '@/shared/const/localstorage';
 
 export interface HistoryAssembledProps {
     className?: string;
@@ -38,6 +39,18 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
     // TODO: useWidth hook.
     const browserWidth = document.body.clientWidth;
     const radius = browserWidth > 1440 ? 265 : Math.round(browserWidth/6)
+
+    const [loading1, setLoading] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_STATE) === "false");
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setLoading(false);
+        }, 700);
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, []);
 
     const circleComponent = (activeItem: number, setActiveItem: any) => (
         <React.Fragment>
@@ -70,6 +83,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                                 setActiveItem={setActiveItem}
                                 buttonPlay={buttonRefs[0]}
                                 buttonPlayReverse={buttonRefs[1]}
+                                loading={loading1}
                             />
                         </HStack>
                         <VStack gap='32' className={cls.buttonsWrapper} max>
@@ -81,7 +95,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                         </VStack>
                     </VStack>
                     <VStack className={cls.border}>
-                        <HistoryCarousel activeItem={activeItem + 1} duration={DURATION} />
+                        <HistoryCarousel activeItem={activeItem + 1} duration={DURATION} loading={loading1} />
                     </VStack>
                 </VStack>
             </BrowserView>
