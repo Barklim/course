@@ -33,6 +33,8 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
     const isFirstItem = activeItem === 0;
     const isLastItem = activeItem + 1 === mockTitles.length;
 
+    const DURATION = 0.6;
+
     // TODO: useWidth hook.
     const browserWidth = document.body.clientWidth;
     const radius = browserWidth > 1440 ? 265 : Math.round(browserWidth/6)
@@ -62,7 +64,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                                 pointCount={mockTitles.length}
                                 radius={radius}
                                 extraRotation={60}
-                                duration={0.6}
+                                duration={DURATION}
                                 fullMode
                                 activeItem={activeItem}
                                 setActiveItem={setActiveItem}
@@ -79,7 +81,7 @@ const HistoryAssembled = memo((props: HistoryAssembledProps) => {
                         </VStack>
                     </VStack>
                     <VStack className={cls.border}>
-                        <HistoryCarousel activeItem={activeItem + 1} />
+                        <HistoryCarousel activeItem={activeItem + 1} duration={DURATION} />
                     </VStack>
                 </VStack>
             </BrowserView>

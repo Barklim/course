@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/revamped/Text';
 import { Carousel } from '@/shared/ui/revamped/Carousel';
 import { intervalCarouselEl6 } from '@/shared/const/mock';
 import { useLocalStorage } from '@/app/lib/useLocalStorage';
 import { PointsType } from '@/shared/types/gsap';
+import useDebouncedEffect from '@/app/lib/useDebounceEffect';
 
 export interface HistoryCarouselProps {
     activeItem: PointsType;
+    duration: number;
 }
 
 export const HistoryCarousel = (props: HistoryCarouselProps) => {
-    const { activeItem } = props;
+    const { activeItem, duration } = props;
     const { sidebarState } = useLocalStorage();
     let windowWidth = window.innerWidth;
+
+    const [debouncedItem, setDebouncedItem] = useState(activeItem);
+
+    useDebouncedEffect(() => {
+        setDebouncedItem(activeItem)
+        return () => {};
+    }, duration * 1000 ,[activeItem]);
 
     let swipeWidth = window.innerWidth;
     if (sidebarState === 'true') {
@@ -28,10 +37,10 @@ export const HistoryCarousel = (props: HistoryCarouselProps) => {
         ? windowWidth > 1740
         : windowWidth > 1560;
 
-    const mockIntervals = intervalCarouselEl6[activeItem].map((item) => (
-        <VStack gap={'8'} key={activeItem}>
+    const mockIntervals = intervalCarouselEl6[debouncedItem].map((item) => (
+        <VStack gap={'8'} key={debouncedItem}>
             <Text selectNone fontWeight={'400'} fontSize={20} lineHeight={'30px'} color="#3877EE" title={item.title} />
-            <VStack gap={'0'} key={activeItem}>
+            <VStack gap={'0'} key={debouncedItem}>
                 {
                     shouldParseLine ?
                         item.text.split('\n').map((line, index) => (
