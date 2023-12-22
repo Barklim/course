@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, memo, ReactNode, useState } from 'react';
+import React, { HTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Carousel.module.scss';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
@@ -21,6 +21,10 @@ interface CarouselProps extends HTMLAttributes<HTMLElement> {
      * Флаг, зацикленности
      */
     loop?: boolean;
+    /**
+     * Скорость анимации шага
+     */
+    duration?: number;
     /**
      * Содержимое карусели
      */
@@ -57,6 +61,7 @@ export const Carousel = memo((props: CarouselProps) => {
         children,
         loading = false,
         loop = false,
+        duration = 800,
         direction = 'forward',
         offset = 0,
         fullWidth = true,
@@ -69,8 +74,17 @@ export const Carousel = memo((props: CarouselProps) => {
         [cls.fullWidth]: fullWidth,
     };
 
+    const swiperRef = useRef<SwiperCore | null>(null);
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
+
+    useEffect(() => {
+        if (swiperRef.current) {
+            setTimeout(
+                () => {swiperRef.current?.slideTo(0, 0)}, duration * 1000
+            )
+        }
+    }, [items]);
 
     const additionalClassesPrev = [cls.swiperSlide_reset, 'custom-prev'];
     const additionalClassesNext = [cls.swiperSlide_reset, 'custom-next'];
@@ -127,7 +141,7 @@ export const Carousel = memo((props: CarouselProps) => {
                     style={{ maxWidth: width}}
                     setWrapperSize={true}
                     initialSlide={0}
-                    onSwiper={handleSwiper}
+                    onSwiper={(swiper) => { swiperRef.current = swiper; handleSwiper(swiper); }}
                 >
                     {renderSlides(items)}
                 </Swiper> : null

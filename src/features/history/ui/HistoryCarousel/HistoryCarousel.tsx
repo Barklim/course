@@ -92,7 +92,7 @@ export const HistoryCarousel = (props: HistoryCarouselProps) => {
     ));
 
     return <div data-testid="HistoryCarousel" style={fadeStyles[animationStatus]}>
-        <Carousel items={mockIntervals} width={swipeWidth} loading={loading} offset={offset} />
+        <Carousel items={mockIntervals} width={swipeWidth} loading={loading} offset={offset} duration={duration} />
     </div>;
 };
 
