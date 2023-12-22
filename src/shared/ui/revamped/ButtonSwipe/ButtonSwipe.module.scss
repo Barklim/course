@@ -1,0 +1,53 @@
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #fff;
+  transition: background 0.5s ease;
+  box-shadow: 0px 0px 15px 0px rgba(56, 119, 238, 0.1);
+
+  &:hover {
+    box-shadow: 0px 0px 15px 0px rgba(56, 119, 238, 0.2);
+  }
+
+  &_disabled {
+    opacity: 0.4 !important;
+    &:hover {
+      border: 1px solid var(--history-theme-dark05);
+    }
+  }
+
+  &_hidden {
+    display: none;
+  }
+}
+
+.icon {
+  opacity: 1;
+  color: rgb(56, 119, 238) !important;
+
+  &_left {
+    transform: rotate(90deg);
+    position: relative;
+    right: 1px;
+  }
+
+  &_right {
+    transform: rotate(-90deg);
+    position: relative;
+    left: 1px;
+  }
+
+  &:hover {
+    color: rgb(22, 70, 250) !important;
+  }
+
+  &_disabled {
+    &:hover {
+      color: var(--history-theme-dark05) !important;
+    }
+  }
+}

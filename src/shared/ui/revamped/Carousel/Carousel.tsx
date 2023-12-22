@@ -1,14 +1,13 @@
-import React, { HTMLAttributes, memo, ReactNode, useState, useEffect } from 'react';
+import React, { HTMLAttributes, memo, ReactNode, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Carousel.module.scss';
-import { Navigation, Pagination, Scrollbar } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { LOCAL_STORAGE_SIDEBAR_STATE } from '@/shared/const/localstorage';
-import { useLocalStorage } from '@/app/lib/useLocalStorage';
+import { ButtonSwipe } from '@/shared/ui/revamped/ButtonSwipe';
 
 export type Direction = 'forward' | 'backward';
 
@@ -43,6 +42,10 @@ interface CarouselProps extends HTMLAttributes<HTMLElement> {
      */
     direction?: Direction;
     /**
+     * Отступы кнопок дальше и назад
+     */
+    offset?: number;
+    /**
      * Слайды
      */
     items?: any;
@@ -55,16 +58,28 @@ export const Carousel = memo((props: CarouselProps) => {
         loading = false,
         loop = false,
         direction = 'forward',
+        offset = 0,
         fullWidth = true,
         width,
         items,
         ...otherProps
     } = props;
 
-    const { sidebarState } = useLocalStorage();
-
     const mods: Mods = {
         [cls.fullWidth]: fullWidth,
+    };
+
+    const [isBeginning, setIsBeginning] = useState(true);
+    const [isEnd, setIsEnd] = useState(false);
+
+    const additionalClassesPrev = [cls.swiperSlide_reset, 'custom-prev'];
+    const additionalClassesNext = [cls.swiperSlide_reset, 'custom-next'];
+
+    const handleSwiper = (swiper: SwiperCore) => {
+        swiper.on('slideChange', () => {
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+        });
     };
 
     const renderSkeleton = () => {
@@ -88,37 +103,38 @@ export const Carousel = memo((props: CarouselProps) => {
         } else {
             return items?.map((item, index) => (
                 <SwiperSlide key={item.swipeImg} className={cls.swiperSlide} virtualIndex={item}>
-                    <div className={cls.slideContent}>{item}</div>
+                    {item}
                 </SwiperSlide>
             ));
         }
     };
 
-        return (
-            <div className={classNames(cls.Carousel, mods, [className, cls[direction]])}>
-                {items ?
-                    <Swiper
-                        modules={[ Navigation, Scrollbar, Pagination]}
-                        grabCursor={true}
-                        spaceBetween={80}
-                        slidesPerView={3}
-                        className={cls.container}
-                        // navigation={{
-                        //     nextEl: '.swiper-button-next',
-                        //     prevEl: '.swiper-button-prev',
-                        // }}
-                        navigation
-                        pagination={{ clickable: true }}
-                        width={width}
-                        style={{ maxWidth: width}}
-                        setWrapperSize={true}
-
-                        initialSlide={0}
-                    >
-                        {renderSlides(items)}
-                    </Swiper> : null
-                }
-            </div>
-        );
-    }
-);
+    return (
+        <div className={classNames(cls.Carousel, mods, [className, cls[direction]])}>
+            <SwiperSlide className={classNames(cls.NextButton, {}, additionalClassesPrev)}>
+                <ButtonSwipe offset={offset} hidden={isBeginning} left />
+            </SwiperSlide>
+            {items ?
+                <Swiper
+                    modules={[ Navigation, Scrollbar, Pagination]}
+                    grabCursor={true}
+                    spaceBetween={80}
+                    slidesPerView={3}
+                    className={cls.container}
+                    navigation={{ nextEl: '.custom-next', prevEl: '.custom-prev' }}
+                    pagination={{ clickable: true }}
+                    width={width}
+                    style={{ maxWidth: width}}
+                    setWrapperSize={true}
+                    initialSlide={0}
+                    onSwiper={handleSwiper}
+                >
+                    {renderSlides(items)}
+                </Swiper> : null
+            }
+            <SwiperSlide className={classNames(cls.PrevButton, {}, additionalClassesNext)}>
+                <ButtonSwipe offset={offset} hidden={isEnd} right />
+            </SwiperSlide>
+        </div>
+    );
+});

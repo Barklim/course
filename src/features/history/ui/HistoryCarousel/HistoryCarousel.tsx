@@ -56,12 +56,17 @@ export const HistoryCarousel = (props: HistoryCarouselProps) => {
     }, duration * 1000 ,[activeItem]);
 
     let swipeWidth = window.innerWidth;
+    let offset = 5;
     if (sidebarState === 'true') {
         const contentWidth = windowWidth > 1440 ? windowWidth - 460 : windowWidth - 380;
         swipeWidth = windowWidth > 1740 ? 1280 : contentWidth
+        const offsetByPadding = windowWidth > 1440 ? 10 : -20;
+        offset = windowWidth > 1740 ? 20 : offsetByPadding
     } else {
         const contentWidth = windowWidth > 1440 ? windowWidth - 280 : windowWidth - 200;
         swipeWidth = windowWidth > 1560 ? 1280 : contentWidth
+        const offsetByPadding = windowWidth > 1440 ? 10 : -20;
+        offset = windowWidth > 1560 ? 20 : offsetByPadding
     }
 
     const shouldParseLine = sidebarState === 'true'
@@ -87,7 +92,7 @@ export const HistoryCarousel = (props: HistoryCarouselProps) => {
     ));
 
     return <div data-testid="HistoryCarousel" style={fadeStyles[animationStatus]}>
-        <Carousel items={mockIntervals} width={swipeWidth} loading={loading} />
+        <Carousel items={mockIntervals} width={swipeWidth} loading={loading} offset={offset} />
     </div>;
 };
 

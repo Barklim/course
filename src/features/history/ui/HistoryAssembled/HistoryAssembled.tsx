@@ -10,7 +10,6 @@ import { mockIntervalsEl6, mockTitleAssembled } from '@/shared/const/mock';
 import { Text } from '@/shared/ui/revamped/Text';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
-import { Carousel } from '@/shared/ui/revamped/Carousel';
 import { LOCAL_STORAGE_SIDEBAR_STATE } from '@/shared/const/localstorage';
 
 export interface HistoryAssembledProps {

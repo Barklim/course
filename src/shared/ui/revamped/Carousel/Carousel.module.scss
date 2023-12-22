@@ -23,9 +23,25 @@
 .container {
   overflow: hidden;
 }
+
 .swiperSlide {
   max-width: calc(100%);
   min-height: 158px;
+
+  &_reset {
+    width: 0 !important;
+  }
 }
 
-.slideContent {}
+.NextButton, .PrevButton {
+  height: 100% ;
+  cursor: pointer;
+  padding-top: 42px;
+
+  z-index: 100;
+}
+
+.NextButton {
+  left: -40px;
+}
+.PrevButton {}
