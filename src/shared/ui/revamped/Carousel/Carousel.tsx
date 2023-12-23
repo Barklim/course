@@ -80,6 +80,7 @@ export const Carousel = memo((props: CarouselProps) => {
 
     useEffect(() => {
         if (swiperRef.current) {
+            // TODO: prevent for first render, renderCounter?
             setTimeout(
                 () => {swiperRef.current?.slideTo(0, 0)}, duration * 1000
             )

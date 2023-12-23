@@ -724,6 +724,30 @@
   ],
   "articles": [
     {
+      "id": "23",
+      "title": "Gsap component",
+      "subtitle": "Animated menu circle component 🚀🚀🚀. Gsap + react. DEMO",
+      "img": "https://github.com/Barklim/course/blob/main/articles/23.jpg?raw=true",
+      "chLink": "https://coursearn.netlify.app/history",
+      "views": 1021,
+      "createdAt1": "23.12.2023",
+      "createdAt": "01.11.2023",
+      "userId": "1",
+      "type": [
+        "OTHER"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Description",
+          "paragraphs": [
+            "This article explores the development of a circular animated React component using GSAP, featuring a detailed demonstration of the implementation."
+          ]
+        }
+      ]
+    },
+    {
       "id": "1",
       "title": "Javascript news 2023",
       "subtitle": "Что нового в JS за 2023 год?",
