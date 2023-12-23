@@ -38,6 +38,10 @@
     - fonts, layouts
 * db
     - profile
+* history component
+    - css colorful black hole animation, tv banner 404
+    - when animate disable hover (do state whe mouseenter do class, when animate exclude css class)
+    - rebuild rotate logic
 
 - z-index variables
 - react-helmet
